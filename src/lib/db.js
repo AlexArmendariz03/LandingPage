@@ -1,15 +1,28 @@
-import { PrismaClient } from "@prisma/client"
+import { PrismaClient } from "@prisma/client";
 
-let prisma
+let prisma = null;
 
-if (process.env.NODE_ENV === "production") {
- prisma = new PrismaClient()
+if (process.env.DATABASE_URL) {
+  prisma = global.prisma || new PrismaClient();
+
+  if (process.env.NODE_ENV !== "production") {
+    global.prisma = prisma;
+  }
 } else {
- if (!global.prisma) {
-  global.prisma = new PrismaClient()
- }
-
- prisma = global.prisma
+  console.warn("DATABASE_URL no configurada; Prisma no fue inicializado.");
 }
 
-export default prisma
+export async function ensureDbConnection() {
+  if (!prisma) {
+    return { ok: false, message: "DATABASE_URL no configurada" };
+  }
+
+  try {
+    await prisma.$connect();
+    return { ok: true };
+  } catch (error) {
+    return { ok: false, error };
+  }
+}
+
+export default prisma;

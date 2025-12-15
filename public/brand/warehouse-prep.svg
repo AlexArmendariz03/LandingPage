@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Aislamiento y preparación de nave industrial</title>
+  <desc id="desc">Composición gráfica con estructura metálica y detalles en azul y naranja.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b3f99" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e2f4f" stroke-width="2" opacity="0.35" />
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="url(#grid)" />
+  <g stroke="#cfe4ff" stroke-width="10" opacity="0.9">
+    <line x1="120" y1="220" x2="1480" y2="220" />
+    <line x1="120" y1="420" x2="1480" y2="420" />
+    <line x1="120" y1="620" x2="1480" y2="620" />
+  </g>
+  <g stroke="#f3992e" stroke-width="16" opacity="0.85">
+    <line x1="220" y1="140" x2="220" y2="740" />
+    <line x1="540" y1="140" x2="540" y2="740" />
+    <line x1="860" y1="140" x2="860" y2="740" />
+    <line x1="1180" y1="140" x2="1180" y2="740" />
+  </g>
+  <g>
+    <rect x="170" y="520" width="1260" height="260" fill="#0f172a" opacity="0.65" />
+    <rect x="220" y="560" width="1160" height="120" rx="18" fill="#0c5ce6" opacity="0.35" />
+    <rect x="260" y="590" width="1080" height="18" rx="8" fill="#f6c05c" opacity="0.85" />
+  </g>
+  <g transform="translate(360 280)">
+    <rect x="0" y="0" width="420" height="180" rx="18" fill="#ffffff" opacity="0.08" stroke="#cfe4ff" stroke-width="2" />
+    <text x="210" y="90" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', Arial" font-size="30" font-weight="700" fill="#ffffff">Impermeabilización integral</text>
+    <text x="210" y="130" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', Arial" font-size="20" font-weight="600" fill="#f3992e">Lámina continua sin filtraciones</text>
+  </g>
+  <g transform="translate(920 260)">
+    <rect x="0" y="0" width="380" height="220" rx="18" fill="#0c5ce6" opacity="0.16" />
+    <text x="190" y="110" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', Arial" font-size="30" font-weight="700" fill="#ffffff">Cámaras frías y techos</text>
+    <text x="190" y="150" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', Arial" font-size="20" font-weight="600" fill="#e7f3ff">Espuma de alta densidad</text>
+  </g>
+</svg>
