@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" role="img" aria-labelledby="title desc">
+  <title id="title">Hernández Impermeabilizaciones &amp; Poliuretano</title>
+  <desc id="desc">Logotipo con dos techos azules, sol naranja y gotas de agua.</desc>
+  <defs>
+    <linearGradient id="roofGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c5ce6" />
+      <stop offset="100%" stop-color="#0a4bc2" />
+    </linearGradient>
+  </defs>
+  <rect width="520" height="320" fill="#ffffff" rx="18" />
+  <path d="M70 182 L190 92 L280 162 L360 110 L450 170" fill="none" stroke="url(#roofGradient)" stroke-width="26" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M190 92 L190 150" stroke="#0c5ce6" stroke-width="22" stroke-linecap="round" />
+  <path d="M360 110 L360 168" stroke="#0c5ce6" stroke-width="22" stroke-linecap="round" />
+  <circle cx="120" cy="86" r="26" fill="#f3992e" opacity="0.9" />
+  <path d="M100 62 l-10 -12" stroke="#f3992e" stroke-width="6" stroke-linecap="round" />
+  <path d="M140 54 l6 -16" stroke="#f3992e" stroke-width="6" stroke-linecap="round" />
+  <path d="M154 74 l16 -6" stroke="#f3992e" stroke-width="6" stroke-linecap="round" />
+  <path d="M146 108 l16 6" stroke="#f3992e" stroke-width="6" stroke-linecap="round" />
+  <path d="M94 110 l-6 16" stroke="#f3992e" stroke-width="6" stroke-linecap="round" />
+  <g fill="#0c5ce6" opacity="0.75" transform="translate(330 70)">
+    <path d="M0 0 c20 10 14 34 -4 46 c-8 5 -16 2 -18 -4 c-3 -11 12 -36 22 -42z" />
+    <path d="M26 12 c20 10 14 34 -4 46 c-8 5 -16 2 -18 -4 c-3 -11 12 -36 22 -42z" />
+    <path d="M52 22 c20 10 14 34 -4 46 c-8 5 -16 2 -18 -4 c-3 -11 12 -36 22 -42z" />
+  </g>
+  <text x="260" y="220" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', Arial" font-size="44" font-weight="700" fill="#16192c">HERNÁNDEZ</text>
+  <text x="260" y="252" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', Arial" font-size="22" font-weight="600" fill="#0c5ce6">IMPERMEABILIZACIONES</text>
+  <text x="260" y="282" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', Arial" font-size="20" font-weight="600" fill="#16192c">&amp; POLIURETANO</text>
+  <rect x="110" y="292" width="300" height="10" rx="4" fill="#0c5ce6" />
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Aplicación de poliuretano en techumbre</title>
+  <desc id="desc">Lámina ilustrativa con colores azul y naranja representando trabajo en techos.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c5ce6" />
+      <stop offset="70%" stop-color="#0a3c7a" />
+    </linearGradient>
+    <linearGradient id="beam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f3992e" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#f6c05c" stop-opacity="0.85" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect x="0" y="620" width="1600" height="280" fill="#0f172a" opacity="0.65" />
+  <rect x="-40" y="660" width="1680" height="22" fill="#f3992e" opacity="0.9" />
+  <g transform="translate(120 180)">
+    <polygon points="0,320 440,90 840,340 1280,100 1600,360 1600,480 0,480" fill="#142038" opacity="0.65" />
+    <polygon points="0,320 440,90 840,340 1280,100 1600,360 1600,420 0,420" fill="#1d2c4a" opacity="0.55" />
+    <polyline points="80,330 460,140 860,360 1260,150 1580,340" stroke="#cfe4ff" stroke-width="12" fill="none" opacity="0.9" />
+  </g>
+  <g transform="translate(260 340)">
+    <rect x="0" y="0" width="360" height="210" rx="18" fill="#0f172a" opacity="0.72" />
+    <rect x="16" y="16" width="328" height="178" rx="14" fill="#0c5ce6" opacity="0.45" />
+    <rect x="20" y="40" width="220" height="18" rx="8" fill="url(#beam)" />
+    <rect x="20" y="80" width="290" height="18" rx="8" fill="url(#beam)" opacity="0.9" />
+    <rect x="20" y="120" width="260" height="18" rx="8" fill="#f9b24b" opacity="0.85" />
+    <text x="180" y="190" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', Arial" font-size="28" font-weight="700" fill="#ffffff">Sellado de cubiertas</text>
+  </g>
+  <g transform="translate(1020 360)">
+    <rect x="0" y="0" width="460" height="260" rx="20" fill="#ffffff" opacity="0.08" stroke="#cfe4ff" stroke-width="2" />
+    <text x="230" y="120" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', Arial" font-size="30" font-weight="700" fill="#f3992e">Aplicación profesional</text>
+    <text x="230" y="170" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', Arial" font-size="22" font-weight="600" fill="#e7f3ff">Espuma proyectada uniforme y continua</text>
+  </g>
+</svg>
