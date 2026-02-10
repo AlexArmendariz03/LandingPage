@@ -10,11 +10,10 @@ function Navbar() {
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/brand/logo-hernandez.svg"
+            src="/brand/techo2.png"
             alt="Hernández Impermeabilizaciones"
-            width={44}
-            height={44}
-            className="rounded"
+            width={80}
+            height={80}
           />
           <div className="leading-tight">
             <p className="text-white font-bold">Hernández</p>
