@@ -7,7 +7,7 @@ import {
   FaThermometerHalf,
   FaTools,
 } from "react-icons/fa";
-import Image from "next/image";
+import { HeroCarousel } from "@/app/components/heroCarrusel";
 
 const highlights = [
   {
@@ -101,13 +101,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <Image
-            src="/brand/roof-application.svg"
-            alt="Aplicación de poliuretano"
-            width={600}
-            height={420}
-            priority
-          />
+          <HeroCarousel/>
         </div>
       </section>
 
