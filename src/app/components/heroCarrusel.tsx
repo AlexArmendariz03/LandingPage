@@ -1,11 +1,22 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
+type Slide = {
+  src: string;
+  alt: string;
+};
+
+const logoMs = 7000;
+const photoMs = 4500;
+
+export function getSlideDelay(index: number): number {
+  return index === 0 ? logoMs : photoMs;
+}
 
 export function HeroCarousel() {
-  const slides = useMemo(
+  const slides = useMemo<Slide[]>(
     () => [
       { src: "/brand/Hernandez.png", alt: "Logo Hernández Impermeabilizaciones & Poliuretano" },
       { src: "/brand/aplicador.png", alt: "Impermeabilización profesional de techos" },
@@ -16,57 +27,42 @@ export function HeroCarousel() {
   );
 
   const total = slides.length;
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [index, setIndex] = useState<number>(0);
+  const [paused, setPaused] = useState<boolean>(false);
 
-  const goTo = (i) => setIndex((i + total) % total);
+  const goTo = (slideIndex: number) => setIndex((slideIndex + total) % total);
   const next = () => goTo(index + 1);
   const prev = () => goTo(index - 1);
 
-  // Duraciones: logo más tiempo, fotos normal
-  const logoMs = 7000;  // logo: 7s
-  const photoMs = 4500; // fotos: 4.5s
-
   useEffect(() => {
-    if (total <= 1) return;
-    if (paused) return;
-
-    const isLogoSlide = index === 0;
-    const delay = isLogoSlide ? logoMs : photoMs;
+    if (total <= 1 || paused) return;
 
     const id = window.setTimeout(() => {
-      setIndex((x) => (x + 1) % total);
-    }, delay);
+      setIndex((currentIndex) => (currentIndex + 1) % total);
+    }, getSlideDelay(index));
 
     return () => window.clearTimeout(id);
   }, [index, paused, total]);
 
   return (
-    <div
-      className="relative w-full"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
+    <div className="relative w-full" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/30 shadow-2xl">
         <div className="relative aspect-[4/3] w-full">
-          {slides.map((s, i) => (
+          {slides.map((slide, i) => (
             <div
-              key={s.src}
+              key={slide.src}
               className={[
                 "absolute inset-0 transition-opacity duration-700",
                 i === index ? "opacity-100" : "opacity-0",
               ].join(" ")}
             >
               <Image
-                src={s.src}
-                alt={s.alt}
+                src={slide.src}
+                alt={slide.alt}
                 fill
                 priority={i === 0}
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className={[
-                  "object-cover",
-                  i === 0 ? "object-contain p-10 md:p-12" : "object-cover",
-                ].join(" ")}
+                className={["object-cover", i === 0 ? "object-contain p-10 md:p-12" : "object-cover"].join(" ")}
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent" />
@@ -74,7 +70,6 @@ export function HeroCarousel() {
           ))}
         </div>
 
-        {/* Controles */}
         <button
           type="button"
           onClick={prev}
@@ -92,7 +87,6 @@ export function HeroCarousel() {
           ›
         </button>
 
-        {/* Dots */}
         <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
           {slides.map((_, i) => (
             <button
