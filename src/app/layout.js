@@ -8,6 +8,9 @@ export const metadata = {
   title: "Hernández Impermeabilizaciones y Poliuretano",
   description:
     "Servicio especializado en impermeabilización y aislamiento con espuma de poliuretano para techos, naves y cámaras frías.",
+  icons: {
+    icon: "/brand/techoBlanco.png",
+  },
 };
 
 export default function RootLayout({ children }) {
