@@ -66,9 +66,8 @@ export default function LandingPage() {
             <span className="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#cfe4ff]">
               Hernández Impermeabilizaciones & Poliuretano
             </span>
-            <h1 className="text-4xl md:text-5xl font-extrabold">
-              Sellamos y aislamos tus techos con poliuretano de alta densidad
-            </h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold">
+              Impermeabilizamos, aislamos y sellamos con poliuretano espreado de alta densidad.            </h1>
             <p className="text-lg text-blue-50/80">
               Eliminamos filtraciones, reducimos consumo energético y prolongamos la vida útil de tus instalaciones.
             </p>
