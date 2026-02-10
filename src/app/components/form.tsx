@@ -1,22 +1,39 @@
-const  Form = ({ onClose, register, onSubmit, errors, isVisible }) => {
+import type { FormEvent } from "react";
+import type { FieldErrors, UseFormRegister } from "react-hook-form";
 
+export type WorkerFormData = {
+  name: string;
+  paternalSurname: string;
+  maternalSurname: string;
+  email: string;
+  phone: string;
+  area: string;
+  charge: string;
+  salary: string;
+};
+
+type FormProps = {
+  onClose: () => void;
+  register: UseFormRegister<WorkerFormData>;
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  errors: FieldErrors<WorkerFormData>;
+  isVisible: boolean;
+};
+
+const Form = ({ onClose, register, onSubmit, errors, isVisible }: FormProps) => {
   const onCancel = () => {
-    onClose()
-  }
+    onClose();
+  };
 
   return (
     <div className={`${isVisible ? "flex" : "hidden"}  justify-center items-center  h-screen `}>
       <div className="h-[calc(90vh-7rem)] flex justify-center items-center md: w-1/2 content-center">
-        <form onSubmit={onSubmit}  className="w-h flex flex-wrap">
-          <h1 className="text-black-200 font-bold text-xl mb-4 w-full">
-            Registrarse
-          </h1>
+        <form onSubmit={onSubmit} className="w-h flex flex-wrap">
+          <h1 className="text-black-200 font-bold text-xl mb-4 w-full">Registrarse</h1>
           <div className="w-full flex flex-col mb-5">
             <label htmlFor={"nombre"} className="text-slate-500 ">
               Nombre:
-              {errors.name && (
-                <span className="text-xs text-red-500 block mt-1">{errors.name.message}</span>
-              )}
+              {errors.name && <span className="text-xs text-red-500 block mt-1">{errors.name.message}</span>}
             </label>
             <input
               type="text"
@@ -25,8 +42,8 @@ const  Form = ({ onClose, register, onSubmit, errors, isVisible }) => {
               {...register("name", {
                 required: {
                   value: true,
-                  message: "Nombre requerido"
-                }
+                  message: "Nombre requerido",
+                },
               })}
             />
           </div>
@@ -44,8 +61,8 @@ const  Form = ({ onClose, register, onSubmit, errors, isVisible }) => {
               {...register("paternalSurname", {
                 required: {
                   value: true,
-                  message: "Apellido paterno requerido"
-                }
+                  message: "Apellido paterno requerido",
+                },
               })}
             />
           </div>
@@ -63,17 +80,15 @@ const  Form = ({ onClose, register, onSubmit, errors, isVisible }) => {
               {...register("maternalSurname", {
                 required: {
                   value: true,
-                  message: "Apellido materno requerido"
-                }
+                  message: "Apellido materno requerido",
+                },
               })}
             />
           </div>
           <div className="w-1/2 flex flex-col mb-5">
             <label htmlFor={"email"} className="text-slate-500">
               Email:
-              {errors.email && (
-                <span className="text-xs text-red-500 block mt-1">{errors.email.message}</span>
-              )}
+              {errors.email && <span className="text-xs text-red-500 block mt-1">{errors.email.message}</span>}
             </label>
             <input
               type="email"
@@ -82,17 +97,15 @@ const  Form = ({ onClose, register, onSubmit, errors, isVisible }) => {
               {...register("email", {
                 required: {
                   value: true,
-                  message: "Correo requerido"
-                }
+                  message: "Correo requerido",
+                },
               })}
             />
           </div>
           <div className="w-1/2 flex flex-col mb-5">
             <label htmlFor={"phone"} className="text-slate-500 ml-1">
               Telefono:
-              {errors.phone && (
-                <span className="text-xs text-red-500 block mt-1">{errors.phone.message}</span>
-              )}
+              {errors.phone && <span className="text-xs text-red-500 block mt-1">{errors.phone.message}</span>}
             </label>
             <input
               type="tel"
@@ -101,23 +114,21 @@ const  Form = ({ onClose, register, onSubmit, errors, isVisible }) => {
               {...register("phone", {
                 required: {
                   value: true,
-                  message: "Telefono requerido"
-                }
+                  message: "Telefono requerido",
+                },
               })}
             />
           </div>
           <div className="w-1/2 flex flex-col mb-5">
             <label htmlFor="area" className="text-slate-500 mr-1">
               Área:
-              {errors.area && (
-                <span className="text-xs text-red-500 block mt-1">{errors.area.message}</span>
-              )}
+              {errors.area && <span className="text-xs text-red-500 block mt-1">{errors.area.message}</span>}
             </label>
             <select
               name="area"
               className="p-3 rounded bg-white mr-1"
               {...register("area", {
-                required: "Seleccione un área"
+                required: "Seleccione un área",
               })}
             >
               <option value="">Seleccione un área</option>
@@ -129,15 +140,13 @@ const  Form = ({ onClose, register, onSubmit, errors, isVisible }) => {
           <div className="w-1/2 flex flex-col mb-5">
             <label htmlFor="charge" className="text-slate-500 ml-1">
               Rol:
-              {errors.charge && (
-                <span className="text-xs text-red-500 block mt-1">{errors.charge.message}</span>
-              )}
+              {errors.charge && <span className="text-xs text-red-500 block mt-1">{errors.charge.message}</span>}
             </label>
             <select
               name="charge"
               className="p-3 rounded bg-white ml-1"
               {...register("charge", {
-                required: "Seleccione un rol"
+                required: "Seleccione un rol",
               })}
             >
               <option value="">Seleccione un rol</option>
@@ -151,9 +160,7 @@ const  Form = ({ onClose, register, onSubmit, errors, isVisible }) => {
           <div className="w-full flex flex-col mb-5">
             <label htmlFor={"salary"} className="text-slate-500">
               Salario:
-              {errors.salary && (
-                <span className="text-xs text-red-500 block mt-1">{errors.salary.message}</span>
-              )}
+              {errors.salary && <span className="text-xs text-red-500 block mt-1">{errors.salary.message}</span>}
             </label>
             <input
               type="text"
@@ -162,21 +169,16 @@ const  Form = ({ onClose, register, onSubmit, errors, isVisible }) => {
               {...register("salary", {
                 required: {
                   value: true,
-                  message: "Salario requerido"
-                }
+                  message: "Salario requerido",
+                },
               })}
             />
           </div>
           <div className="w-full flex gap-3">
-            <button
-              type="reset"
-              onClick={onCancel}
-              className="w-1/2 bg-red-500 text-white p-3 rounded-lg mt-2">
+            <button type="reset" onClick={onCancel} className="w-1/2 bg-red-500 text-white p-3 rounded-lg mt-2">
               Cancelar
             </button>
-            <button
-              type="submit"
-              className="w-1/2 bg-blue-500 text-white p-3 rounded-lg mt-2">
+            <button type="submit" className="w-1/2 bg-blue-500 text-white p-3 rounded-lg mt-2">
               Registrarme
             </button>
           </div>
@@ -184,6 +186,6 @@ const  Form = ({ onClose, register, onSubmit, errors, isVisible }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Form;
