@@ -1,7 +1,6 @@
 "use client";
 import {
   FaCheckCircle,
-  FaImage,
   FaLeaf,
   FaPhoneAlt,
   FaShieldAlt,
@@ -16,19 +15,19 @@ const highlights = [
   {
     title: "Aislamiento térmico superior",
     description:
-      "Espuma proyectada de celda cerrada que mantiene la temperatura estable y reduce el consumo energético hasta en un 40%.",
+      "Espuma proyectada de celda cerrada que mejora el aislamiento en techos y muros, ayudando a mantener una temperatura interior más estable.",
     icon: <FaThermometerHalf className="text-[#f3992e] text-2xl" />,
   },
   {
     title: "Durabilidad garantizada",
     description:
-      "Recubrimientos resistentes a la humedad, rayos UV y abrasión para techos, muros y cámaras frigoríficas.",
+      "Recubrimientos de alta resistencia a humedad, rayos UV y abrasión para prolongar la vida útil de cubiertas y superficies expuestas.",
     icon: <FaShieldAlt className="text-[#0c5ce6] text-2xl" />,
   },
   {
     title: "Aplicación limpia y rápida",
     description:
-      "Equipos de última generación que aseguran una instalación segura, uniforme y sin desperdicios.",
+      "Aplicación técnica con equipo especializado para lograr acabados uniformes, seguros y con menor desperdicio de material.",
     icon: <FaTools className="text-[#f3992e] text-2xl" />,
   },
 ];
@@ -37,25 +36,43 @@ const services = [
   {
     title: "Poliuretano",
     detail:
-        "Aislamiento y sellado continuo que elimina filtraciones y mejora el rendimiento térmico. Ideal para techos, naves industriales y comercios.",
+      "Aislamiento y sellado continuo para controlar filtraciones y mejorar el confort térmico. Recomendado para techos, naves industriales, comercios y cámaras de refrigeración.",
   },
   {
-    title: "Papel prefabricado",
+    title: "Sistema prefabricado",
     detail:
-        "Sistema prefabricado de alto desempeño para cubiertas: instalación rápida, excelente impermeabilidad y mayor durabilidad con espesores controlados.",
+      "Sistema para cubiertas con instalación eficiente y espesores controlados. Brinda impermeabilidad confiable, menor mantenimiento y mayor durabilidad en superficies amplias.",
   },
   {
     title: "Aplicación de chapopote",
     detail:
-        "Impermeabilización asfáltica de alta adherencia que protege contra humedad y lluvia. Recomendado para azoteas y superficies.",
+      "Impermeabilización asfáltica de alta adherencia para proteger contra humedad, lluvia y encharcamientos. Ideal para azoteas, losas y zonas con filtración recurrente.",
   },
 ];
 
 const steps = [
-  "Diagnóstico técnico gratuito en tu sitio",
-  "Propuesta detallada con espesores y rendimiento esperado",
-  "Aplicación profesional",
-  "Garantía escrita y seguimiento postservicio",
+  "Diagnóstico técnico en sitio para identificar filtraciones, humedad y puntos críticos de pérdida térmica.",
+  "Propuesta detallada con alcance del trabajo, sistema recomendado, tiempos de ejecución y garantía.",
+  "Preparación de superficie y aplicación profesional con personal capacitado y proceso controlado.",
+  "Entrega final con garantía por escrito y seguimiento postservicio para validar el desempeño del sistema.",
+];
+
+const valueSection = [
+  {
+    title: "Cotización técnica clara",
+    detail:
+      "Recibes una propuesta clara con alcance, materiales recomendados, tiempos estimados y garantía para decidir con confianza.",
+  },
+  {
+    title: "Acompañamiento de principio a fin",
+    detail:
+      "Te acompañamos antes, durante y después de la aplicación para asegurar que el sistema se ejecute como fue planeado.",
+  },
+  {
+    title: "Enfoque en ahorro y durabilidad",
+    detail:
+      "Nos enfocamos en reducir filtraciones, bajar costos de mantenimiento y extender la vida útil de tu cubierta.",
+  },
 ];
 
 export default function LandingPage() {
@@ -73,11 +90,11 @@ export default function LandingPage() {
               Hernández Impermeabilizaciones & Poliuretano
             </span>
                       <h1 className="text-3xl md:text-5xl font-extrabold">
-                          Impermeabilizamos, aislamos y sellamos con poliuretano de alta densidad.
+                          Impermeabilizamos, aislamos y sellamos superficies con soluciones de alto desempeño para proteger tu inversión.
                       </h1>
                       <p className="text-lg text-blue-50/80">
-                          Eliminamos filtraciones, reducimos consumo energético y prolongamos la vida útil de tus
-                          instalaciones.
+                          Atendemos filtraciones, mejoramos el aislamiento térmico y protegemos tus instalaciones con
+                          soluciones diseñadas para clima extremo y uso intensivo.
                       </p>
 
                       <div className="flex flex-wrap gap-4">
@@ -99,11 +116,11 @@ export default function LandingPage() {
                       <div className="flex gap-6 pt-4">
                           <div className="flex items-center gap-2">
                               <FaCheckCircle className="text-[#f3992e]"/>
-                              <span className="text-sm text-blue-50/80">Instaladores certificados</span>
+                              <span className="text-sm text-blue-50/80">Evaluación técnica en sitio y mano de obra especializada</span>
                           </div>
                           <div className="flex items-center gap-2">
                               <FaLeaf className="text-blue-200"/>
-                              <span className="text-sm text-blue-50/80">Materiales ecológicos</span>
+                              <span className="text-sm text-blue-50/80">Materiales confiables con alto desempeño y larga vida útil</span>
                           </div>
                       </div>
                   </div>
@@ -115,6 +132,10 @@ export default function LandingPage() {
           {/* SERVICIOS */}
           <section id="servicios" className="max-w-6xl mx-auto px-6 py-20">
               <h2 className="text-3xl font-bold mb-10">Nuestros servicios</h2>
+              <p className="text-blue-50/80 mb-8">
+                  Cada proyecto se define según el tipo de superficie, nivel de exposición al clima y objetivo principal del cliente:
+                  corregir filtraciones, reducir temperatura o extender la vida útil de la cubierta.
+              </p>
               <div className="grid md:grid-cols-3 gap-6">
                   {services.map((s) => (
                       <div key={s.title} className="rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-6">
@@ -145,6 +166,10 @@ export default function LandingPage() {
           {/* PROCESO */}
           <section id="proceso" className="max-w-6xl mx-auto px-6 py-20">
               <h2 className="text-3xl font-bold mb-6">Nuestro proceso</h2>
+              <p className="text-blue-50/80 mb-6">
+                  Seguimos un proceso claro para que tengas visibilidad del trabajo, los tiempos y los resultados desde el
+                  primer día.
+              </p>
               <ol className="space-y-4">
                   {steps.map((step, i) => (
                       <li key={step} className="flex gap-3">
@@ -158,26 +183,24 @@ export default function LandingPage() {
               </ol>
           </section>
 
-          {/* GALERÍA */}
+          {/* VALOR AGREGADO */}
           <section id="galeria" className="bg-slate-900/60 border-y border-white/5">
               <div className="max-w-6xl mx-auto px-6 py-20">
-                  <h2 className="text-3xl font-bold mb-3">Galería de proyectos</h2>
+                  <h2 className="text-3xl font-bold mb-3">Valor que recibes en cada proyecto</h2>
                   <p className="text-blue-50/80 mb-10">
-                      Trabajos reales en techos, bodegas y superficies industriales para que veas acabados y calidad de
-                      aplicación.
+                      Además de la aplicación, te acompañamos con criterio técnico y seguimiento para que tu inversión sea más segura
+                      y rentable en el tiempo.
                   </p>
 
                   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                      {services.map((service, i) => (
-                          <article key={service.title}
+                      {valueSection.map((item) => (
+                          <article key={item.title}
                                    className="rounded-2xl bg-slate-950/70 border border-white/10 p-5">
                               <div className="flex items-center gap-3 mb-3">
-                                  <FaImage className="text-[#f3992e]"/>
-                                  <h3 className="font-semibold">{service.title}</h3>
+                                  <FaCheckCircle className="text-[#f3992e]"/>
+                                  <h3 className="font-semibold">{item.title}</h3>
                               </div>
-                              <p className="text-sm text-blue-50/80">
-                                  Proyecto muestra #{i + 1}. Instalación profesional con materiales de alta durabilidad.
-                              </p>
+                              <p className="text-sm text-blue-50/80">{item.detail}</p>
                           </article>
                       ))}
                   </div>
@@ -190,14 +213,14 @@ export default function LandingPage() {
               <div className="max-w-4xl mx-auto px-6 py-20 text-center">
                   <h2 className="text-3xl font-bold">Contacto</h2>
                   <p className="mt-3 text-blue-50/80">
-                      Cuéntanos qué necesitas y te enviamos una propuesta técnica clara, con tiempos y materiales
-                      recomendados.
+                      Compártenos el tipo de superficie, el metraje aproximado y el problema principal. Te enviaremos una
+                      propuesta técnica clara con tiempos, materiales recomendados y garantía.
                   </p>
 
                   {/* CTA principal */}
                   <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                       <a
-                          href="mailto:contacto@hernandezimper.com"
+                          href="mailto:impermeabilizaciones29@gmail.com"
                           className="rounded-lg bg-[#f3992e] px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-orange-500/20 hover:scale-[1.01] transition">
                           impermeabilizaciones29@gmail.com
                       </a>
