@@ -16,19 +16,19 @@ const highlights = [
   {
     title: "Aislamiento térmico superior",
     description:
-      "Espuma proyectada de celda cerrada que mantiene la temperatura estable y reduce el consumo energético hasta en un 40%.",
+      "Espuma proyectada de celda cerrada que estabiliza la temperatura interior y puede reducir el consumo energético hasta en un 40%.",
     icon: <FaThermometerHalf className="text-[#f3992e] text-2xl" />,
   },
   {
     title: "Durabilidad garantizada",
     description:
-      "Recubrimientos resistentes a la humedad, rayos UV y abrasión para techos, muros y cámaras frigoríficas.",
+      "Recubrimientos resistentes a humedad, rayos UV y abrasión para techos, muros y cámaras frigoríficas.",
     icon: <FaShieldAlt className="text-[#0c5ce6] text-2xl" />,
   },
   {
     title: "Aplicación limpia y rápida",
     description:
-      "Equipos de última generación que aseguran una instalación segura, uniforme y sin desperdicios.",
+      "Equipo de última generación para una aplicación segura, uniforme y con mínimo desperdicio.",
     icon: <FaTools className="text-[#f3992e] text-2xl" />,
   },
 ];
@@ -37,17 +37,17 @@ const services = [
   {
     title: "Poliuretano",
     detail:
-      "Aislamiento y sellado continuo que elimina filtraciones, reduce puentes térmicos y mejora el confort interior. Ideal para techos, naves industriales, comercios y cámaras frías.",
+      "Aislamiento y sellado continuo que elimina filtraciones, reduce puentes térmicos y mejora el confort interior. Ideal para techos, naves industriales, comercios y cámaras de refrigeración.",
   },
   {
     title: "Sistema prefabricado",
     detail:
-      "Solución para cubiertas con instalación rápida y espesores controlados. Ofrece excelente impermeabilidad, menor mantenimiento y larga vida útil en superficies amplias.",
+      "Solución para cubiertas con instalación rápida y espesores controlados. Ofrece alta impermeabilidad, menor mantenimiento y larga vida útil en superficies amplias.",
   },
   {
     title: "Aplicación de chapopote",
     detail:
-      "Impermeabilización asfáltica de alta adherencia para proteger contra humedad, lluvia y encharcamientos. Recomendada para azoteas, losas y puntos críticos con filtración recurrente.",
+      "Impermeabilización asfáltica de alta adherencia para proteger contra humedad, lluvia y encharcamientos. Recomendada para azoteas, losas y zonas con filtración recurrente.",
   },
 ];
 
@@ -73,11 +73,11 @@ export default function LandingPage() {
               Hernández Impermeabilizaciones & Poliuretano
             </span>
                       <h1 className="text-3xl md:text-5xl font-extrabold">
-                          Impermeabilizamos, aislamos y sellamos con poliuretano de alta densidad.
+                          Impermeabilizamos, aislamos y sellamos con poliuretano de alta densidad para proteger tu inversión.
                       </h1>
                       <p className="text-lg text-blue-50/80">
-                          Eliminamos filtraciones, reducimos consumo energético y protegemos tus instalaciones con
-                          soluciones pensadas para clima extremo y uso intensivo.
+                          Eliminamos filtraciones, reducimos el consumo energético y protegemos tus instalaciones con
+                          soluciones diseñadas para clima extremo y uso intensivo.
                       </p>
 
                       <div className="flex flex-wrap gap-4">
@@ -99,11 +99,11 @@ export default function LandingPage() {
                       <div className="flex gap-6 pt-4">
                           <div className="flex items-center gap-2">
                               <FaCheckCircle className="text-[#f3992e]"/>
-                              <span className="text-sm text-blue-50/80">Diagnóstico técnico y mano de obra especializada</span>
+                              <span className="text-sm text-blue-50/80">Diagnóstico técnico en sitio y mano de obra especializada</span>
                           </div>
                           <div className="flex items-center gap-2">
                               <FaLeaf className="text-blue-200"/>
-                              <span className="text-sm text-blue-50/80">Materiales de alto rendimiento y larga vida útil</span>
+                              <span className="text-sm text-blue-50/80">Materiales de alto desempeño y larga vida útil</span>
                           </div>
                       </div>
                   </div>
@@ -116,7 +116,7 @@ export default function LandingPage() {
           <section id="servicios" className="max-w-6xl mx-auto px-6 py-20">
               <h2 className="text-3xl font-bold mb-10">Nuestros servicios</h2>
               <p className="text-blue-50/80 mb-8">
-                  Cada proyecto se adapta al tipo de superficie, nivel de exposición al clima y objetivo del cliente:
+                  Cada proyecto se adapta al tipo de superficie, al nivel de exposición al clima y al objetivo del cliente:
                   corregir filtraciones, reducir calor o extender la vida útil de la cubierta.
               </p>
               <div className="grid md:grid-cols-3 gap-6">
@@ -150,7 +150,7 @@ export default function LandingPage() {
           <section id="proceso" className="max-w-6xl mx-auto px-6 py-20">
               <h2 className="text-3xl font-bold mb-6">Nuestro proceso</h2>
               <p className="text-blue-50/80 mb-6">
-                  Trabajamos con un proceso claro para que tengas visibilidad del avance, costos y resultados desde el
+                  Trabajamos con un proceso claro para que tengas visibilidad del avance, los costos y los resultados desde el
                   primer día.
               </p>
               <ol className="space-y-4">
@@ -185,7 +185,7 @@ export default function LandingPage() {
                               </div>
                               <p className="text-sm text-blue-50/80">
                                   Proyecto muestra #{i + 1}. Sistema aplicado con preparación de superficie,
-                                  especificación técnica y acabado durable.
+                                  especificación técnica y acabado duradero.
                               </p>
                           </article>
                       ))}
@@ -199,7 +199,7 @@ export default function LandingPage() {
               <div className="max-w-4xl mx-auto px-6 py-20 text-center">
                   <h2 className="text-3xl font-bold">Contacto</h2>
                   <p className="mt-3 text-blue-50/80">
-                      Cuéntanos tipo de superficie, metraje aproximado y problema principal. Te enviamos una
+                      Cuéntanos el tipo de superficie, el metraje aproximado y el problema principal. Te enviamos una
                       propuesta técnica clara con tiempos, materiales recomendados y garantía.
                   </p>
 
