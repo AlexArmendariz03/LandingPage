@@ -1,7 +1,6 @@
 "use client";
 import {
   FaCheckCircle,
-  FaImage,
   FaLeaf,
   FaPhoneAlt,
   FaShieldAlt,
@@ -56,6 +55,24 @@ const steps = [
   "Propuesta clara con alcance del trabajo, espesores recomendados, tiempos y rendimiento esperado.",
   "Preparación de superficie y aplicación profesional con personal capacitado y equipo especializado.",
   "Entrega con garantía por escrito y seguimiento postservicio para asegurar el desempeño del sistema.",
+];
+
+const valueSection = [
+  {
+    title: "Cotización técnica clara",
+    detail:
+      "Recibes una propuesta con alcance, materiales recomendados, tiempos estimados y garantía para tomar una decisión informada.",
+  },
+  {
+    title: "Acompañamiento de principio a fin",
+    detail:
+      "Te damos seguimiento antes, durante y después de la aplicación para asegurar que el sistema funcione como se planeó.",
+  },
+  {
+    title: "Enfoque en ahorro y durabilidad",
+    detail:
+      "Nuestro objetivo es reducir filtraciones, bajar costos de mantenimiento y extender la vida útil de tu cubierta.",
+  },
 ];
 
 export default function LandingPage() {
@@ -166,27 +183,24 @@ export default function LandingPage() {
               </ol>
           </section>
 
-          {/* GALERÍA */}
+          {/* VALOR AGREGADO */}
           <section id="galeria" className="bg-slate-900/60 border-y border-white/5">
               <div className="max-w-6xl mx-auto px-6 py-20">
-                  <h2 className="text-3xl font-bold mb-3">Galería de proyectos</h2>
+                  <h2 className="text-3xl font-bold mb-3">¿Qué valor extra recibes al trabajar con nosotros?</h2>
                   <p className="text-blue-50/80 mb-10">
-                      Trabajos reales en techos, bodegas y superficies industriales para que veas acabados y calidad de
-                      aplicación.
+                      Además de la aplicación, te ayudamos a tomar una mejor decisión técnica y a cuidar tu inversión a
+                      mediano y largo plazo.
                   </p>
 
                   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                      {services.map((service, i) => (
-                          <article key={service.title}
+                      {valueSection.map((item) => (
+                          <article key={item.title}
                                    className="rounded-2xl bg-slate-950/70 border border-white/10 p-5">
                               <div className="flex items-center gap-3 mb-3">
-                                  <FaImage className="text-[#f3992e]"/>
-                                  <h3 className="font-semibold">{service.title}</h3>
+                                  <FaCheckCircle className="text-[#f3992e]"/>
+                                  <h3 className="font-semibold">{item.title}</h3>
                               </div>
-                              <p className="text-sm text-blue-50/80">
-                                  Proyecto muestra #{i + 1}. Sistema aplicado con preparación de superficie,
-                                  especificación técnica y acabado duradero.
-                              </p>
+                              <p className="text-sm text-blue-50/80">{item.detail}</p>
                           </article>
                       ))}
                   </div>
