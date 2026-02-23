@@ -37,25 +37,25 @@ const services = [
   {
     title: "Poliuretano",
     detail:
-        "Aislamiento y sellado continuo que elimina filtraciones y mejora el rendimiento térmico. Ideal para techos, naves industriales y comercios.",
+      "Aislamiento y sellado continuo que elimina filtraciones, reduce puentes térmicos y mejora el confort interior. Ideal para techos, naves industriales, comercios y cámaras frías.",
   },
   {
-    title: "Papel prefabricado",
+    title: "Sistema prefabricado",
     detail:
-        "Sistema prefabricado de alto desempeño para cubiertas: instalación rápida, excelente impermeabilidad y mayor durabilidad con espesores controlados.",
+      "Solución para cubiertas con instalación rápida y espesores controlados. Ofrece excelente impermeabilidad, menor mantenimiento y larga vida útil en superficies amplias.",
   },
   {
     title: "Aplicación de chapopote",
     detail:
-        "Impermeabilización asfáltica de alta adherencia que protege contra humedad y lluvia. Recomendado para azoteas y superficies.",
+      "Impermeabilización asfáltica de alta adherencia para proteger contra humedad, lluvia y encharcamientos. Recomendada para azoteas, losas y puntos críticos con filtración recurrente.",
   },
 ];
 
 const steps = [
-  "Diagnóstico técnico gratuito en tu sitio",
-  "Propuesta detallada con espesores y rendimiento esperado",
-  "Aplicación profesional",
-  "Garantía escrita y seguimiento postservicio",
+  "Diagnóstico técnico gratuito en sitio para detectar filtraciones, humedad y puentes térmicos.",
+  "Propuesta clara con alcance del trabajo, espesores recomendados, tiempos y rendimiento esperado.",
+  "Preparación de superficie y aplicación profesional con personal capacitado y equipo especializado.",
+  "Entrega con garantía por escrito y seguimiento postservicio para asegurar el desempeño del sistema.",
 ];
 
 export default function LandingPage() {
@@ -76,8 +76,8 @@ export default function LandingPage() {
                           Impermeabilizamos, aislamos y sellamos con poliuretano de alta densidad.
                       </h1>
                       <p className="text-lg text-blue-50/80">
-                          Eliminamos filtraciones, reducimos consumo energético y prolongamos la vida útil de tus
-                          instalaciones.
+                          Eliminamos filtraciones, reducimos consumo energético y protegemos tus instalaciones con
+                          soluciones pensadas para clima extremo y uso intensivo.
                       </p>
 
                       <div className="flex flex-wrap gap-4">
@@ -99,11 +99,11 @@ export default function LandingPage() {
                       <div className="flex gap-6 pt-4">
                           <div className="flex items-center gap-2">
                               <FaCheckCircle className="text-[#f3992e]"/>
-                              <span className="text-sm text-blue-50/80">Instaladores certificados</span>
+                              <span className="text-sm text-blue-50/80">Diagnóstico técnico y mano de obra especializada</span>
                           </div>
                           <div className="flex items-center gap-2">
                               <FaLeaf className="text-blue-200"/>
-                              <span className="text-sm text-blue-50/80">Materiales ecológicos</span>
+                              <span className="text-sm text-blue-50/80">Materiales de alto rendimiento y larga vida útil</span>
                           </div>
                       </div>
                   </div>
@@ -115,6 +115,10 @@ export default function LandingPage() {
           {/* SERVICIOS */}
           <section id="servicios" className="max-w-6xl mx-auto px-6 py-20">
               <h2 className="text-3xl font-bold mb-10">Nuestros servicios</h2>
+              <p className="text-blue-50/80 mb-8">
+                  Cada proyecto se adapta al tipo de superficie, nivel de exposición al clima y objetivo del cliente:
+                  corregir filtraciones, reducir calor o extender la vida útil de la cubierta.
+              </p>
               <div className="grid md:grid-cols-3 gap-6">
                   {services.map((s) => (
                       <div key={s.title} className="rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-6">
@@ -145,6 +149,10 @@ export default function LandingPage() {
           {/* PROCESO */}
           <section id="proceso" className="max-w-6xl mx-auto px-6 py-20">
               <h2 className="text-3xl font-bold mb-6">Nuestro proceso</h2>
+              <p className="text-blue-50/80 mb-6">
+                  Trabajamos con un proceso claro para que tengas visibilidad del avance, costos y resultados desde el
+                  primer día.
+              </p>
               <ol className="space-y-4">
                   {steps.map((step, i) => (
                       <li key={step} className="flex gap-3">
@@ -176,7 +184,8 @@ export default function LandingPage() {
                                   <h3 className="font-semibold">{service.title}</h3>
                               </div>
                               <p className="text-sm text-blue-50/80">
-                                  Proyecto muestra #{i + 1}. Instalación profesional con materiales de alta durabilidad.
+                                  Proyecto muestra #{i + 1}. Sistema aplicado con preparación de superficie,
+                                  especificación técnica y acabado durable.
                               </p>
                           </article>
                       ))}
@@ -190,14 +199,14 @@ export default function LandingPage() {
               <div className="max-w-4xl mx-auto px-6 py-20 text-center">
                   <h2 className="text-3xl font-bold">Contacto</h2>
                   <p className="mt-3 text-blue-50/80">
-                      Cuéntanos qué necesitas y te enviamos una propuesta técnica clara, con tiempos y materiales
-                      recomendados.
+                      Cuéntanos tipo de superficie, metraje aproximado y problema principal. Te enviamos una
+                      propuesta técnica clara con tiempos, materiales recomendados y garantía.
                   </p>
 
                   {/* CTA principal */}
                   <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                       <a
-                          href="mailto:contacto@hernandezimper.com"
+                          href="mailto:impermeabilizaciones29@gmail.com"
                           className="rounded-lg bg-[#f3992e] px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-orange-500/20 hover:scale-[1.01] transition">
                           impermeabilizaciones29@gmail.com
                       </a>
