@@ -20,8 +20,8 @@ export function HeroCarousel() {
     () => [
       { src: "/brand/Hernandez.png", alt: "Logo Hernández Impermeabilizaciones & Poliuretano" },
       { src: "/brand/aplicador.png", alt: "Impermeabilización profesional de techos" },
-      { src: "/brand/pinturaPoli.png", alt: "Impermeabilización pinutra de techos" },
-      { src: "/brand/aplicadorBodega.png", alt: "Impermeabilización pinutra de bodega" },
+      { src: "/brand/pinturaPoli.png", alt: "Impermeabilización y pintura de techos" },
+      { src: "/brand/aplicadorBodega.png", alt: "Impermeabilización y pintura en bodega" },
     ],
     []
   );
