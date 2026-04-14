@@ -1,0 +1,5 @@
+Contact: mailto:impermeabilizaciones29@gmail.com
+Expires: 2027-04-14T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://hernandezimper.com/.well-known/security.txt
+Policy: https://hernandezimper.com/seguridad

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Link from "next/link";
 import {
     FaCheckCircle,
     FaLeaf,
@@ -285,7 +286,7 @@ export default function LandingPage() {
                         <a
                             href="https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n."
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer nofollow"
                             className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
                             data-aos="fade-up"
                             data-aos-delay={0}
@@ -307,7 +308,7 @@ export default function LandingPage() {
                         <a
                             href="https://share.google/Wz59zQhGrAETbPFYA"
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer nofollow"
                             className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
                             data-aos="fade-up"
                             data-aos-delay={100}
@@ -329,7 +330,7 @@ export default function LandingPage() {
                         <a
                             href="https://www.facebook.com/profile.php?id=100064214340903&locale=af_ZA#"
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer nofollow"
                             className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
                             data-aos="fade-up"
                             data-aos-delay={200}
@@ -350,10 +351,41 @@ export default function LandingPage() {
                 </div>
             </section>
 
+
+            {/* PRIVACIDAD Y SEGURIDAD */}
+            <section id="seguridad" className="max-w-6xl mx-auto px-6 py-16">
+                <div className="rounded-2xl border border-amber-300/30 bg-amber-500/10 p-6 md:p-8" data-aos="fade-up">
+                    <h2 className="text-2xl font-bold text-amber-200">Aviso importante de privacidad y seguridad</h2>
+                    <p className="mt-3 text-blue-50/90">
+                        Para prevenir fraudes y proteger tu información, solo atendemos por canales oficiales publicados en este sitio.
+                        Nunca solicitamos contraseñas, códigos OTP o pagos por medios no verificados.
+                    </p>
+                    <div className="mt-5 flex flex-wrap gap-3">
+                        <Link
+                            href="/aviso-privacidad"
+                            className="rounded-lg bg-[#f3992e] px-5 py-2 font-semibold text-slate-950"
+                        >
+                            Ver aviso de privacidad
+                        </Link>
+                        <Link
+                            href="/seguridad"
+                            className="rounded-lg border border-white/40 px-5 py-2 font-semibold text-white"
+                        >
+                            Ver guía antifraude
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
             <footer className="border-t border-white/10 bg-slate-950">
                 <div className="max-w-6xl mx-auto px-6 py-6 text-center text-sm text-white/60">
-                    © {currentYear} Hernández Impermeabilizaciones &amp; Poliuretano. Todos los derechos
-                    reservados.
+                    <p>
+                        © {currentYear} Hernández Impermeabilizaciones &amp; Poliuretano. Todos los derechos reservados.
+                    </p>
+                    <div className="mt-2 flex items-center justify-center gap-4">
+                        <Link href="/aviso-privacidad" className="hover:text-white transition">Aviso de privacidad</Link>
+                        <Link href="/seguridad" className="hover:text-white transition">Seguridad</Link>
+                    </div>
                 </div>
             </footer>
         </main>
