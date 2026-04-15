@@ -127,7 +127,7 @@ export default function LandingPage() {
                             </a>
                         </div>
 
-                        <div className="flex gap-4 pt-4">
+                        <div className="flex flex-wrap gap-4 pt-4">
                             <div className="flex items-center gap-2">
                                 <FaCheckCircle className="text-[#f3992e]" />
                                 <span className="text-sm text-blue-50/80">Mano de obra especializada</span>
@@ -138,6 +138,13 @@ export default function LandingPage() {
                   Materiales confiables con alto desempeño
                 </span>
                             </div>
+                            <Link
+                                href="/seguridad"
+                                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-slate-900/35 px-3 py-1 text-xs font-semibold text-blue-100 hover:bg-slate-900/60 transition"
+                            >
+                                <FaShieldAlt className="text-[#f3992e]" />
+                                Validación antifraude disponible
+                            </Link>
                         </div>
                     </div>
 
@@ -353,26 +360,29 @@ export default function LandingPage() {
 
 
             {/* PRIVACIDAD Y SEGURIDAD */}
-            <section id="seguridad" className="max-w-6xl mx-auto px-6 py-16">
-                <div className="rounded-2xl border border-amber-300/30 bg-amber-500/10 p-6 md:p-8" data-aos="fade-up">
-                    <h2 className="text-2xl font-bold text-amber-200">Aviso importante de privacidad y seguridad</h2>
-                    <p className="mt-3 text-blue-50/90">
-                        Para prevenir fraudes y proteger tu información, solo atendemos por canales oficiales publicados en este sitio.
-                        Nunca solicitamos contraseñas, códigos OTP o pagos por medios no verificados.
-                    </p>
-                    <div className="mt-5 flex flex-wrap gap-3">
-                        <Link
-                            href="/aviso-privacidad"
-                            className="rounded-lg bg-[#f3992e] px-5 py-2 font-semibold text-slate-950"
-                        >
-                            Ver aviso de privacidad
-                        </Link>
-                        <Link
-                            href="/seguridad"
-                            className="rounded-lg border border-white/40 px-5 py-2 font-semibold text-white"
-                        >
-                            Ver guía antifraude
-                        </Link>
+            <section id="seguridad" className="max-w-6xl mx-auto px-6 pb-10">
+                <div className="rounded-xl border border-white/15 bg-slate-900/40 p-4 md:p-5" data-aos="fade-up">
+                    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <p className="text-xs uppercase tracking-wide text-blue-200/80">Privacidad y seguridad</p>
+                            <p className="mt-1 text-sm text-blue-50/85">
+                                Usamos únicamente canales oficiales y nunca pedimos contraseñas ni códigos OTP.
+                            </p>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                            <Link
+                                href="/aviso-privacidad"
+                                className="rounded-md border border-white/30 px-3 py-2 text-xs font-semibold text-white hover:bg-white/10 transition"
+                            >
+                                Aviso de privacidad
+                            </Link>
+                            <Link
+                                href="/seguridad"
+                                className="rounded-md bg-[#f3992e] px-3 py-2 text-xs font-semibold text-slate-950"
+                            >
+                                Guía antifraude
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -382,9 +392,9 @@ export default function LandingPage() {
                     <p>
                         © {currentYear} Hernández Impermeabilizaciones &amp; Poliuretano. Todos los derechos reservados.
                     </p>
-                    <div className="mt-2 flex items-center justify-center gap-4">
-                        <Link href="/aviso-privacidad" className="hover:text-white transition">Aviso de privacidad</Link>
-                        <Link href="/seguridad" className="hover:text-white transition">Seguridad</Link>
+                    <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
+                        <Link href="/aviso-privacidad" className="rounded-full border border-white/20 px-3 py-1 hover:text-white hover:border-white/40 transition">Aviso de privacidad</Link>
+                        <Link href="/seguridad" className="rounded-full border border-white/20 px-3 py-1 hover:text-white hover:border-white/40 transition">Seguridad</Link>
                     </div>
                 </div>
             </footer>
