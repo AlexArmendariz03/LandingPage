@@ -358,35 +358,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-
-            {/* PRIVACIDAD Y SEGURIDAD */}
-            <section id="seguridad" className="max-w-6xl mx-auto px-6 pb-10">
-                <div className="rounded-xl border border-white/15 bg-slate-900/40 p-4 md:p-5" data-aos="fade-up">
-                    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                        <div>
-                            <p className="text-xs uppercase tracking-wide text-blue-200/80">Privacidad y seguridad</p>
-                            <p className="mt-1 text-sm text-blue-50/85">
-                                Usamos únicamente canales oficiales y nunca pedimos contraseñas ni códigos OTP.
-                            </p>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                            <Link
-                                href="/aviso-privacidad"
-                                className="rounded-md border border-white/30 px-3 py-2 text-xs font-semibold text-white hover:bg-white/10 transition"
-                            >
-                                Aviso de privacidad
-                            </Link>
-                            <Link
-                                href="/seguridad"
-                                className="rounded-md bg-[#f3992e] px-3 py-2 text-xs font-semibold text-slate-950"
-                            >
-                                Guía antifraude
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <footer className="border-t border-white/10 bg-slate-950">
                 <div className="max-w-6xl mx-auto px-6 py-6 text-center text-sm text-white/60">
                     <p>
