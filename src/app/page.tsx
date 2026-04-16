@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import {
     FaCheckCircle,
+    FaClipboardCheck,
     FaLeaf,
     FaPhoneAlt,
     FaShieldAlt,
@@ -81,6 +82,13 @@ const valueSection = [
     },
 ];
 
+const businessImpact = [
+    "Menor costo por mantenimientos correctivos al reducir filtraciones recurrentes.",
+    "Mejor confort térmico y potencial reducción de carga en sistemas de climatización.",
+    "Mayor continuidad operativa en bodegas y comercios al disminuir riesgo de daño por humedad.",
+    "Bitácora técnica del servicio para facilitar auditorías y decisiones de mantenimiento futuro.",
+];
+
 export default function LandingPage() {
     const currentYear = new Date().getFullYear();
 
@@ -89,14 +97,13 @@ export default function LandingPage() {
             duration: 800,
             easing: "ease-out-quart",
             offset: 80,
-            once: false,   // se puede volver a animar
-            mirror: true,  // también al hacer scroll hacia arriba
+            once: false,
+            mirror: true,
         });
     }, []);
 
     return (
         <main className="min-h-screen bg-slate-950 text-white">
-            {/* HERO */}
             <section className="relative overflow-hidden bg-gradient-to-br from-[#0c5ce6] via-[#0b3f99] to-slate-950">
                 <div className="relative max-w-6xl mx-auto px-6 py-20 grid gap-10 lg:grid-cols-2 items-center">
                     <div className="space-y-6" data-aos="fade-right">
@@ -154,7 +161,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* SERVICIOS */}
             <section id="servicios" className="max-w-6xl mx-auto px-6 py-20">
                 <div data-aos="fade-up">
                     <h2 className="text-3xl font-bold mb-4">Nuestros servicios</h2>
@@ -180,7 +186,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* BENEFICIOS */}
             <section id="beneficios" className="bg-slate-900/60 border-y border-white/5">
                 <div className="max-w-6xl mx-auto px-6 py-20 grid gap-6 md:grid-cols-2">
                     {highlights.map((h, index) => (
@@ -200,7 +205,31 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* PROCESO */}
+            <section id="impacto" className="max-w-6xl mx-auto px-6 py-20">
+                <div data-aos="fade-up" className="mb-8">
+                    <h2 className="text-3xl font-bold mb-3">Información que genera valor para tu decisión</h2>
+                    <p className="text-blue-50/80">
+                        Esta propuesta está orientada a resultados medibles para hogar, comercio o nave industrial:
+                        menos costos ocultos por humedad, mejor desempeño térmico y continuidad operativa.
+                    </p>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                    {businessImpact.map((item, i) => (
+                        <article
+                            key={item}
+                            className="rounded-2xl border border-white/10 bg-slate-900/60 p-5"
+                            data-aos="fade-up"
+                            data-aos-delay={i * 90}
+                        >
+                            <div className="flex items-start gap-3">
+                                <FaClipboardCheck className="mt-1 text-[#f3992e]" />
+                                <p className="text-blue-50/85 text-sm leading-relaxed">{item}</p>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
             <section id="proceso" className="max-w-6xl mx-auto px-6 py-20">
                 <div data-aos="fade-up">
                     <h2 className="text-3xl font-bold mb-6">Nuestro proceso</h2>
@@ -227,7 +256,6 @@ export default function LandingPage() {
                 </ol>
             </section>
 
-            {/* VALOR AGREGADO */}
             <section id="galeria" className="bg-slate-900/60 border-y border-white/5">
                 <div className="max-w-6xl mx-auto px-6 py-20">
                     <div data-aos="fade-up">
@@ -257,7 +285,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* CONTACTO */}
             <section id="contacto" className="bg-slate-900/60 border-t border-white/5">
                 <div className="max-w-4xl mx-auto px-6 py-20 text-center" data-aos="fade-up">
                     <h2 className="text-3xl font-bold">Contacto</h2>
@@ -266,12 +293,7 @@ export default function LandingPage() {
                         propuesta técnica clara con tiempos, materiales recomendados y garantía.
                     </p>
 
-                    {/* CTA principal */}
-                    <div
-                        className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
-                        data-aos="fade-up"
-                        data-aos-delay={100}
-                    >
+                    <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay={100}>
                         <a
                             href="mailto:impermeabilizaciones29@gmail.com"
                             className="rounded-lg bg-[#f3992e] px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-orange-500/20 hover:scale-[1.01] transition"
@@ -287,9 +309,14 @@ export default function LandingPage() {
                         </a>
                     </div>
 
-                    {/* Redes / Acciones */}
+                    <div className="mt-6 rounded-xl border border-amber-300/30 bg-amber-400/10 p-4 text-left text-sm text-amber-100">
+                        <p>
+                            Aviso de prevención: nunca solicitamos NIP, contraseñas, códigos OTP ni pagos a cuentas no verificadas.
+                            Antes de transferir, valida datos desde la sección de <Link className="underline" href="/seguridad">seguridad</Link>.
+                        </p>
+                    </div>
+
                     <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                        {/* WhatsApp */}
                         <a
                             href="https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n."
                             target="_blank"
@@ -311,7 +338,6 @@ export default function LandingPage() {
                             </div>
                         </a>
 
-                        {/* Google */}
                         <a
                             href="https://share.google/Wz59zQhGrAETbPFYA"
                             target="_blank"
@@ -333,7 +359,6 @@ export default function LandingPage() {
                             </div>
                         </a>
 
-                        {/* Facebook */}
                         <a
                             href="https://www.facebook.com/profile.php?id=100064214340903&locale=af_ZA#"
                             target="_blank"

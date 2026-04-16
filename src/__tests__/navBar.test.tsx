@@ -6,7 +6,7 @@ jest.mock("next/image", () => ({
     __esModule: true,
     default: (props: any) => {
         // eslint-disable-next-line @next/next/no-img-element
-        return <img {...props}  alt={"imagen test"}/>;
+        return <img {...props} alt={"imagen test"} />;
     },
 }));
 
@@ -25,7 +25,7 @@ describe("Navbar", () => {
     it("renderiza el logo y textos principales", () => {
         render(<Navbar />);
 
-        expect(screen.getByAltText("Hernández Impermeabilizaciones")).toBeInTheDocument();
+        expect(screen.getByAltText("imagen test")).toBeInTheDocument();
         expect(screen.getByText("Hernández")).toBeInTheDocument();
         expect(screen.getByText("Impermeabilizaciones & Poliuretano")).toBeInTheDocument();
     });
@@ -44,7 +44,8 @@ describe("Navbar", () => {
             ["Servicios", "#servicios"],
             ["Beneficios", "#beneficios"],
             ["Proceso", "#proceso"],
-            ["Galería", "#galeria"],
+            ["Valor", "#impacto"],
+            ["Diferenciales", "#galeria"],
             ["Contacto", "#contacto"],
         ];
 
