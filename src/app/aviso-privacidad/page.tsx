@@ -11,7 +11,7 @@ export default function PrivacyNoticePage() {
     <main className="min-h-screen bg-slate-950 text-white">
       <section className="max-w-4xl mx-auto px-6 py-20 space-y-6">
         <h1 className="text-3xl md:text-4xl font-bold">Aviso de Privacidad</h1>
-        <p className="text-blue-50/80 text-sm">Última actualización: 14 de abril de 2026.</p>
+        <p className="text-blue-50/80 text-sm">Última actualización: 16 de abril de 2026.</p>
 
         <p className="text-blue-50/90 leading-relaxed">
           En Hernández Impermeabilizaciones y Poliuretano tratamos tus datos personales de forma responsable para
@@ -37,6 +37,15 @@ export default function PrivacyNoticePage() {
         </article>
 
         <article className="space-y-2">
+          <h2 className="text-xl font-semibold">Conservación y eliminación</h2>
+          <p className="text-blue-50/80 leading-relaxed">
+            Conservamos datos únicamente por el tiempo necesario para atender la solicitud, dar seguimiento comercial y
+            cumplir obligaciones legales. Cuando los datos dejan de ser necesarios, se eliminan o anonimizan de forma
+            segura de nuestros sistemas operativos.
+          </p>
+        </article>
+
+        <article className="space-y-2">
           <h2 className="text-xl font-semibold">Medidas de seguridad</h2>
           <p className="text-blue-50/80 leading-relaxed">
             Implementamos controles técnicos y organizativos para reducir riesgos de acceso no autorizado,
@@ -46,10 +55,20 @@ export default function PrivacyNoticePage() {
         </article>
 
         <article className="space-y-2">
+          <h2 className="text-xl font-semibold">Transferencias y terceros</h2>
+          <p className="text-blue-50/80 leading-relaxed">
+            No vendemos tus datos personales. Solo compartimos información mínima necesaria con proveedores de
+            infraestructura tecnológica o mensajería cuando se requiere para la operación del servicio,
+            bajo obligaciones de confidencialidad y seguridad.
+          </p>
+        </article>
+
+        <article className="space-y-2">
           <h2 className="text-xl font-semibold">Derechos ARCO y contacto</h2>
           <p className="text-blue-50/80 leading-relaxed">
             Puedes solicitar acceso, rectificación, cancelación u oposición del uso de tus datos escribiendo a
             <a className="text-[#f3992e] ml-1" href="mailto:impermeabilizaciones29@gmail.com">impermeabilizaciones29@gmail.com</a>.
+            Incluye tu nombre, medio de contacto y descripción de la solicitud para responder en el menor tiempo posible.
           </p>
         </article>
 
