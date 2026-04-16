@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import Navbar from "@/app/components/navBar";
-import { Inter } from "next/font/google";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hernandezimper.com"),
@@ -67,7 +65,7 @@ const localBusinessJsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="es">
-      <body className={`${inter.className} bg-slate-950`}>
+      <body className="bg-slate-950 antialiased">
         <Script
           id="local-business-jsonld"
           type="application/ld+json"
