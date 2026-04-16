@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
     FaCheckCircle,
     FaClipboardCheck,
@@ -79,6 +80,40 @@ const valueSection = [
         title: "Enfoque en ahorro y durabilidad",
         detail:
             "Nos enfocamos en reducir filtraciones, bajar costos de mantenimiento y extender la vida útil de tu cubierta.",
+    },
+];
+
+
+const projectGallery = [
+    {
+        src: "/brand/aplicador.png",
+        alt: "Aplicación profesional de impermeabilizante en techo",
+        label: "Aplicación técnica en techo residencial",
+    },
+    {
+        src: "/brand/aplicadorBodega.png",
+        alt: "Aplicación de recubrimiento en bodega industrial",
+        label: "Proyecto en bodega con acabado uniforme",
+    },
+    {
+        src: "/brand/pinturaPoli.png",
+        alt: "Recubrimiento de poliuretano terminado en cubierta",
+        label: "Sistema de poliuretano finalizado",
+    },
+    {
+        src: "/brand/techoBlanco.png",
+        alt: "Techo impermeabilizado con acabado blanco reflectivo",
+        label: "Acabado reflectivo para control térmico",
+    },
+    {
+        src: "/brand/techo2.png",
+        alt: "Cubierta protegida después de mantenimiento preventivo",
+        label: "Mantenimiento preventivo y sellado",
+    },
+    {
+        src: "/brand/roof-application.svg",
+        alt: "Representación de trabajo de impermeabilización en cubierta",
+        label: "Cobertura completa de superficie",
     },
 ];
 
@@ -264,6 +299,28 @@ export default function LandingPage() {
                             Además de la aplicación, te acompañamos con criterio técnico y seguimiento para que tu inversión sea más segura
                             y rentable en el tiempo.
                         </p>
+                    </div>
+
+                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+                        {projectGallery.map((photo, index) => (
+                            <article
+                                key={photo.src}
+                                className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70"
+                                data-aos="zoom-in"
+                                data-aos-delay={index * 90}
+                            >
+                                <div className="relative h-52 w-full">
+                                    <Image
+                                        src={photo.src}
+                                        alt={photo.alt}
+                                        fill
+                                        sizes="(max-width: 1024px) 100vw, 33vw"
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <p className="border-t border-white/10 px-4 py-3 text-sm text-blue-50/85">{photo.label}</p>
+                            </article>
+                        ))}
                     </div>
 
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
