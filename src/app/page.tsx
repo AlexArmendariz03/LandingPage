@@ -294,10 +294,10 @@ export default function LandingPage() {
             <section id="galeria" className="bg-slate-900/60 border-y border-white/5">
                 <div className="max-w-6xl mx-auto px-6 py-20">
                     <div data-aos="fade-up">
-                        <h2 className="text-3xl font-bold mb-3">Valor que recibes en cada proyecto</h2>
+                        <h2 className="text-3xl font-bold mb-3">Galería de proyectos realizados</h2>
                         <p className="text-blue-50/80 mb-10">
-                            Además de la aplicación, te acompañamos con criterio técnico y seguimiento para que tu inversión sea más segura
-                            y rentable en el tiempo.
+                            Conoce resultados reales de aplicación en campo. Cada imagen refleja acabados, protección y calidad
+                            de ejecución en diferentes tipos de superficies.
                         </p>
                     </div>
 
