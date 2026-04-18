@@ -14,6 +14,13 @@ const recommendations = [
   "Reporta mensajes sospechosos para su revisión inmediata.",
 ];
 
+const controls = [
+  "Cabeceras HTTP de seguridad (CSP, HSTS, X-Frame-Options y políticas de permisos).",
+  "Superficie mínima de exposición al no incluir formularios abiertos de captura en esta landing.",
+  "Enlaces externos con atributos de seguridad (noopener, noreferrer y nofollow).",
+  "Página dedicada de aviso de privacidad y canal de respuesta ante incidentes.",
+];
+
 export default function SecurityPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
@@ -28,6 +35,15 @@ export default function SecurityPage() {
           <h2 className="text-xl font-semibold mb-3">Checklist de verificación</h2>
           <ul className="list-disc pl-6 text-blue-50/80 space-y-2">
             {recommendations.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+
+        <article className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+          <h2 className="text-xl font-semibold mb-3">Controles implementados en la web</h2>
+          <ul className="list-disc pl-6 text-blue-50/80 space-y-2">
+            {controls.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>

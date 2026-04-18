@@ -25,8 +25,11 @@ export default function Navbar() {
           <a href="#proceso" className="hover:text-white transition">
             Proceso
           </a>
+          <a href="#impacto" className="hover:text-white transition">
+            Valor
+          </a>
           <a href="#galeria" className="hover:text-white transition">
-            Galería
+            Diferenciales
           </a>
           <a href="#contacto" className="hover:text-white transition">
             Contacto
