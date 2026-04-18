@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
     FaCheckCircle,
+    FaClipboardCheck,
     FaLeaf,
     FaPhoneAlt,
     FaShieldAlt,
@@ -80,6 +83,47 @@ const valueSection = [
     },
 ];
 
+
+const projectGallery = [
+    {
+        src: "/brand/aplicador.png",
+        alt: "Aplicación profesional de impermeabilizante en techo",
+        label: "Aplicación técnica en techo residencial",
+    },
+    {
+        src: "/brand/aplicadorBodega.png",
+        alt: "Aplicación de recubrimiento en bodega industrial",
+        label: "Proyecto en bodega con acabado uniforme",
+    },
+    {
+        src: "/brand/pinturaPoli.png",
+        alt: "Recubrimiento de poliuretano terminado en cubierta",
+        label: "Sistema de poliuretano finalizado",
+    },
+    {
+        src: "/brand/techoBlanco.png",
+        alt: "Techo impermeabilizado con acabado blanco reflectivo",
+        label: "Acabado reflectivo para control térmico",
+    },
+    {
+        src: "/brand/techo2.png",
+        alt: "Cubierta protegida después de mantenimiento preventivo",
+        label: "Mantenimiento preventivo y sellado",
+    },
+    {
+        src: "/brand/roof-application.svg",
+        alt: "Representación de trabajo de impermeabilización en cubierta",
+        label: "Cobertura completa de superficie",
+    },
+];
+
+const businessImpact = [
+    "Menor costo por mantenimientos correctivos al reducir filtraciones recurrentes.",
+    "Mejor confort térmico y potencial reducción de carga en sistemas de climatización.",
+    "Mayor continuidad operativa en bodegas y comercios al disminuir riesgo de daño por humedad.",
+    "Bitácora técnica del servicio para facilitar auditorías y decisiones de mantenimiento futuro.",
+];
+
 export default function LandingPage() {
     const currentYear = new Date().getFullYear();
 
@@ -88,14 +132,13 @@ export default function LandingPage() {
             duration: 800,
             easing: "ease-out-quart",
             offset: 80,
-            once: false,   // se puede volver a animar
-            mirror: true,  // también al hacer scroll hacia arriba
+            once: false,
+            mirror: true,
         });
     }, []);
 
     return (
         <main className="min-h-screen bg-slate-950 text-white">
-            {/* HERO */}
             <section className="relative overflow-hidden bg-gradient-to-br from-[#0c5ce6] via-[#0b3f99] to-slate-950">
                 <div className="relative max-w-6xl mx-auto px-6 py-20 grid gap-10 lg:grid-cols-2 items-center">
                     <div className="space-y-6" data-aos="fade-right">
@@ -126,7 +169,7 @@ export default function LandingPage() {
                             </a>
                         </div>
 
-                        <div className="flex gap-4 pt-4">
+                        <div className="flex flex-wrap gap-4 pt-4">
                             <div className="flex items-center gap-2">
                                 <FaCheckCircle className="text-[#f3992e]" />
                                 <span className="text-sm text-blue-50/80">Mano de obra especializada</span>
@@ -137,6 +180,13 @@ export default function LandingPage() {
                   Materiales confiables con alto desempeño
                 </span>
                             </div>
+                            <Link
+                                href="/seguridad"
+                                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-slate-900/35 px-3 py-1 text-xs font-semibold text-blue-100 hover:bg-slate-900/60 transition"
+                            >
+                                <FaShieldAlt className="text-[#f3992e]" />
+                                Validación antifraude disponible
+                            </Link>
                         </div>
                     </div>
 
@@ -146,7 +196,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* SERVICIOS */}
             <section id="servicios" className="max-w-6xl mx-auto px-6 py-20">
                 <div data-aos="fade-up">
                     <h2 className="text-3xl font-bold mb-4">Nuestros servicios</h2>
@@ -172,7 +221,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* BENEFICIOS */}
             <section id="beneficios" className="bg-slate-900/60 border-y border-white/5">
                 <div className="max-w-6xl mx-auto px-6 py-20 grid gap-6 md:grid-cols-2">
                     {highlights.map((h, index) => (
@@ -192,7 +240,31 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* PROCESO */}
+            <section id="impacto" className="max-w-6xl mx-auto px-6 py-20">
+                <div data-aos="fade-up" className="mb-8">
+                    <h2 className="text-3xl font-bold mb-3">Información que genera valor para tu decisión</h2>
+                    <p className="text-blue-50/80">
+                        Esta propuesta está orientada a resultados medibles para hogar, comercio o nave industrial:
+                        menos costos ocultos por humedad, mejor desempeño térmico y continuidad operativa.
+                    </p>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                    {businessImpact.map((item, i) => (
+                        <article
+                            key={item}
+                            className="rounded-2xl border border-white/10 bg-slate-900/60 p-5"
+                            data-aos="fade-up"
+                            data-aos-delay={i * 90}
+                        >
+                            <div className="flex items-start gap-3">
+                                <FaClipboardCheck className="mt-1 text-[#f3992e]" />
+                                <p className="text-blue-50/85 text-sm leading-relaxed">{item}</p>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
             <section id="proceso" className="max-w-6xl mx-auto px-6 py-20">
                 <div data-aos="fade-up">
                     <h2 className="text-3xl font-bold mb-6">Nuestro proceso</h2>
@@ -219,15 +291,36 @@ export default function LandingPage() {
                 </ol>
             </section>
 
-            {/* VALOR AGREGADO */}
             <section id="galeria" className="bg-slate-900/60 border-y border-white/5">
                 <div className="max-w-6xl mx-auto px-6 py-20">
                     <div data-aos="fade-up">
-                        <h2 className="text-3xl font-bold mb-3">Valor que recibes en cada proyecto</h2>
+                        <h2 className="text-3xl font-bold mb-3">Galería de proyectos realizados</h2>
                         <p className="text-blue-50/80 mb-10">
-                            Además de la aplicación, te acompañamos con criterio técnico y seguimiento para que tu inversión sea más segura
-                            y rentable en el tiempo.
+                            Conoce resultados reales de aplicación en campo. Cada imagen refleja acabados, protección y calidad
+                            de ejecución en diferentes tipos de superficies.
                         </p>
+                    </div>
+
+                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+                        {projectGallery.map((photo, index) => (
+                            <article
+                                key={photo.src}
+                                className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70"
+                                data-aos="zoom-in"
+                                data-aos-delay={index * 90}
+                            >
+                                <div className="relative h-52 w-full">
+                                    <Image
+                                        src={photo.src}
+                                        alt={photo.alt}
+                                        fill
+                                        sizes="(max-width: 1024px) 100vw, 33vw"
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <p className="border-t border-white/10 px-4 py-3 text-sm text-blue-50/85">{photo.label}</p>
+                            </article>
+                        ))}
                     </div>
 
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -249,7 +342,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* CONTACTO */}
             <section id="contacto" className="bg-slate-900/60 border-t border-white/5">
                 <div className="max-w-4xl mx-auto px-6 py-20 text-center" data-aos="fade-up">
                     <h2 className="text-3xl font-bold">Contacto</h2>
@@ -258,12 +350,7 @@ export default function LandingPage() {
                         propuesta técnica clara con tiempos, materiales recomendados y garantía.
                     </p>
 
-                    {/* CTA principal */}
-                    <div
-                        className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
-                        data-aos="fade-up"
-                        data-aos-delay={100}
-                    >
+                    <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay={100}>
                         <a
                             href="mailto:impermeabilizaciones29@gmail.com"
                             className="rounded-lg bg-[#f3992e] px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-orange-500/20 hover:scale-[1.01] transition"
@@ -279,13 +366,18 @@ export default function LandingPage() {
                         </a>
                     </div>
 
-                    {/* Redes / Acciones */}
+                    <div className="mt-6 rounded-xl border border-amber-300/30 bg-amber-400/10 p-4 text-left text-sm text-amber-100">
+                        <p>
+                            Aviso de prevención: nunca solicitamos NIP, contraseñas, códigos OTP ni pagos a cuentas no verificadas.
+                            Antes de transferir, valida datos desde la sección de <Link className="underline" href="/seguridad">seguridad</Link>.
+                        </p>
+                    </div>
+
                     <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                        {/* WhatsApp */}
                         <a
                             href="https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n."
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer nofollow"
                             className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
                             data-aos="fade-up"
                             data-aos-delay={0}
@@ -303,11 +395,10 @@ export default function LandingPage() {
                             </div>
                         </a>
 
-                        {/* Google */}
                         <a
                             href="https://share.google/Wz59zQhGrAETbPFYA"
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer nofollow"
                             className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
                             data-aos="fade-up"
                             data-aos-delay={100}
@@ -325,11 +416,10 @@ export default function LandingPage() {
                             </div>
                         </a>
 
-                        {/* Facebook */}
                         <a
                             href="https://www.facebook.com/profile.php?id=100064214340903&locale=af_ZA#"
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer nofollow"
                             className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
                             data-aos="fade-up"
                             data-aos-delay={200}
@@ -352,8 +442,13 @@ export default function LandingPage() {
 
             <footer className="border-t border-white/10 bg-slate-950">
                 <div className="max-w-6xl mx-auto px-6 py-6 text-center text-sm text-white/60">
-                    © {currentYear} Hernández Impermeabilizaciones &amp; Poliuretano. Todos los derechos
-                    reservados.
+                    <p>
+                        © {currentYear} Hernández Impermeabilizaciones &amp; Poliuretano. Todos los derechos reservados.
+                    </p>
+                    <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
+                        <Link href="/aviso-privacidad" className="rounded-full border border-white/20 px-3 py-1 hover:text-white hover:border-white/40 transition">Aviso de privacidad</Link>
+                        <Link href="/seguridad" className="rounded-full border border-white/20 px-3 py-1 hover:text-white hover:border-white/40 transition">Seguridad</Link>
+                    </div>
                 </div>
             </footer>
         </main>
