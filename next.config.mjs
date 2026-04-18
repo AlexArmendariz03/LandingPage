@@ -10,7 +10,7 @@ const contentSecurityPolicy = [
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
   "connect-src 'self' https://wa.me https://www.google.com https://www.facebook.com",
-  "upgrade-insecure-requests",
+  'upgrade-insecure-requests',
 ].join('; ');
 
 const securityHeaders = [
@@ -32,7 +32,7 @@ const securityHeaders = [
   },
   {
     key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=()',
+    value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
   },
   {
     key: 'Strict-Transport-Security',
@@ -41,6 +41,22 @@ const securityHeaders = [
   {
     key: 'Cross-Origin-Opener-Policy',
     value: 'same-origin',
+  },
+  {
+    key: 'Cross-Origin-Resource-Policy',
+    value: 'same-origin',
+  },
+  {
+    key: 'Origin-Agent-Cluster',
+    value: '?1',
+  },
+  {
+    key: 'X-DNS-Prefetch-Control',
+    value: 'off',
+  },
+  {
+    key: 'X-Permitted-Cross-Domain-Policies',
+    value: 'none',
   },
 ];
 
