@@ -19,7 +19,7 @@ jest.mock("next/link", () => ({
     ),
 }));
 
-import Navbar from "@/modules/landing/ui/components/Navbar";
+import Navbar from "@/app/components/navBar";
 
 describe("Navbar", () => {
     it("renderiza el logo y textos principales", () => {
