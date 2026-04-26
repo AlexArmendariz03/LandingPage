@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 
 jest.mock("next/image", () => ({
     __esModule: true,
-    default: (props: any) => {
+    default: ({ fill: _fill, priority: _priority, ...props }: any) => {
         // eslint-disable-next-line @next/next/no-img-element
         return <img {...props} alt={"imagen test"} />;
     },
@@ -19,7 +19,7 @@ jest.mock("next/link", () => ({
     ),
 }));
 
-import Navbar from "@/app/components/navBar";
+import Navbar from "@/modules/landing/ui/components/Navbar";
 
 describe("Navbar", () => {
     it("renderiza el logo y textos principales", () => {

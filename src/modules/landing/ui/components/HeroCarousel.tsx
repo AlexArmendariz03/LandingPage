@@ -1,32 +1,20 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-
-type Slide = {
-  src: string;
-  alt: string;
-};
+import { getLandingPageContent } from "@/modules/landing/application/use-cases/getLandingPageContent";
 
 const logoMs = 7000;
 const photoMs = 4500;
+
+const { heroSlides } = getLandingPageContent();
 
 export function getSlideDelay(index: number): number {
   return index === 0 ? logoMs : photoMs;
 }
 
 export function HeroCarousel() {
-  const slides = useMemo<Slide[]>(
-    () => [
-      { src: "/brand/Hernandez.png", alt: "Logo Hernández Impermeabilizaciones & Poliuretano" },
-      { src: "/brand/aplicador.png", alt: "Impermeabilización profesional de techos" },
-      { src: "/brand/pinturaPoli.png", alt: "Impermeabilización y pintura de techos" },
-      { src: "/brand/aplicadorBodega.png", alt: "Impermeabilización y pintura en bodega" },
-    ],
-    []
-  );
-
-  const total = slides.length;
+  const total = heroSlides.length;
   const [index, setIndex] = useState<number>(0);
   const [paused, setPaused] = useState<boolean>(false);
 
@@ -48,7 +36,7 @@ export function HeroCarousel() {
     <div className="relative w-full" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/30 shadow-2xl">
         <div className="relative aspect-[4/3] w-full">
-          {slides.map((slide, i) => (
+          {heroSlides.map((slide, i) => (
             <div
               key={slide.src}
               className={[
@@ -88,7 +76,7 @@ export function HeroCarousel() {
         </button>
 
         <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
-          {slides.map((_, i) => (
+          {heroSlides.map((_, i) => (
             <button
               key={i}
               type="button"

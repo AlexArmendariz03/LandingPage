@@ -1,64 +1,50 @@
-# Revisión SOLID y Clean Architecture
+# Revisión SOLID y Arquitectura Hexagonal
 
-Fecha: 24 de abril de 2026.
+Fecha: 26 de abril de 2026.
 
-## Resumen ejecutivo
+## Resultado de la mejora aplicada
 
-El proyecto tiene una buena base visual y está bien orientado a objetivo de negocio (captación), pero la capa de presentación concentra demasiadas responsabilidades en `src/app/page.tsx`.
+Se reorganizó el módulo de landing a una estructura con separación por capas (dominio, aplicación, infraestructura y UI) para acercar el proyecto a principios SOLID y arquitectura hexagonal.
 
-Estado general:
-- **SOLID:** cumplimiento **parcial** (fortalezas en composición, debilidades en SRP/OCP por acoplamiento de contenido + UI).
-- **Clean Architecture:** cumplimiento **básico** (estructura por framework, no por capas de dominio/casos de uso).
+## Estructura propuesta (implementada)
 
-## Hallazgos por principio SOLID
+```text
+src/modules/landing
+├── domain
+│   ├── entities/landing.ts
+│   └── ports/landingContentRepository.ts
+├── application
+│   └── use-cases
+│       ├── getLandingPageContent.ts
+│       └── getNavigationLinks.ts
+├── infrastructure
+│   └── repositories/staticLandingContentRepository.ts
+└── ui
+    ├── components
+    │   ├── HeroCarousel.tsx
+    │   └── Navbar.tsx
+    └── config/highlightIcons.tsx
+```
 
-### S — Single Responsibility Principle (SRP)
-- **Antes:** `page.tsx` contenía contenido estático, mapeo visual y comportamiento de animaciones en un mismo archivo.
-- **Mejora aplicada:** el contenido de negocio/marketing se movió a `src/app/content/landingContent.ts`.
-- **Impacto:** separa “qué se muestra” de “cómo se renderiza”.
+## Cómo esta estructura mejora SOLID
 
-### O — Open/Closed Principle (OCP)
-- **Riesgo actual:** para agregar nuevas secciones o variar textos, había que editar directamente la vista principal.
-- **Mejora aplicada:** ahora gran parte de cambios de contenido se resuelve modificando `landingContent.ts`.
+- **S (Single Responsibility):**
+  - Dominio define modelos y contratos.
+  - Aplicación orquesta casos de uso.
+  - Infraestructura resuelve origen de datos estáticos.
+  - UI solo renderiza.
 
-### L — Liskov Substitution Principle (LSP)
-- No se observan jerarquías de herencia relevantes; principio no aplicable de forma directa en el estado actual.
+- **O (Open/Closed):**
+  - Puedes crear otro repositorio (CMS/API) implementando el puerto `LandingContentRepository` sin modificar la UI.
 
-### I — Interface Segregation Principle (ISP)
-- Se usan tipos concretos ligeros (`Highlight`, `Service`, etc.) sin interfaces sobredimensionadas.
-- Oportunidad: formalizar contratos para futuros orígenes de datos (CMS/API).
+- **L / I:**
+  - Los contratos son pequeños y específicos (`getLandingPageContent`, `getNavigationLinks`).
 
-### D — Dependency Inversion Principle (DIP)
-- `page.tsx` sigue dependiendo de detalles de librerías (`AOS`) y de assets directos.
-- Recomendación: introducir una capa de adaptadores para proveedores externos si el proyecto escala.
+- **D (Dependency Inversion):**
+  - La aplicación depende de un puerto de dominio, no de datos embebidos en el componente.
 
-## Hallazgos de Clean Architecture
+## Próximos pasos recomendados
 
-### Lo positivo
-- Componentes reutilizables aislados (`heroCarrusel`, `navBar`).
-- Separación inicial de datos estáticos en módulo de contenido.
-
-### Brechas
-- No existe capa de dominio explícita (entidades, reglas, casos de uso).
-- No existe capa de aplicación para orquestar acciones (por ejemplo, envío/validación de contacto).
-- Acoplamiento fuerte a Next.js en capa de entrada.
-
-## Plan sugerido por etapas
-
-1. **Corto plazo**
-   - Mantener contenido en módulos `content/*`.
-   - Extraer hooks de comportamiento (p. ej. `useAosConfig`).
-
-2. **Mediano plazo**
-   - Crear `src/domain`, `src/application`, `src/infrastructure`.
-   - Definir casos de uso (ej. `RequestQuoteUseCase`).
-
-3. **Escalamiento**
-   - Introducir puertos y adaptadores (repo de leads, proveedor de analytics, proveedor de correo).
-   - Añadir pruebas de casos de uso desacopladas del framework.
-
-## Criterio de aceptación para la siguiente iteración
-
-- `page.tsx` reducido a composición de secciones.
-- Casos de uso con pruebas unitarias independientes de Next.js.
-- Fuentes externas consumidas por adaptadores y no desde los componentes.
+1. Inyectar repositorios por fábrica/DI para evitar instanciación directa en casos de uso.
+2. Agregar tests unitarios por capa (dominio/aplicación) sin React.
+3. Extender patrón a formularios/contacto y analítica.
