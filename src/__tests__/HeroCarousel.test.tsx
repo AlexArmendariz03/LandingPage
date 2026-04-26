@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { getSlideDelay, HeroCarousel } from "@/modules/landing/ui/components/HeroCarousel";
+import { getSlideDelay, HeroCarousel } from "@/app/components/heroCarrusel";
 
 jest.mock("next/image", () => ({
     __esModule: true,

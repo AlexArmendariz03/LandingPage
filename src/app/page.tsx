@@ -10,7 +10,7 @@ import {
     FaPhoneAlt,
     FaShieldAlt,
 } from "react-icons/fa";
-import { HeroCarousel } from "@/modules/landing/ui/components/HeroCarousel";
+import { HeroCarousel } from "@/app/components/heroCarrusel";
 import { getLandingPageContent } from "@/modules/landing/application/use-cases/getLandingPageContent";
 import { highlightIcons } from "@/modules/landing/ui/config/highlightIcons";
 import { AiFillGoogleSquare, AiOutlineFacebook, AiOutlineWhatsApp } from "react-icons/ai";
