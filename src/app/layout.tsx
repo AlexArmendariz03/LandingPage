@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
-import Navbar from "@/app/components/navBar";
+import Navbar from "@/modules/landing/ui/components/Navbar";
 import Script from "next/script";
 
 

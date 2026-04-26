@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { getNavigationLinks } from "@/modules/landing/application/use-cases/getNavigationLinks";
+
+const navigationLinks = getNavigationLinks();
 
 export default function Navbar() {
   return (
@@ -16,24 +19,11 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-white/80">
-          <a href="#servicios" className="hover:text-white transition">
-            Servicios
-          </a>
-          <a href="#beneficios" className="hover:text-white transition">
-            Beneficios
-          </a>
-          <a href="#proceso" className="hover:text-white transition">
-            Proceso
-          </a>
-          <a href="#impacto" className="hover:text-white transition">
-            Valor
-          </a>
-          <a href="#galeria" className="hover:text-white transition">
-            Diferenciales
-          </a>
-          <a href="#contacto" className="hover:text-white transition">
-            Contacto
-          </a>
+          {navigationLinks.map((linkItem) => (
+            <a key={linkItem.href} href={linkItem.href} className="hover:text-white transition">
+              {linkItem.label}
+            </a>
+          ))}
         </div>
 
         <a

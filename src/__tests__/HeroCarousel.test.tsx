@@ -1,11 +1,11 @@
 import React from "react";
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { getSlideDelay, HeroCarousel } from "@/app/components/heroCarrusel";
+import { getSlideDelay, HeroCarousel } from "@/modules/landing/ui/components/HeroCarousel";
 
 jest.mock("next/image", () => ({
     __esModule: true,
-    default: (props: any) => {
+    default: ({ fill: _fill, priority: _priority, ...props }: any) => {
         // eslint-disable-next-line @next/next/no-img-element
         return <img {...props} alt={"imagen test"} />;
     },
@@ -27,7 +27,9 @@ describe("HeroCarousel", () => {
     });
 
     afterEach(() => {
-        jest.runOnlyPendingTimers();
+        act(() => {
+            jest.runOnlyPendingTimers();
+        });
         jest.useRealTimers();
     });
 

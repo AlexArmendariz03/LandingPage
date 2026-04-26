@@ -9,30 +9,17 @@ import {
     FaLeaf,
     FaPhoneAlt,
     FaShieldAlt,
-    FaThermometerHalf,
-    FaTools,
 } from "react-icons/fa";
-import { HeroCarousel } from "@/app/components/heroCarrusel";
-import {
-    businessImpact,
-    highlights,
-    projectGallery,
-    services,
-    steps,
-    valueSection,
-} from "@/app/content/landingContent";
+import { HeroCarousel } from "@/modules/landing/ui/components/HeroCarousel";
+import { getLandingPageContent } from "@/modules/landing/application/use-cases/getLandingPageContent";
+import { highlightIcons } from "@/modules/landing/ui/config/highlightIcons";
 import { AiFillGoogleSquare, AiOutlineFacebook, AiOutlineWhatsApp } from "react-icons/ai";
 
 // AOS
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const highlightIcons = {
-    thermometer: <FaThermometerHalf className="text-[#f3992e] text-2xl" />,
-    shield: <FaShieldAlt className="text-[#0c5ce6] text-2xl" />,
-    tools: <FaTools className="text-[#f3992e] text-2xl" />,
-};
-
+const { businessImpact, highlights, projectGallery, services, steps, valueSection } = getLandingPageContent();
 
 export default function LandingPage() {
     const currentYear = new Date().getFullYear();
