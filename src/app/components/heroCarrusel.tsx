@@ -1,1 +1,95 @@
-export { HeroCarousel, getSlideDelay } from "@/modules/landing/ui/components/HeroCarousel";
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { getLandingPageContent } from "@/modules/landing/application/use-cases/getLandingPageContent";
+
+const logoMs = 7000;
+const photoMs = 4500;
+
+const { heroSlides } = getLandingPageContent();
+
+export function getSlideDelay(index: number): number {
+  return index === 0 ? logoMs : photoMs;
+}
+
+export function HeroCarousel() {
+  const total = heroSlides.length;
+  const [index, setIndex] = useState<number>(0);
+  const [paused, setPaused] = useState<boolean>(false);
+
+  const goTo = (slideIndex: number) => setIndex((slideIndex + total) % total);
+  const next = () => goTo(index + 1);
+  const prev = () => goTo(index - 1);
+
+  useEffect(() => {
+    if (total <= 1 || paused) return;
+
+    const id = window.setTimeout(() => {
+      setIndex((currentIndex) => (currentIndex + 1) % total);
+    }, getSlideDelay(index));
+
+    return () => window.clearTimeout(id);
+  }, [index, paused, total]);
+
+  return (
+    <div className="relative w-full" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/30 shadow-2xl">
+        <div className="relative aspect-[4/3] w-full">
+          {heroSlides.map((slide, i) => (
+            <div
+              key={slide.src}
+              className={[
+                "absolute inset-0 transition-opacity duration-700",
+                i === index ? "opacity-100" : "opacity-0",
+              ].join(" ")}
+            >
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                priority={i === 0}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className={["object-cover", i === 0 ? "object-contain p-10 md:p-12" : "object-cover"].join(" ")}
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent" />
+            </div>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="Anterior"
+          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 px-3 py-2 backdrop-blur transition"
+        >
+          ‹
+        </button>
+        <button
+          type="button"
+          onClick={next}
+          aria-label="Siguiente"
+          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 px-3 py-2 backdrop-blur transition"
+        >
+          ›
+        </button>
+
+        <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => goTo(i)}
+              aria-label={`Ir a la imagen ${i + 1}`}
+              className={[
+                "h-2.5 w-2.5 rounded-full transition border border-white/20",
+                i === index ? "bg-white/80" : "bg-white/20 hover:bg-white/35",
+              ].join(" ")}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
