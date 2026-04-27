@@ -5,7 +5,7 @@ import { getSlideDelay, HeroCarousel } from "@/app/components/heroCarrusel";
 
 jest.mock("next/image", () => ({
     __esModule: true,
-    default: (props: any) => {
+    default: ({ fill: _fill, priority: _priority, ...props }: any) => {
         // eslint-disable-next-line @next/next/no-img-element
         return <img {...props} alt={"imagen test"} />;
     },
@@ -27,7 +27,9 @@ describe("HeroCarousel", () => {
     });
 
     afterEach(() => {
-        jest.runOnlyPendingTimers();
+        act(() => {
+            jest.runOnlyPendingTimers();
+        });
         jest.useRealTimers();
     });
 
