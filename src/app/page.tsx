@@ -19,6 +19,27 @@ import { AiFillGoogleSquare, AiOutlineFacebook, AiOutlineWhatsApp } from "react-
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+
+const whatsappMessage = "Hola, quiero cotizar un proyecto de impermeabilización.";
+
+const whatsappContacts = [
+    {
+        label: "WhatsApp presupuestos",
+        title: "Solicita tu presupuesto",
+        detail: "+52 614 746 4430",
+        phone: "5216147464430",
+    },
+    {
+        label: "WhatsApp atención",
+        title: "Solicita tu presupuesto",
+        detail: "+52 614 131 4603",
+        phone: "5216141314603",
+    },
+];
+
+const buildWhatsAppLink = (phone: string) =>
+    `https://wa.me/${phone}?text=${encodeURIComponent(whatsappMessage)}`;
+
 const highlights = [
     {
         title: "Aislamiento térmico superior",
@@ -373,27 +394,30 @@ export default function LandingPage() {
                         </p>
                     </div>
 
-                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                        <a
-                            href="https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n."
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                            className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
-                            data-aos="fade-up"
-                            data-aos-delay={0}
-                        >
-                            <div className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
-                  <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
-                </span>
+                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+                        {whatsappContacts.map((contact, index) => (
+                            <a
+                                key={contact.phone}
+                                href={buildWhatsAppLink(contact.phone)}
+                                target="_blank"
+                                rel="noopener noreferrer nofollow"
+                                className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
+                                data-aos="fade-up"
+                                data-aos-delay={index * 100}
+                            >
+                                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
+                    <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
+                  </span>
 
-                                <div className="min-w-0">
-                                    <p className="text-sm text-white/70">WhatsApp</p>
-                                    <p className="mt-1 font-semibold text-white">Cotiza por mensaje</p>
-                                    <p className="mt-1 text-xs text-white/60">Respuesta rápida</p>
+                                    <div className="min-w-0">
+                                        <p className="text-sm text-white/70">{contact.label}</p>
+                                        <p className="mt-1 font-semibold text-white">{contact.title}</p>
+                                        <p className="mt-1 text-xs text-white/60">{contact.detail}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        ))}
 
                         <a
                             href="https://share.google/Wz59zQhGrAETbPFYA"
