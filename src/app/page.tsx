@@ -21,12 +21,6 @@ import "aos/dist/aos.css";
 
 const highlights = [
     {
-        title: "Aislamiento térmico superior",
-        description:
-            "Espuma proyectada de celda cerrada que mejora el aislamiento en techos y muros, ayudando a mantener una temperatura interior más estable.",
-        icon: <FaThermometerHalf className="text-[#f3992e] text-2xl" />,
-    },
-    {
         title: "Durabilidad garantizada",
         description:
             "Recubrimientos de alta resistencia a humedad, rayos UV y abrasión para prolongar la vida útil de cubiertas y superficies expuestas.",
@@ -44,25 +38,42 @@ const services = [
     {
         title: "Poliuretano",
         detail:
-            "Aislamiento y sellado continuo para controlar filtraciones y mejorar el confort térmico. Recomendado para techos, naves industriales, comercios y cámaras de refrigeración.",
+            "Aislamiento y sellado continuo para controlar filtraciones y mejorar el confort térmico. Recomendadas para naves industriales, casa habitacion, locales comerciales, negocios y cuartos frios. Material recomendado para techos, paredes y pisos con superficies planas o curvas.",
     },
     {
-        title: "Sistema prefabricado",
+        title: "Papel prefabricado",
         detail:
-            "Sistema para cubiertas con instalación eficiente y espesores controlados. Brinda impermeabilidad confiable, menor mantenimiento y mayor durabilidad en superficies amplias.",
+            "Sistema de instalación eficiente de grosor controlado que brinda impermeabilidad confiable, duradera  y de menor mantenimiento en superficies lisas.",
     },
     {
         title: "Aplicación de chapopote",
         detail:
-            "Impermeabilización asfáltica de alta adherencia para proteger contra humedad, lluvia y encharcamientos. Ideal para azoteas, losas y zonas con filtración recurrente.",
+            "Impermeabilización asfáltica de alta adherencia para proteger contra humedad y lluvia. Ideal para superficies lisas.",
+    },
+    {
+        title: "Pinutra elasrtomerica con maya reforzada",
+        detail:
+            "Sistema de aplicación de pintura elastomerica con malla reforzada ideal para superficies lisas o curvas",
+    },
+    {
+        title: "Mantenimiento preventivo",
+        detail:
+            "Aplicación de pintura elastomerica para prevenir daños en materiales aplicados como poliuretano, papel prefabricado y chapopote. Recomendado para techos, paredes y pisos con superficies lisas y curvas.",
+    },
+    {
+        title: "Anivelacion de techos y lagunas",
+        detail:
+            "Nivelacion de superficies con  problemas de caida y lagunas. Recomendado para techos de loza y madera.",
     },
 ];
 
 const steps = [
-    "Diagnóstico técnico en sitio para identificar filtraciones, humedad y puntos críticos de pérdida térmica.",
-    "Propuesta detallada con alcance del trabajo, sistema recomendado, tiempos de ejecución y garantía.",
-    "Preparación de superficie y aplicación profesional con personal capacitado y proceso controlado.",
-    "Entrega final con garantía por escrito y seguimiento postservicio para validar el desempeño del sistema.",
+    "Diagnóstico técnico para identificar filtraciones, humedad y puntos críticos.",
+    "Medición de superficies.",
+    "Entrega de presupuesto claro con recomendación estratégica de materiales para maximizar resultados.",
+    "Aprobación del proyecto y solicitud de anticipo para programar e iniciar la obra.",
+    "Ejecución del sistema de impermeabilización conforme a especificaciones técnicas.",
+    "Entrega final con garantía por escrito y liquidación del presupuesto.",
 ];
 
 const valueSection = [
@@ -79,49 +90,49 @@ const valueSection = [
     {
         title: "Enfoque en ahorro y durabilidad",
         detail:
-            "Nos enfocamos en reducir filtraciones, bajar costos de mantenimiento y extender la vida útil de tu cubierta.",
+            "Nos enfocamos en reducir filtraciones, bajar costos de mantenimiento y extender la vida útil de la cubierta.",
     },
 ];
 
 
 const projectGallery = [
     {
-        src: "/brand/aplicador.png",
+        src: "/trabajos/galeriaPoluretano.jpeg",
         alt: "Aplicación profesional de impermeabilizante en techo",
-        label: "Aplicación técnica en techo residencial",
+        label: "Poluretano",
     },
     {
-        src: "/brand/aplicadorBodega.png",
+        src: "/trabajos/galeriaPapel.jpeg",
         alt: "Aplicación de recubrimiento en bodega industrial",
-        label: "Proyecto en bodega con acabado uniforme",
+        label: "Papel prefabricado",
     },
     {
-        src: "/brand/pinturaPoli.png",
+        src: "/trabajos/galeriaChapopote.jpeg",
         alt: "Recubrimiento de poliuretano terminado en cubierta",
-        label: "Sistema de poliuretano finalizado",
+        label: "Aplicación de chapopote",
     },
     {
-        src: "/brand/techoBlanco.png",
+        src: "/trabajos/galeriaElastomerica.jpeg",
         alt: "Techo impermeabilizado con acabado blanco reflectivo",
-        label: "Acabado reflectivo para control térmico",
+        label: "Pinutra elasrtomerica con maya reforzada",
     },
     {
-        src: "/brand/techo2.png",
-        alt: "Cubierta protegida después de mantenimiento preventivo",
+        src: "/trabajos/galeriaMantenimineto.jpeg",
+        alt: "Mantenimiento preventivo",
         label: "Mantenimiento preventivo y sellado",
     },
     {
-        src: "/brand/roof-application.svg",
+        src: "/trabajos/galeriaNivelacion.jpeg",
         alt: "Representación de trabajo de impermeabilización en cubierta",
-        label: "Cobertura completa de superficie",
+        label: "Anivelacion de techos y lagunas",
     },
 ];
 
 const businessImpact = [
-    "Menor costo por mantenimientos correctivos al reducir filtraciones recurrentes.",
-    "Mejor confort térmico y potencial reducción de carga en sistemas de climatización.",
-    "Mayor continuidad operativa en bodegas y comercios al disminuir riesgo de daño por humedad.",
-    "Bitácora técnica del servicio para facilitar auditorías y decisiones de mantenimiento futuro.",
+    "Elimina gastos innecesarios al detener filtraciones de forma definitiva.",
+    "Ahorra energía con un mejor aislamiento térmico en tus espacios.",
+    "Evita pérdidas y paros operativos causados por humedad.",
+    "Trabajo con mano de obra garantizada por escrito.",
 ];
 
 export default function LandingPage() {
@@ -145,12 +156,11 @@ export default function LandingPage() {
             <span className="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#cfe4ff]">
               Hernández Impermeabilizaciones & Poliuretano
             </span>
-                        <h1 className="text-2xl md:text-5xl font-extrabold">
-                            Impermeabilizamos superficies con soluciones de alto desempeño para proteger tu inversión.
+                        <h1 className="text-2xl md:text-4xl font-extrabold">
+                            Impermeabilizamos superficies con materiales de la mas alta calidad para proteger tu hogar o negocio.
                         </h1>
                         <p className="text-lg text-blue-50/80">
-                            Atendemos filtraciones, mejoramos el aislamiento térmico y protegemos tus instalaciones con
-                            soluciones diseñadas para clima extremo y uso intensivo.
+                            Eliminamos filtraciones, mejoramos el aislamiento termico y protegemos tus instalaciones para climas extremos.
                         </p>
 
                         <div className="flex flex-wrap gap-4">
@@ -244,8 +254,7 @@ export default function LandingPage() {
                 <div data-aos="fade-up" className="mb-8">
                     <h2 className="text-3xl font-bold mb-3">Información que genera valor para tu decisión</h2>
                     <p className="text-blue-50/80">
-                        Esta propuesta está orientada a resultados medibles para hogar, comercio o nave industrial:
-                        menos costos ocultos por humedad, mejor desempeño térmico y continuidad operativa.
+                        Una solución diseñada que reduce los costos causados por la humedad, mejora el aislamiento térmico y asegura que tus operaciones no se detengan.
                     </p>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
@@ -269,8 +278,7 @@ export default function LandingPage() {
                 <div data-aos="fade-up">
                     <h2 className="text-3xl font-bold mb-6">Nuestro proceso</h2>
                     <p className="text-blue-50/80 mb-6">
-                        Seguimos un proceso claro para que tengas visibilidad del trabajo, los tiempos y los resultados desde el
-                        primer día.
+                        Seguimos un proceso claro para que tengas visibilidad del trabajo, los tiempos y los resultados.
                     </p>
                 </div>
 
@@ -322,23 +330,6 @@ export default function LandingPage() {
                             </article>
                         ))}
                     </div>
-
-                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        {valueSection.map((item, index) => (
-                            <article
-                                key={item.title}
-                                className="rounded-2xl bg-slate-950/70 border border-white/10 p-5"
-                                data-aos="zoom-in"
-                                data-aos-delay={index * 120}
-                            >
-                                <div className="flex items-center gap-3 mb-3">
-                                    <FaCheckCircle className="text-[#f3992e]" />
-                                    <h3 className="font-semibold">{item.title}</h3>
-                                </div>
-                                <p className="text-sm text-blue-50/80">{item.detail}</p>
-                            </article>
-                        ))}
-                    </div>
                 </div>
             </section>
 
@@ -346,8 +337,8 @@ export default function LandingPage() {
                 <div className="max-w-4xl mx-auto px-6 py-20 text-center" data-aos="fade-up">
                     <h2 className="text-3xl font-bold">Contacto</h2>
                     <p className="mt-3 text-blue-50/80">
-                        Compártenos el tipo de superficie, el metraje aproximado y el problema principal. Te enviaremos una
-                        propuesta técnica clara con tiempos, materiales recomendados y garantía.
+                        Convierte tu problema en una solución duradera.
+                        Te asesoramos sin compromiso y te damos una propuesta clara desde el primer contacto.
                     </p>
 
                     <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay={100}>

@@ -18,10 +18,11 @@ export function getSlideDelay(index: number): number {
 export function HeroCarousel() {
   const slides = useMemo<Slide[]>(
     () => [
-      { src: "/brand/Hernandez.png", alt: "Logo Hernández Impermeabilizaciones & Poliuretano" },
-      { src: "/brand/aplicador.png", alt: "Impermeabilización profesional de techos" },
-      { src: "/brand/pinturaPoli.png", alt: "Impermeabilización y pintura de techos" },
-      { src: "/brand/aplicadorBodega.png", alt: "Impermeabilización y pintura en bodega" },
+      { src: "/trabajos/12mayoPapel.jpeg", alt: "Logo Hernández Impermeabilizaciones & Poliuretano" },
+      { src: "/trabajos/12mayoChapopote.jpeg", alt: "Impermeabilización profesional de techos" },
+      { src: "/trabajos/12mayo.jpeg", alt: "Impermeabilización y pintura en bodega" },
+      { src: "/trabajos/12mayopoluretano.jpeg", alt: "Impermeabilización y pintura en bodega" },
+      { src: "/trabajos/12papelRojo.jpeg", alt: "Impermeabilización y pintura en bodega" },
     ],
     []
   );
