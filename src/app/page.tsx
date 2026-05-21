@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -8,10 +8,14 @@ import {
     FaClipboardCheck,
     FaLeaf,
     FaPhoneAlt,
+    FaPaintRoller,
+    FaRulerCombined,
+    FaLayerGroup,
     FaShieldAlt,
-    FaThermometerHalf,
+    FaTint,
     FaTools,
 } from "react-icons/fa";
+import { MdRoofing } from "react-icons/md";
 import { HeroCarousel } from "@/app/components/heroCarrusel";
 import { AiFillGoogleSquare, AiOutlineFacebook, AiOutlineWhatsApp } from "react-icons/ai";
 
@@ -65,6 +69,11 @@ const services = [
         detail:
             "Nivelación de superficies con problemas de caída y encharcamientos. Recomendado para techos de loza y madera.",
     },
+];
+
+const whatsappOptions = [
+    { label: "+52 614 746 4430", href: "https://wa.me/5216147464430?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n." },
+    { label: "+52 614 131 4603", href: "https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n." },
 ];
 
 const steps = [
@@ -137,6 +146,16 @@ const businessImpact = [
 
 export default function LandingPage() {
     const currentYear = new Date().getFullYear();
+    const [showWhatsAppMenu, setShowWhatsAppMenu] = useState(false);
+    const [whatsAppIndex, setWhatsAppIndex] = useState(0);
+
+    const currentWhatsApp = useMemo(() => whatsappOptions[whatsAppIndex], [whatsAppIndex]);
+
+    const handleWhatsAppQuickSwitch = () => {
+        const nextIndex = (whatsAppIndex + 1) % whatsappOptions.length;
+        setWhatsAppIndex(nextIndex);
+        window.open(whatsappOptions[nextIndex].href, "_blank", "noopener,noreferrer");
+    };
 
     useEffect(() => {
         AOS.init({
@@ -219,13 +238,22 @@ export default function LandingPage() {
                     {services.map((s, index) => (
                         <div
                             key={s.title}
-                            className="rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-6"
+                            className="rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-6 flex items-start gap-4"
                             data-aos="zoom-in-up"
                             data-aos-delay={index * 100}
                         >
-                            <FaShieldAlt className="text-[#f3992e] text-2xl mb-4" />
-                            <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-                            <p className="text-blue-50/80 text-sm">{s.detail}</p>
+                            <span className="shrink-0 mt-1 rounded-lg bg-white/5 p-2">
+                                {index === 0 && <FaTools className="text-[#f3992e] text-2xl" />}
+                                {index === 1 && <FaLayerGroup className="text-[#f3992e] text-2xl" />}
+                                {index === 2 && <FaTint className="text-[#f3992e] text-2xl" />}
+                                {index === 3 && <FaPaintRoller className="text-[#f3992e] text-2xl" />}
+                                {index === 4 && <MdRoofing className="text-[#f3992e] text-2xl" />}
+                                {index === 5 && <FaRulerCombined className="text-[#f3992e] text-2xl" />}
+                            </span>
+                            <div>
+                                <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
+                                <p className="text-blue-50/80 text-sm">{s.detail}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -371,49 +399,41 @@ export default function LandingPage() {
                         </p>
                     </div>
 
-                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                        <a
-                            href="https://wa.me/5216147464430?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n."
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                            className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
-                            data-aos="fade-up"
-                            data-aos-delay={0}
-                        >
-                            <div className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
-                  <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
-                </span>
-
-                                <div className="min-w-0">
-                                    <p className="text-sm text-white/70">WhatsApp</p>
-                                    <p className="mt-1 font-semibold text-white">Solicita presupuesto: +52 614 746 4430</p>
-                                    <p className="mt-1 text-xs text-white/60">Respuesta rápida</p>
+                    <div className="mt-10 flex flex-col items-center gap-4 text-left">
+                        <div className="relative">
+                            <button
+                                type="button"
+                                onClick={() => setShowWhatsAppMenu((prev) => !prev)}
+                                className="group inline-flex items-center gap-2 rounded-xl border border-emerald-300/40 bg-emerald-500/20 px-6 py-3 font-semibold text-emerald-100 hover:bg-emerald-500/30 transition"
+                            >
+                                <AiOutlineWhatsApp className="text-2xl" />
+                                WhatsApp: {currentWhatsApp.label}
+                            </button>
+                            {showWhatsAppMenu && (
+                                <div className="absolute left-1/2 z-10 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-xl border border-white/15 bg-slate-900 shadow-xl">
+                                    {whatsappOptions.map((option) => (
+                                        <a
+                                            key={option.label}
+                                            href={option.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer nofollow"
+                                            className="block px-4 py-3 text-sm text-white/90 hover:bg-white/10 transition"
+                                        >
+                                            Solicitar presupuesto: {option.label}
+                                        </a>
+                                    ))}
                                 </div>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n."
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                            className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
-                            data-aos="fade-up"
-                            data-aos-delay={50}
+                            )}
+                        </div>
+                        <button
+                            type="button"
+                            onClick={handleWhatsAppQuickSwitch}
+                            className="rounded-lg border border-white/30 px-4 py-2 text-sm font-semibold text-white/90 hover:border-white/50 transition"
                         >
-                            <div className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
-                  <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
-                </span>
+                            Abrir WhatsApp rápido (alterna automáticamente)
+                        </button>
 
-                                <div className="min-w-0">
-                                    <p className="text-sm text-white/70">WhatsApp</p>
-                                    <p className="mt-1 font-semibold text-white">Solicita presupuesto: +52 614 131 4603</p>
-                                    <p className="mt-1 text-xs text-white/60">Atención comercial</p>
-                                </div>
-                            </div>
-                        </a>
-
+                        <div className="grid w-full grid-cols-1 sm:grid-cols-2 gap-4">
                         <a
                             href="https://share.google/Wz59zQhGrAETbPFYA"
                             target="_blank"
@@ -434,7 +454,7 @@ export default function LandingPage() {
                                 </div>
                             </div>
                         </a>
-
+                        </div>
                         <a
                             href="https://www.facebook.com/profile.php?id=100064214340903&locale=af_ZA#"
                             target="_blank"
