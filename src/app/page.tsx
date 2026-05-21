@@ -38,7 +38,7 @@ const services = [
     {
         title: "Poliuretano",
         detail:
-            "Aislamiento y sellado continuo para controlar filtraciones y mejorar el confort térmico. Recomendadas para naves industriales, casa habitacion, locales comerciales, negocios y cuartos frios. Material recomendado para techos, paredes y pisos con superficies planas o curvas.",
+            "Aislamiento y sellado continuo para controlar filtraciones y mejorar el confort térmico. Recomendadas para naves industriales, casa habitación, locales comerciales, negocios y cuartos fríos. Material recomendado para techos, paredes y pisos con superficies planas o curvas.",
     },
     {
         title: "Papel prefabricado",
@@ -51,19 +51,19 @@ const services = [
             "Impermeabilización asfáltica de alta adherencia para proteger contra humedad y lluvia. Ideal para superficies lisas.",
     },
     {
-        title: "Pinutra elasrtomerica con maya reforzada",
+        title: "Pintura elastomérica con malla reforzada",
         detail:
-            "Sistema de aplicación de pintura elastomerica con malla reforzada ideal para superficies lisas o curvas",
+            "Sistema de aplicación de pintura elastomérica con malla reforzada ideal para superficies lisas o curvas",
     },
     {
         title: "Mantenimiento preventivo",
         detail:
-            "Aplicación de pintura elastomerica para prevenir daños en materiales aplicados como poliuretano, papel prefabricado y chapopote. Recomendado para techos, paredes y pisos con superficies lisas y curvas.",
+            "Aplicación de pintura elastomérica para prevenir daños en materiales aplicados como poliuretano, papel prefabricado y chapopote. Recomendado para techos, paredes y pisos con superficies lisas y curvas.",
     },
     {
-        title: "Anivelacion de techos y lagunas",
+        title: "Nivelación de techos y lagunas",
         detail:
-            "Nivelacion de superficies con  problemas de caida y lagunas. Recomendado para techos de loza y madera.",
+            "Nivelación de superficies con problemas de caída y encharcamientos. Recomendado para techos de loza y madera.",
     },
 ];
 
@@ -99,7 +99,7 @@ const projectGallery = [
     {
         src: "/trabajos/galeriaPoluretano.jpeg",
         alt: "Aplicación profesional de impermeabilizante en techo",
-        label: "Poluretano",
+        label: "Poliuretano",
     },
     {
         src: "/trabajos/galeriaPapel.jpeg",
@@ -114,7 +114,7 @@ const projectGallery = [
     {
         src: "/trabajos/galeriaElastomerica.jpeg",
         alt: "Techo impermeabilizado con acabado blanco reflectivo",
-        label: "Pinutra elasrtomerica con maya reforzada",
+        label: "Pintura elastomérica con malla reforzada",
     },
     {
         src: "/trabajos/galeriaMantenimineto.jpeg",
@@ -124,7 +124,7 @@ const projectGallery = [
     {
         src: "/trabajos/galeriaNivelacion.jpeg",
         alt: "Representación de trabajo de impermeabilización en cubierta",
-        label: "Anivelacion de techos y lagunas",
+        label: "Nivelación de techos y lagunas",
     },
 ];
 
@@ -157,10 +157,10 @@ export default function LandingPage() {
               Hernández Impermeabilizaciones & Poliuretano
             </span>
                         <h1 className="text-2xl md:text-4xl font-extrabold">
-                            Impermeabilizamos superficies con materiales de la mas alta calidad para proteger tu hogar o negocio.
+                            Impermeabilizamos superficies con materiales de la más alta calidad para proteger tu hogar o negocio.
                         </h1>
                         <p className="text-lg text-blue-50/80">
-                            Eliminamos filtraciones, mejoramos el aislamiento termico y protegemos tus instalaciones para climas extremos.
+                            Eliminamos filtraciones, mejoramos el aislamiento térmico y protegemos tus instalaciones para climas extremos.
                         </p>
 
                         <div className="flex flex-wrap gap-4">
@@ -350,6 +350,13 @@ export default function LandingPage() {
                         </a>
 
                         <a
+                            href="tel:+526147464430"
+                            className="rounded-lg border border-white/30 px-6 py-3 font-semibold text-white/90 hover:border-white/50 hover:text-white transition"
+                        >
+                            +52 614 746 4430
+                        </a>
+
+                        <a
                             href="tel:+526141314603"
                             className="rounded-lg border border-white/30 px-6 py-3 font-semibold text-white/90 hover:border-white/50 hover:text-white transition"
                         >
@@ -366,7 +373,7 @@ export default function LandingPage() {
 
                     <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
                         <a
-                            href="https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n."
+                            href="https://wa.me/5216147464430?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n."
                             target="_blank"
                             rel="noopener noreferrer nofollow"
                             className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
@@ -380,8 +387,29 @@ export default function LandingPage() {
 
                                 <div className="min-w-0">
                                     <p className="text-sm text-white/70">WhatsApp</p>
-                                    <p className="mt-1 font-semibold text-white">Cotiza por mensaje</p>
+                                    <p className="mt-1 font-semibold text-white">Solicita presupuesto: +52 614 746 4430</p>
                                     <p className="mt-1 text-xs text-white/60">Respuesta rápida</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a
+                            href="https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n."
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                            className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
+                            data-aos="fade-up"
+                            data-aos-delay={50}
+                        >
+                            <div className="flex items-start gap-3">
+                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
+                  <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
+                </span>
+
+                                <div className="min-w-0">
+                                    <p className="text-sm text-white/70">WhatsApp</p>
+                                    <p className="mt-1 font-semibold text-white">Solicita presupuesto: +52 614 131 4603</p>
+                                    <p className="mt-1 text-xs text-white/60">Atención comercial</p>
                                 </div>
                             </div>
                         </a>
