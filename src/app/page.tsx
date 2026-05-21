@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -43,31 +43,37 @@ const services = [
         title: "Poliuretano",
         detail:
             "Aislamiento y sellado continuo para controlar filtraciones y mejorar el confort térmico. Recomendadas para naves industriales, casa habitación, locales comerciales, negocios y cuartos fríos. Material recomendado para techos, paredes y pisos con superficies planas o curvas.",
+        icon: <FaTools className="text-[#f3992e] text-xl" />,
     },
     {
         title: "Papel prefabricado",
         detail:
             "Sistema de instalación eficiente de grosor controlado que brinda impermeabilidad confiable, duradera  y de menor mantenimiento en superficies lisas.",
+        icon: <FaLayerGroup className="text-[#f3992e] text-xl" />,
     },
     {
         title: "Aplicación de chapopote",
         detail:
             "Impermeabilización asfáltica de alta adherencia para proteger contra humedad y lluvia. Ideal para superficies lisas.",
+        icon: <FaTint className="text-[#f3992e] text-xl" />,
     },
     {
         title: "Pintura elastomérica con malla reforzada",
         detail:
             "Sistema de aplicación de pintura elastomérica con malla reforzada ideal para superficies lisas o curvas",
+        icon: <FaPaintRoller className="text-[#f3992e] text-xl" />,
     },
     {
         title: "Mantenimiento preventivo",
         detail:
             "Aplicación de pintura elastomérica para prevenir daños en materiales aplicados como poliuretano, papel prefabricado y chapopote. Recomendado para techos, paredes y pisos con superficies lisas y curvas.",
+        icon: <MdRoofing className="text-[#f3992e] text-xl" />,
     },
     {
         title: "Nivelación de techos y lagunas",
         detail:
             "Nivelación de superficies con problemas de caída y encharcamientos. Recomendado para techos de loza y madera.",
+        icon: <FaRulerCombined className="text-[#f3992e] text-xl" />,
     },
 ];
 
@@ -147,15 +153,6 @@ const businessImpact = [
 export default function LandingPage() {
     const currentYear = new Date().getFullYear();
     const [showWhatsAppMenu, setShowWhatsAppMenu] = useState(false);
-    const [whatsAppIndex, setWhatsAppIndex] = useState(0);
-
-    const currentWhatsApp = useMemo(() => whatsappOptions[whatsAppIndex], [whatsAppIndex]);
-
-    const handleWhatsAppQuickSwitch = () => {
-        const nextIndex = (whatsAppIndex + 1) % whatsappOptions.length;
-        setWhatsAppIndex(nextIndex);
-        window.open(whatsappOptions[nextIndex].href, "_blank", "noopener,noreferrer");
-    };
 
     useEffect(() => {
         AOS.init({
@@ -234,25 +231,20 @@ export default function LandingPage() {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-5">
                     {services.map((s, index) => (
                         <div
                             key={s.title}
-                            className="rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-6 flex items-start gap-4"
+                            className="h-full rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-5 flex items-start gap-3"
                             data-aos="zoom-in-up"
                             data-aos-delay={index * 100}
                         >
-                            <span className="shrink-0 mt-1 rounded-lg bg-white/5 p-2">
-                                {index === 0 && <FaTools className="text-[#f3992e] text-2xl" />}
-                                {index === 1 && <FaLayerGroup className="text-[#f3992e] text-2xl" />}
-                                {index === 2 && <FaTint className="text-[#f3992e] text-2xl" />}
-                                {index === 3 && <FaPaintRoller className="text-[#f3992e] text-2xl" />}
-                                {index === 4 && <MdRoofing className="text-[#f3992e] text-2xl" />}
-                                {index === 5 && <FaRulerCombined className="text-[#f3992e] text-2xl" />}
+                            <span className="shrink-0 mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10">
+                                {s.icon}
                             </span>
-                            <div>
-                                <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-                                <p className="text-blue-50/80 text-sm">{s.detail}</p>
+                            <div className="min-w-0">
+                                <h3 className="text-lg font-semibold mb-1.5 leading-tight">{s.title}</h3>
+                                <p className="text-blue-50/80 text-sm leading-relaxed">{s.detail}</p>
                             </div>
                         </div>
                     ))}
@@ -399,41 +391,7 @@ export default function LandingPage() {
                         </p>
                     </div>
 
-                    <div className="mt-10 flex flex-col items-center gap-4 text-left">
-                        <div className="relative">
-                            <button
-                                type="button"
-                                onClick={() => setShowWhatsAppMenu((prev) => !prev)}
-                                className="group inline-flex items-center gap-2 rounded-xl border border-emerald-300/40 bg-emerald-500/20 px-6 py-3 font-semibold text-emerald-100 hover:bg-emerald-500/30 transition"
-                            >
-                                <AiOutlineWhatsApp className="text-2xl" />
-                                WhatsApp: {currentWhatsApp.label}
-                            </button>
-                            {showWhatsAppMenu && (
-                                <div className="absolute left-1/2 z-10 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-xl border border-white/15 bg-slate-900 shadow-xl">
-                                    {whatsappOptions.map((option) => (
-                                        <a
-                                            key={option.label}
-                                            href={option.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer nofollow"
-                                            className="block px-4 py-3 text-sm text-white/90 hover:bg-white/10 transition"
-                                        >
-                                            Solicitar presupuesto: {option.label}
-                                        </a>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                        <button
-                            type="button"
-                            onClick={handleWhatsAppQuickSwitch}
-                            className="rounded-lg border border-white/30 px-4 py-2 text-sm font-semibold text-white/90 hover:border-white/50 transition"
-                        >
-                            Abrir WhatsApp rápido (alterna automáticamente)
-                        </button>
-
-                        <div className="grid w-full grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="mt-10 grid w-full grid-cols-1 md:grid-cols-3 gap-4 text-left">
                         <a
                             href="https://share.google/Wz59zQhGrAETbPFYA"
                             target="_blank"
@@ -454,6 +412,38 @@ export default function LandingPage() {
                                 </div>
                             </div>
                         </a>
+                        <div className="relative" data-aos="fade-up" data-aos-delay={150}>
+                            <button
+                                type="button"
+                                onClick={() => setShowWhatsAppMenu((prev) => !prev)}
+                                className="group w-full rounded-xl border border-emerald-300/40 bg-emerald-500/20 px-5 py-4 hover:bg-emerald-500/30 transition"
+                            >
+                                <span className="flex items-start gap-3">
+                                    <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
+                                        <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
+                                    </span>
+                                    <span className="min-w-0 text-left">
+                                        <span className="text-sm text-emerald-100/80 block">WhatsApp</span>
+                                        <span className="mt-1 font-semibold text-emerald-100 block">Solicita presupuesto</span>
+                                        <span className="mt-1 text-xs text-emerald-100/70 block">Elige un número</span>
+                                    </span>
+                                </span>
+                            </button>
+                            {showWhatsAppMenu && (
+                                <div className="absolute left-1/2 z-10 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-xl border border-white/15 bg-slate-900 shadow-xl">
+                                    {whatsappOptions.map((option) => (
+                                        <a
+                                            key={option.label}
+                                            href={option.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer nofollow"
+                                            className="block px-4 py-3 text-sm text-white/90 hover:bg-white/10 transition"
+                                        >
+                                            Solicitar presupuesto: {option.label}
+                                        </a>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                         <a
                             href="https://www.facebook.com/profile.php?id=100064214340903&locale=af_ZA#"
@@ -464,10 +454,9 @@ export default function LandingPage() {
                             data-aos-delay={200}
                         >
                             <div className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
-                  <AiOutlineFacebook className="text-2xl text-sky-300" />
-                </span>
-
+                                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
+                                  <AiOutlineFacebook className="text-2xl text-sky-300" />
+                                </span>
                                 <div className="min-w-0">
                                     <p className="text-sm text-white/70">Facebook</p>
                                     <p className="mt-1 font-semibold text-white">Ver trabajos y reseñas</p>
