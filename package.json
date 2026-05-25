@@ -43,5 +43,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "prisma": "^5.22.0",
     "typescript": "^5.5.4"
-  }
+  },
+  "packageManager": "pnpm@10.28.1"
 }
