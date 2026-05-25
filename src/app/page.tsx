@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -8,10 +8,14 @@ import {
     FaClipboardCheck,
     FaLeaf,
     FaPhoneAlt,
+    FaPaintRoller,
+    FaRulerCombined,
+    FaLayerGroup,
     FaShieldAlt,
-    FaThermometerHalf,
+    FaTint,
     FaTools,
 } from "react-icons/fa";
+import { MdRoofing } from "react-icons/md";
 import { HeroCarousel } from "@/app/components/heroCarrusel";
 import { AiFillGoogleSquare, AiOutlineFacebook, AiOutlineWhatsApp } from "react-icons/ai";
 
@@ -38,33 +42,44 @@ const services = [
     {
         title: "Poliuretano",
         detail:
-            "Aislamiento y sellado continuo para controlar filtraciones y mejorar el confort térmico. Recomendadas para naves industriales, casa habitacion, locales comerciales, negocios y cuartos frios. Material recomendado para techos, paredes y pisos con superficies planas o curvas.",
+            "Aislamiento y sellado continuo para controlar filtraciones y mejorar el confort térmico. Recomendadas para naves industriales, casa habitación, locales comerciales, negocios y cuartos fríos. Material recomendado para techos, paredes y pisos con superficies planas o curvas.",
+        icon: <FaTools className="text-[#f3992e] text-xl" />,
     },
     {
         title: "Papel prefabricado",
         detail:
             "Sistema de instalación eficiente de grosor controlado que brinda impermeabilidad confiable, duradera  y de menor mantenimiento en superficies lisas.",
+        icon: <FaLayerGroup className="text-[#f3992e] text-xl" />,
     },
     {
         title: "Aplicación de chapopote",
         detail:
             "Impermeabilización asfáltica de alta adherencia para proteger contra humedad y lluvia. Ideal para superficies lisas.",
+        icon: <FaTint className="text-[#f3992e] text-xl" />,
     },
     {
-        title: "Pinutra elasrtomerica con maya reforzada",
+        title: "Pintura elastomérica con malla reforzada",
         detail:
-            "Sistema de aplicación de pintura elastomerica con malla reforzada ideal para superficies lisas o curvas",
+            "Sistema de aplicación de pintura elastomérica con malla reforzada ideal para superficies lisas o curvas",
+        icon: <FaPaintRoller className="text-[#f3992e] text-xl" />,
     },
     {
         title: "Mantenimiento preventivo",
         detail:
-            "Aplicación de pintura elastomerica para prevenir daños en materiales aplicados como poliuretano, papel prefabricado y chapopote. Recomendado para techos, paredes y pisos con superficies lisas y curvas.",
+            "Aplicación de pintura elastomérica para prevenir daños en materiales aplicados como poliuretano, papel prefabricado y chapopote. Recomendado para techos, paredes y pisos con superficies lisas y curvas.",
+        icon: <MdRoofing className="text-[#f3992e] text-xl" />,
     },
     {
-        title: "Anivelacion de techos y lagunas",
+        title: "Nivelación de techos y lagunas",
         detail:
-            "Nivelacion de superficies con  problemas de caida y lagunas. Recomendado para techos de loza y madera.",
+            "Nivelación de superficies con problemas de caída y encharcamientos. Recomendado para techos de loza y madera.",
+        icon: <FaRulerCombined className="text-[#f3992e] text-xl" />,
     },
+];
+
+const whatsappOptions = [
+    { label: "+52 614 746 4430", href: "https://wa.me/5216147464430?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n." },
+    { label: "+52 614 131 4603", href: "https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n." },
 ];
 
 const steps = [
@@ -99,7 +114,7 @@ const projectGallery = [
     {
         src: "/trabajos/galeriaPoluretano.jpeg",
         alt: "Aplicación profesional de impermeabilizante en techo",
-        label: "Poluretano",
+        label: "Poliuretano",
     },
     {
         src: "/trabajos/galeriaPapel.jpeg",
@@ -114,7 +129,7 @@ const projectGallery = [
     {
         src: "/trabajos/galeriaElastomerica.jpeg",
         alt: "Techo impermeabilizado con acabado blanco reflectivo",
-        label: "Pinutra elasrtomerica con maya reforzada",
+        label: "Pintura elastomérica con malla reforzada",
     },
     {
         src: "/trabajos/galeriaMantenimineto.jpeg",
@@ -124,7 +139,7 @@ const projectGallery = [
     {
         src: "/trabajos/galeriaNivelacion.jpeg",
         alt: "Representación de trabajo de impermeabilización en cubierta",
-        label: "Anivelacion de techos y lagunas",
+        label: "Nivelación de techos y lagunas",
     },
 ];
 
@@ -137,6 +152,7 @@ const businessImpact = [
 
 export default function LandingPage() {
     const currentYear = new Date().getFullYear();
+    const [showWhatsAppMenu, setShowWhatsAppMenu] = useState(false);
 
     useEffect(() => {
         AOS.init({
@@ -157,10 +173,10 @@ export default function LandingPage() {
               Hernández Impermeabilizaciones & Poliuretano
             </span>
                         <h1 className="text-2xl md:text-4xl font-extrabold">
-                            Impermeabilizamos superficies con materiales de la mas alta calidad para proteger tu hogar o negocio.
+                            Impermeabilizamos superficies con materiales de la más alta calidad para proteger tu hogar o negocio.
                         </h1>
                         <p className="text-lg text-blue-50/80">
-                            Eliminamos filtraciones, mejoramos el aislamiento termico y protegemos tus instalaciones para climas extremos.
+                            Eliminamos filtraciones, mejoramos el aislamiento térmico y protegemos tus instalaciones para climas extremos.
                         </p>
 
                         <div className="flex flex-wrap gap-4">
@@ -215,17 +231,21 @@ export default function LandingPage() {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-5">
                     {services.map((s, index) => (
                         <div
                             key={s.title}
-                            className="rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-6"
+                            className="h-full rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-5 flex items-start gap-3"
                             data-aos="zoom-in-up"
                             data-aos-delay={index * 100}
                         >
-                            <FaShieldAlt className="text-[#f3992e] text-2xl mb-4" />
-                            <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-                            <p className="text-blue-50/80 text-sm">{s.detail}</p>
+                            <span className="shrink-0 mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10">
+                                {s.icon}
+                            </span>
+                            <div className="min-w-0">
+                                <h3 className="text-lg font-semibold mb-1.5 leading-tight">{s.title}</h3>
+                                <p className="text-blue-50/80 text-sm leading-relaxed">{s.detail}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -348,13 +368,6 @@ export default function LandingPage() {
                         >
                             impermeabilizaciones29@gmail.com
                         </a>
-
-                        <a
-                            href="tel:+526141314603"
-                            className="rounded-lg border border-white/30 px-6 py-3 font-semibold text-white/90 hover:border-white/50 hover:text-white transition"
-                        >
-                            +52 614 131 4603
-                        </a>
                     </div>
 
                     <div className="mt-6 rounded-xl border border-amber-300/30 bg-amber-400/10 p-4 text-left text-sm text-amber-100">
@@ -364,28 +377,7 @@ export default function LandingPage() {
                         </p>
                     </div>
 
-                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                        <a
-                            href="https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n."
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                            className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
-                            data-aos="fade-up"
-                            data-aos-delay={0}
-                        >
-                            <div className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
-                  <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
-                </span>
-
-                                <div className="min-w-0">
-                                    <p className="text-sm text-white/70">WhatsApp</p>
-                                    <p className="mt-1 font-semibold text-white">Cotiza por mensaje</p>
-                                    <p className="mt-1 text-xs text-white/60">Respuesta rápida</p>
-                                </div>
-                            </div>
-                        </a>
-
+                    <div className="mt-10 grid w-full grid-cols-1 md:grid-cols-3 gap-4 text-left">
                         <a
                             href="https://share.google/Wz59zQhGrAETbPFYA"
                             target="_blank"
@@ -406,7 +398,39 @@ export default function LandingPage() {
                                 </div>
                             </div>
                         </a>
-
+                        <div className="relative" data-aos="fade-up" data-aos-delay={150}>
+                            <button
+                                type="button"
+                                onClick={() => setShowWhatsAppMenu((prev) => !prev)}
+                                className="group w-full rounded-xl border border-emerald-300/40 bg-emerald-500/20 px-5 py-4 hover:bg-emerald-500/30 transition"
+                            >
+                                <span className="flex items-start gap-3">
+                                    <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
+                                        <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
+                                    </span>
+                                    <span className="min-w-0 text-left">
+                                        <span className="text-sm text-emerald-100/80 block">WhatsApp</span>
+                                        <span className="mt-1 font-semibold text-emerald-100 block">Solicita presupuesto</span>
+                                        <span className="mt-1 text-xs text-emerald-100/70 block">Elige un número</span>
+                                    </span>
+                                </span>
+                            </button>
+                            {showWhatsAppMenu && (
+                                <div className="absolute left-1/2 z-10 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-xl border border-white/15 bg-slate-900 shadow-xl">
+                                    {whatsappOptions.map((option) => (
+                                        <a
+                                            key={option.label}
+                                            href={option.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer nofollow"
+                                            className="block px-4 py-3 text-sm text-white/90 hover:bg-white/10 transition"
+                                        >
+                                            Solicitar presupuesto: {option.label}
+                                        </a>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                         <a
                             href="https://www.facebook.com/profile.php?id=100064214340903&locale=af_ZA#"
                             target="_blank"
@@ -416,10 +440,9 @@ export default function LandingPage() {
                             data-aos-delay={200}
                         >
                             <div className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
-                  <AiOutlineFacebook className="text-2xl text-sky-300" />
-                </span>
-
+                                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
+                                  <AiOutlineFacebook className="text-2xl text-sky-300" />
+                                </span>
                                 <div className="min-w-0">
                                     <p className="text-sm text-white/70">Facebook</p>
                                     <p className="mt-1 font-semibold text-white">Ver trabajos y reseñas</p>

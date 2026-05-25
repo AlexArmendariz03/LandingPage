@@ -29,7 +29,7 @@ export default function Navbar() {
             Valor
           </a>
           <a href="#galeria" className="hover:text-white transition">
-            Diferenciales
+            Galería
           </a>
           <a href="#contacto" className="hover:text-white transition">
             Contacto
