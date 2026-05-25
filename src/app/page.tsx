@@ -368,20 +368,6 @@ export default function LandingPage() {
                         >
                             impermeabilizaciones29@gmail.com
                         </a>
-
-                        <a
-                            href="tel:+526147464430"
-                            className="rounded-lg border border-white/30 px-6 py-3 font-semibold text-white/90 hover:border-white/50 hover:text-white transition"
-                        >
-                            +52 614 746 4430
-                        </a>
-
-                        <a
-                            href="tel:+526141314603"
-                            className="rounded-lg border border-white/30 px-6 py-3 font-semibold text-white/90 hover:border-white/50 hover:text-white transition"
-                        >
-                            +52 614 131 4603
-                        </a>
                     </div>
 
                     <div className="mt-6 rounded-xl border border-amber-300/30 bg-amber-400/10 p-4 text-left text-sm text-amber-100">
