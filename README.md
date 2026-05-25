@@ -15,7 +15,7 @@ Landing page comercial construida con **Next.js** para captar clientes y mostrar
 ## Requisitos
 
 - Node.js 20.x
-- npm
+- pnpm
 
 ## Configuración de entorno
 
@@ -33,19 +33,19 @@ Variable requerida:
 ## Ejecutar en desarrollo
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Abre [http://localhost:3000](http://localhost:3000).
 
 ## Scripts disponibles
 
-- `npm run dev`: servidor de desarrollo.
-- `npm run build`: build de producción.
-- `npm run start`: correr build de producción.
-- `npm run lint`: linting.
-- `npm test`: tests con Jest.
+- `pnpm dev`: servidor de desarrollo.
+- `pnpm build`: build de producción.
+- `pnpm start`: correr build de producción.
+- `pnpm lint`: linting.
+- `pnpm test`: tests con Jest.
 
 ## Seguridad
 
