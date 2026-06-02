@@ -6,6 +6,7 @@ import Image from "next/image";
 import {
     FaCheckCircle,
     FaClipboardCheck,
+    FaClock,
     FaLeaf,
     FaPhoneAlt,
     FaPaintRoller,
@@ -148,6 +149,24 @@ const businessImpact = [
     "Ahorra energía con un mejor aislamiento térmico en tus espacios.",
     "Evita pérdidas y paros operativos causados por humedad.",
     "Trabajo con mano de obra garantizada por escrito.",
+];
+
+const scheduleBlocks = [
+    {
+        eyebrow: "Lunes a sábado",
+        time: "8:00 AM – 6:00 PM",
+        detail: "Atención para cotizaciones, revisiones y programación de obra.",
+    },
+    {
+        eyebrow: "Domingo",
+        time: "Cerrado",
+        detail: "Agenda tu visita con anticipación para recibir respuesta el siguiente día hábil.",
+    },
+    {
+        eyebrow: "Visitas técnicas",
+        time: "Con cita previa",
+        detail: "Coordinamos el horario ideal para revisar tu techo, bodega o superficie.",
+    },
 ];
 
 export default function LandingPage() {
@@ -349,6 +368,46 @@ export default function LandingPage() {
                                 <p className="border-t border-white/10 px-4 py-3 text-sm text-blue-50/85">{photo.label}</p>
                             </article>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            <section id="horarios" className="max-w-6xl mx-auto px-6 py-20">
+                <div
+                    className="overflow-hidden rounded-3xl border border-[#0c5ce6]/25 bg-slate-900/70 shadow-2xl shadow-blue-950/30"
+                    data-aos="fade-up"
+                >
+                    <div className="grid gap-0 lg:grid-cols-[0.95fr_2.05fr]">
+                        <div className="border-b border-white/10 bg-gradient-to-br from-[#0c5ce6]/25 via-slate-950/40 to-[#f3992e]/10 p-6 md:p-8 lg:border-b-0 lg:border-r">
+                            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-[#cfe4ff]">
+                                <FaClock className="text-[#f3992e]" />
+                                Horarios de atención
+                            </span>
+                            <h2 className="mt-4 text-3xl font-bold">Agenda en el mejor momento para tu proyecto</h2>
+                            <p className="mt-3 text-sm leading-relaxed text-blue-50/80">
+                                Consulta la disponibilidad de atención en un bloque claro y fácil de leer, manteniendo la
+                                información principal en una sola línea visual.
+                            </p>
+                        </div>
+
+                        <div className="grid divide-y divide-white/10 md:grid-cols-3 md:divide-x md:divide-y-0">
+                            {scheduleBlocks.map((item, index) => (
+                                <article
+                                    key={item.eyebrow}
+                                    className="group flex min-h-48 flex-col justify-between p-6 transition hover:bg-white/[0.03] md:p-7"
+                                    data-aos="fade-up"
+                                    data-aos-delay={index * 100}
+                                >
+                                    <div>
+                                        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#f3992e]">
+                                            {item.eyebrow}
+                                        </p>
+                                        <p className="mt-3 text-2xl font-extrabold text-white">{item.time}</p>
+                                    </div>
+                                    <p className="mt-5 text-sm leading-relaxed text-blue-50/75">{item.detail}</p>
+                                </article>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
