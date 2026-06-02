@@ -45,7 +45,8 @@ describe("Navbar", () => {
             ["Beneficios", "#beneficios"],
             ["Proceso", "#proceso"],
             ["Valor", "#impacto"],
-            ["Diferenciales", "#galeria"],
+            ["Galería", "#galeria"],
+            ["Horarios", "#horarios"],
             ["Contacto", "#contacto"],
         ];
 

@@ -31,6 +31,9 @@ export default function Navbar() {
           <a href="#galeria" className="hover:text-white transition">
             Galería
           </a>
+          <a href="#horarios" className="hover:text-white transition">
+            Horarios
+          </a>
           <a href="#contacto" className="hover:text-white transition">
             Contacto
           </a>
