@@ -45,7 +45,7 @@ describe("Navbar", () => {
             ["Beneficios", "#beneficios"],
             ["Proceso", "#proceso"],
             ["Valor", "#impacto"],
-            ["Diferenciales", "#galeria"],
+            ["Galería", "#galeria"],
             ["Contacto", "#contacto"],
         ];
 
@@ -55,10 +55,13 @@ describe("Navbar", () => {
         }
     });
 
-    it('renderiza el CTA "Cotiza ahora" apuntando a #contacto', () => {
+    it('renderiza CTAs a contacto y WhatsApp', () => {
         render(<Navbar />);
 
         const cta = screen.getByRole("link", { name: "Cotiza ahora" });
         expect(cta).toHaveAttribute("href", "#contacto");
+
+        const whatsappCta = screen.getByRole("link", { name: "WhatsApp" });
+        expect(whatsappCta).toHaveAttribute("href", expect.stringContaining("https://wa.me/"));
     });
 });
