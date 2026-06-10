@@ -36,7 +36,7 @@ describe("HeroCarousel", () => {
 
         expect(screen.getByRole("button", { name: "Anterior" })).toBeInTheDocument();
         expect(screen.getByRole("button", { name: "Siguiente" })).toBeInTheDocument();
-        expect(getSlides()).toHaveLength(4);
+        expect(getSlides()).toHaveLength(5);
     });
 
     it("avanza con el botón Siguiente (cambia la opacidad del slide activo)", () => {
@@ -60,14 +60,14 @@ describe("HeroCarousel", () => {
 
         const slides = getSlides();
         const s0Wrapper = slides[0].parentElement;
-        const s3Wrapper = slides[3].parentElement;
+        const sLastWrapper = slides[slides.length - 1].parentElement;
 
         expect(s0Wrapper).toHaveClass("opacity-100");
 
         fireEvent.click(screen.getByRole("button", { name: "Anterior" }));
 
         expect(s0Wrapper).toHaveClass("opacity-0");
-        expect(s3Wrapper).toHaveClass("opacity-100");
+        expect(sLastWrapper).toHaveClass("opacity-100");
     });
 
     it("permite ir a una imagen con los bullets", () => {
