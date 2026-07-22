@@ -305,7 +305,6 @@ export default function LandingPage() {
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                                     <span className="absolute bottom-4 left-4 rounded-full bg-[#f3992e] px-3 py-1 text-xs font-bold text-slate-950">{photo.label}</span>
                                 </div>
-                                <p className="border-t border-white/10 px-4 py-3 text-sm text-blue-50/85">{photo.label}</p>
                             </article>
                         ))}
                     </div>
