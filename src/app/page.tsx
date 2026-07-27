@@ -117,6 +117,7 @@ const projectGallery = [
         src: "/trabajos/galeriaPoluretano.jpeg",
         alt: "Aplicación profesional de impermeabilizante en techo",
         label: "Poliuretano",
+        featured: true,
     },
     {
         src: "/trabajos/galeriaPapel.jpeg",
@@ -297,13 +298,27 @@ export default function LandingPage() {
                             de ejecución en diferentes tipos de superficies.</p>
                         </div>
                     </div>
-                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid auto-rows-[12rem] gap-5 sm:grid-cols-2 lg:grid-cols-4">
                         {projectGallery.map((photo, index) => (
-                            <article key={photo.src} className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70 shadow-lg shadow-slate-950/20" data-aos="zoom-in" data-aos-delay={index * 90}>
-                                <div className="relative h-56 w-full overflow-hidden">
-                                    <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                                    <span className="absolute bottom-4 left-4 rounded-full bg-[#f3992e] px-3 py-1 text-xs font-bold text-slate-950">{photo.label}</span>
+                            <article
+                                key={photo.src}
+                                className={`group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950/70 shadow-2xl shadow-slate-950/30 transition duration-300 hover:-translate-y-1 hover:border-[#f3992e]/50 ${
+                                    photo.featured ? "sm:col-span-2 sm:row-span-2 lg:col-span-2" : ""
+                                }`}
+                                data-aos="zoom-in"
+                                data-aos-delay={index * 90}
+                            >
+                                <Image
+                                    src={photo.src}
+                                    alt={photo.alt}
+                                    fill
+                                    sizes={photo.featured ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 50vw, 25vw"}
+                                    className="object-cover transition duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/15 to-transparent opacity-90 transition group-hover:opacity-75" />
+                                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
+                                    <span className="rounded-full bg-[#f3992e] px-3 py-1 text-xs font-bold text-slate-950 shadow-lg shadow-orange-950/20">{photo.label}</span>
+                                    <span className="hidden rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white/85 backdrop-blur sm:inline-flex">Ver resultado</span>
                                 </div>
                             </article>
                         ))}
