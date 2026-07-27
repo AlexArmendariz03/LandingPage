@@ -23,6 +23,9 @@ import { AiFillGoogleSquare, AiOutlineFacebook, AiOutlineWhatsApp } from "react-
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const primaryWhatsappHref =
+    "https://wa.me/5216147464430?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n.";
+
 const highlights = [
     {
         title: "Durabilidad garantizada",
@@ -78,7 +81,7 @@ const services = [
 ];
 
 const whatsappOptions = [
-    { label: "+52 614 746 4430", href: "https://wa.me/5216147464430?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n." },
+    { label: "+52 614 746 4430", href: primaryWhatsappHref },
     { label: "+52 614 131 4603", href: "https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n." },
 ];
 
@@ -108,7 +111,6 @@ const valueSection = [
             "Nos enfocamos en reducir filtraciones, bajar costos de mantenimiento y extender la vida útil de la cubierta.",
     },
 ];
-
 
 const projectGallery = [
     {
@@ -165,303 +167,208 @@ export default function LandingPage() {
     }, []);
 
     return (
-        <main className="min-h-screen bg-slate-950 text-white">
+        <main className="min-h-screen overflow-hidden bg-slate-950 text-white">
             <section className="relative overflow-hidden bg-gradient-to-br from-[#0c5ce6] via-[#0b3f99] to-slate-950">
-                <div className="relative max-w-6xl mx-auto px-6 py-20 grid gap-10 lg:grid-cols-2 items-center">
-                    <div className="space-y-6" data-aos="fade-right">
-            <span className="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#cfe4ff]">
-              Hernández Impermeabilizaciones & Poliuretano
-            </span>
-                        <h1 className="text-2xl md:text-4xl font-extrabold">
-                            Impermeabilizamos superficies con materiales de la más alta calidad para proteger tu hogar o negocio.
-                        </h1>
-                        <p className="text-lg text-blue-50/80">
-                            Eliminamos filtraciones, mejoramos el aislamiento térmico y protegemos tus instalaciones para climas extremos.
-                        </p>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(243,153,46,0.18),transparent_30%)]" />
+                <div className="absolute -right-28 top-20 h-72 w-72 rounded-full bg-[#f3992e]/20 blur-3xl" />
+                <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-cyan-300/10 blur-3xl" />
 
-                        <div className="flex flex-wrap gap-4">
-                            <a
-                                href="#contacto"
-                                className="inline-flex items-center gap-2 rounded-lg bg-[#f3992e] px-6 py-3 text-slate-950 font-semibold shadow-lg hover:scale-[1.02] transition"
-                            >
+                <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
+                    <div className="space-y-7" data-aos="fade-right">
+                        <span className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-[#cfe4ff] shadow-lg shadow-slate-950/20 backdrop-blur">
+                            Hernández Impermeabilizaciones & Poliuretano
+                        </span>
+                        <div className="space-y-4">
+                            <h1 className="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
+                                Impermeabilizamos superficies con materiales de la más alta calidad para proteger tu hogar o negocio.
+                            </h1>
+                            <p className="max-w-2xl text-lg leading-relaxed text-blue-50/85">
+                                Eliminamos filtraciones, mejoramos el aislamiento térmico y protegemos tus instalaciones para climas extremos.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                            <a href="#contacto" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#f3992e] px-6 py-3 font-bold text-slate-950 shadow-xl shadow-orange-500/25 transition hover:scale-[1.02]">
                                 Agenda una visita
                                 <FaPhoneAlt />
                             </a>
-                            <a
-                                href="#servicios"
-                                className="inline-flex items-center rounded-lg border border-white/30 px-6 py-3 font-semibold hover:bg-white/10 transition"
-                            >
+                            <a href="#servicios" className="inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 font-semibold transition hover:bg-white/10">
                                 Ver servicios
                             </a>
                         </div>
 
-                        <div className="flex flex-wrap gap-4 pt-4">
-                            <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap gap-3 pt-2">
+                            <div className="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5">
                                 <FaCheckCircle className="text-[#f3992e]" />
-                                <span className="text-sm text-blue-50/80">Mano de obra especializada</span>
+                                <span className="text-sm text-blue-50/85">Mano de obra especializada</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5">
                                 <FaLeaf className="text-blue-200" />
-                                <span className="text-sm text-blue-50/80">
-                  Materiales confiables con alto desempeño
-                </span>
+                                <span className="text-sm text-blue-50/85">Materiales confiables con alto desempeño</span>
                             </div>
-                            <Link
-                                href="/seguridad"
-                                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-slate-900/35 px-3 py-1 text-xs font-semibold text-blue-100 hover:bg-slate-900/60 transition"
-                            >
+                            <Link href="/seguridad" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-slate-900/35 px-3 py-1.5 text-sm font-semibold text-blue-100 transition hover:bg-slate-900/60">
                                 <FaShieldAlt className="text-[#f3992e]" />
                                 Validación antifraude disponible
                             </Link>
                         </div>
                     </div>
 
-                    <div data-aos="fade-left">
+                    <div className="relative" data-aos="fade-left">
+                        <div className="absolute -inset-4 rounded-[2rem] bg-white/10 blur-2xl" />
                         <HeroCarousel />
                     </div>
                 </div>
             </section>
 
-            <section id="servicios" className="max-w-6xl mx-auto px-6 py-20">
-                <div data-aos="fade-up">
-                    <h2 className="text-3xl font-bold mb-4">Nuestros servicios</h2>
-                    <p className="text-blue-50/80 mb-8">
-                        Cada proyecto se define según el tipo de superficie, nivel de exposición al clima y objetivo principal del
-                        cliente: corregir filtraciones, reducir temperatura o extender la vida útil de la cubierta.
-                    </p>
+            <section id="servicios" className="mx-auto max-w-6xl px-6 py-20">
+                <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end" data-aos="fade-up">
+                    <div className="max-w-3xl">
+                        <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#f3992e]">Nuestros servicios</p>
+                        <h2 className="text-3xl font-bold md:text-4xl">Nuestros servicios</h2>
+                        <p className="mt-4 text-blue-50/80">
+                            Cada proyecto se define según el tipo de superficie, nivel de exposición al clima y objetivo principal del
+                            cliente: corregir filtraciones, reducir temperatura o extender la vida útil de la cubierta.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-5">
+                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {services.map((s, index) => (
-                        <div
-                            key={s.title}
-                            className="h-full rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-5 flex items-start gap-3"
-                            data-aos="zoom-in-up"
-                            data-aos-delay={index * 100}
-                        >
-                            <span className="shrink-0 mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10">
-                                {s.icon}
-                            </span>
-                            <div className="min-w-0">
-                                <h3 className="text-lg font-semibold mb-1.5 leading-tight">{s.title}</h3>
-                                <p className="text-blue-50/80 text-sm leading-relaxed">{s.detail}</p>
+                        <article key={s.title} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 p-5 shadow-lg shadow-slate-950/30 transition hover:-translate-y-1 hover:border-[#f3992e]/40 hover:bg-slate-900" data-aos="zoom-in-up" data-aos-delay={index * 90}>
+                            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#0c5ce6] to-[#f3992e] opacity-70" />
+                            <div className="mb-4 flex items-center justify-between gap-3">
+                                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition group-hover:bg-white/10">{s.icon}</span>
                             </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section id="beneficios" className="bg-slate-900/60 border-y border-white/5">
-                <div className="max-w-6xl mx-auto px-6 py-20 grid gap-6 md:grid-cols-2">
-                    {highlights.map((h, index) => (
-                        <div
-                            key={h.title}
-                            className="flex gap-4 bg-slate-950/80 p-4 rounded-xl border border-[#0c5ce6]/20"
-                            data-aos="fade-up"
-                            data-aos-delay={index * 120}
-                        >
-                            {h.icon}
-                            <div>
-                                <h3 className="font-semibold">{h.title}</h3>
-                                <p className="text-sm text-blue-50/80">{h.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section id="impacto" className="max-w-6xl mx-auto px-6 py-20">
-                <div data-aos="fade-up" className="mb-8">
-                    <h2 className="text-3xl font-bold mb-3">Información que genera valor para tu decisión</h2>
-                    <p className="text-blue-50/80">
-                        Una solución diseñada que reduce los costos causados por la humedad, mejora el aislamiento térmico y asegura que tus operaciones no se detengan.
-                    </p>
-                </div>
-                <div className="grid gap-4 md:grid-cols-2">
-                    {businessImpact.map((item, i) => (
-                        <article
-                            key={item}
-                            className="rounded-2xl border border-white/10 bg-slate-900/60 p-5"
-                            data-aos="fade-up"
-                            data-aos-delay={i * 90}
-                        >
-                            <div className="flex items-start gap-3">
-                                <FaClipboardCheck className="mt-1 text-[#f3992e]" />
-                                <p className="text-blue-50/85 text-sm leading-relaxed">{item}</p>
-                            </div>
+                            <h3 className="text-lg font-semibold leading-tight">{s.title}</h3>
+                            <p className="mt-3 text-sm leading-relaxed text-blue-50/80">{s.detail}</p>
                         </article>
                     ))}
                 </div>
             </section>
 
-            <section id="proceso" className="max-w-6xl mx-auto px-6 py-20">
-                <div data-aos="fade-up">
-                    <h2 className="text-3xl font-bold mb-6">Nuestro proceso</h2>
-                    <p className="text-blue-50/80 mb-6">
-                        Seguimos un proceso claro para que tengas visibilidad del trabajo, los tiempos y los resultados.
-                    </p>
+            <section id="beneficios" className="border-y border-white/5 bg-slate-900/60">
+                <div className="mx-auto max-w-6xl px-6 py-20">
+                    <div className="grid gap-5 md:grid-cols-3">
+                        {highlights.map((h, index) => (
+                            <div key={h.title} className="rounded-2xl border border-[#0c5ce6]/20 bg-slate-950/80 p-5" data-aos="fade-up" data-aos-delay={index * 120}>
+                                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/5">{h.icon}</div>
+                                <h3 className="font-semibold">{h.title}</h3>
+                                <p className="mt-2 text-sm leading-relaxed text-blue-50/80">{h.description}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
+            </section>
 
-                <ol className="space-y-4">
+            <section id="impacto" className="mx-auto max-w-6xl px-6 py-20">
+                <div data-aos="fade-up" className="mb-8 max-w-3xl">
+                    <h2 className="text-3xl font-bold md:text-4xl">Información que genera valor para tu decisión</h2>
+                    <p className="mt-4 text-blue-50/80">Una solución diseñada que reduce los costos causados por la humedad, mejora el aislamiento térmico y asegura que tus operaciones no se detengan.</p>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                    {businessImpact.map((item, i) => (
+                        <article key={item} className="rounded-2xl border border-white/10 bg-slate-900/60 p-5" data-aos="fade-up" data-aos-delay={i * 90}>
+                            <div className="flex items-start gap-3"><FaClipboardCheck className="mt-1 text-[#f3992e]" /><p className="text-sm leading-relaxed text-blue-50/85">{item}</p></div>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
+            <section id="proceso" className="mx-auto max-w-6xl px-6 py-20">
+                <div data-aos="fade-up" className="mb-8 max-w-3xl">
+                    <h2 className="text-3xl font-bold md:text-4xl">Nuestro proceso</h2>
+                    <p className="mt-4 text-blue-50/80">Seguimos un proceso claro para que tengas visibilidad del trabajo, los tiempos y los resultados.</p>
+                </div>
+                <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {steps.map((step, i) => (
-                        <li
-                            key={step}
-                            className="flex gap-3"
-                            data-aos="fade-up"
-                            data-aos-delay={i * 120}
-                        >
-              <span className="h-8 w-8 rounded-full bg-[#0c5ce6]/20 text-[#f3992e] flex items-center justify-center font-bold">
-                {i + 1}
-              </span>
-                            <span className="text-blue-50/80">{step}</span>
+                        <li key={step} className="rounded-2xl border border-white/10 bg-slate-900/60 p-5" data-aos="fade-up" data-aos-delay={i * 100}>
+                            <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#0c5ce6]/20 font-bold text-[#f3992e]">{i + 1}</span>
+                            <span className="text-sm leading-relaxed text-blue-50/80">{step}</span>
                         </li>
                     ))}
                 </ol>
             </section>
-
-            <section id="galeria" className="bg-slate-900/60 border-y border-white/5">
-                <div className="max-w-6xl mx-auto px-6 py-20">
-                    <div data-aos="fade-up">
-                        <h2 className="text-3xl font-bold mb-3">Galería de proyectos realizados</h2>
-                        <p className="text-blue-50/80 mb-10">
-                            Conoce resultados reales de aplicación en campo. Cada imagen refleja acabados, protección y calidad
-                            de ejecución en diferentes tipos de superficies.
-                        </p>
+            <section id="galeria" className="border-y border-white/5 bg-slate-900/60">
+                <div className="mx-auto max-w-6xl px-6 py-20">
+                    <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end" data-aos="fade-up">
+                        <div className="max-w-3xl">
+                            <h2 className="text-3xl font-bold md:text-4xl">Galería de proyectos realizados</h2>
+                            <p className="mt-4 text-blue-50/80">Conoce resultados reales de aplicación en campo. Cada imagen refleja acabados, protección y calidad
+                            de ejecución en diferentes tipos de superficies.</p>
+                        </div>
                     </div>
-
-                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                         {projectGallery.map((photo, index) => (
-                            <article
-                                key={photo.src}
-                                className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70"
-                                data-aos="zoom-in"
-                                data-aos-delay={index * 90}
-                            >
-                                <div className="relative h-52 w-full">
-                                    <Image
-                                        src={photo.src}
-                                        alt={photo.alt}
-                                        fill
-                                        sizes="(max-width: 1024px) 100vw, 33vw"
-                                        className="object-cover"
-                                    />
+                            <article key={photo.src} className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70 shadow-lg shadow-slate-950/20" data-aos="zoom-in" data-aos-delay={index * 90}>
+                                <div className="relative h-56 w-full overflow-hidden">
+                                    <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                                    <span className="absolute bottom-4 left-4 rounded-full bg-[#f3992e] px-3 py-1 text-xs font-bold text-slate-950">{photo.label}</span>
                                 </div>
-                                <p className="border-t border-white/10 px-4 py-3 text-sm text-blue-50/85">{photo.label}</p>
                             </article>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section id="contacto" className="bg-slate-900/60 border-t border-white/5">
-                <div className="max-w-4xl mx-auto px-6 py-20 text-center" data-aos="fade-up">
-                    <h2 className="text-3xl font-bold">Contacto</h2>
-                    <p className="mt-3 text-blue-50/80">
-                        Convierte tu problema en una solución duradera.
-                        Te asesoramos sin compromiso y te damos una propuesta clara desde el primer contacto.
-                    </p>
-
-                    <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay={100}>
-                        <a
-                            href="mailto:impermeabilizaciones29@gmail.com"
-                            className="rounded-lg bg-[#f3992e] px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-orange-500/20 hover:scale-[1.01] transition"
-                        >
-                            impermeabilizaciones29@gmail.com
-                        </a>
-                    </div>
-
-                    <div className="mt-6 rounded-xl border border-amber-300/30 bg-amber-400/10 p-4 text-left text-sm text-amber-100">
-                        <p>
-                            Aviso de prevención: nunca solicitamos NIP, contraseñas, códigos OTP ni pagos a cuentas no verificadas.
-                            Antes de transferir, valida datos desde la sección de <Link className="underline" href="/seguridad">seguridad</Link>.
-                        </p>
-                    </div>
-
-                    <div className="mt-10 grid w-full grid-cols-1 md:grid-cols-3 gap-4 text-left">
-                        <a
-                            href="https://share.google/Wz59zQhGrAETbPFYA"
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                            className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
-                            data-aos="fade-up"
-                            data-aos-delay={100}
-                        >
-                            <div className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
-                  <AiFillGoogleSquare className="text-2xl text-amber-300" />
-                </span>
-
-                                <div className="min-w-0">
-                                    <p className="text-sm text-white/70">Google</p>
-                                    <p className="mt-1 font-semibold text-white">Encuéntranos en Maps</p>
-                                    <p className="mt-1 text-xs text-white/60">Ubicación y reseñas</p>
-                                </div>
-                            </div>
-                        </a>
-                        <div className="relative" data-aos="fade-up" data-aos-delay={150}>
-                            <button
-                                type="button"
-                                onClick={() => setShowWhatsAppMenu((prev) => !prev)}
-                                className="group w-full rounded-xl border border-emerald-300/40 bg-emerald-500/20 px-5 py-4 hover:bg-emerald-500/30 transition"
-                            >
-                                <span className="flex items-start gap-3">
-                                    <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
-                                        <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
-                                    </span>
-                                    <span className="min-w-0 text-left">
-                                        <span className="text-sm text-emerald-100/80 block">WhatsApp</span>
-                                        <span className="mt-1 font-semibold text-emerald-100 block">Solicita presupuesto</span>
-                                        <span className="mt-1 text-xs text-emerald-100/70 block">Elige un número</span>
-                                    </span>
-                                </span>
-                            </button>
-                            {showWhatsAppMenu && (
-                                <div className="absolute left-1/2 z-10 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-xl border border-white/15 bg-slate-900 shadow-xl">
-                                    {whatsappOptions.map((option) => (
-                                        <a
-                                            key={option.label}
-                                            href={option.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer nofollow"
-                                            className="block px-4 py-3 text-sm text-white/90 hover:bg-white/10 transition"
-                                        >
-                                            Solicitar presupuesto: {option.label}
-                                        </a>
-                                    ))}
-                                </div>
-                            )}
+            <section id="contacto" className="border-t border-white/5 bg-slate-900/60">
+                <div className="mx-auto max-w-5xl px-6 py-20" data-aos="fade-up">
+                    <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-[#0b3f99] p-6 shadow-2xl shadow-slate-950/40 md:p-10">
+                        <div className="mx-auto max-w-3xl text-center">
+                            <h2 className="text-3xl font-bold md:text-4xl">Contacto</h2>
+                            <p className="mt-4 text-blue-50/80">Convierte tu problema en una solución duradera.
+                                Te asesoramos sin compromiso y te damos una propuesta clara desde el primer contacto.</p>
                         </div>
-                        <a
-                            href="https://www.facebook.com/profile.php?id=100064214340903&locale=af_ZA#"
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                            className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
-                            data-aos="fade-up"
-                            data-aos-delay={200}
-                        >
-                            <div className="flex items-start gap-3">
-                                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
-                                  <AiOutlineFacebook className="text-2xl text-sky-300" />
-                                </span>
-                                <div className="min-w-0">
-                                    <p className="text-sm text-white/70">Facebook</p>
-                                    <p className="mt-1 font-semibold text-white">Ver trabajos y reseñas</p>
-                                    <p className="mt-1 text-xs text-white/60">Fotos de proyectos</p>
-                                </div>
+
+                        <div className="mt-8 grid gap-4 md:grid-cols-3">
+                            {valueSection.map((item, index) => (
+                                <article key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-4" data-aos="fade-up" data-aos-delay={index * 100}>
+                                    <FaClipboardCheck className="mb-3 text-[#f3992e]" />
+                                    <h3 className="font-semibold">{item.title}</h3>
+                                    <p className="mt-2 text-sm leading-relaxed text-blue-50/75">{item.detail}</p>
+                                </article>
+                            ))}
+                        </div>
+
+                        <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={100}>
+                            <a href="mailto:impermeabilizaciones29@gmail.com" className="inline-flex items-center justify-center rounded-xl bg-[#f3992e] px-6 py-3 font-bold text-slate-950 shadow-lg shadow-orange-500/20 transition hover:scale-[1.01]">
+                                impermeabilizaciones29@gmail.com
+                            </a>
+                        </div>
+
+                        <div className="mt-6 rounded-xl border border-amber-300/30 bg-amber-400/10 p-4 text-left text-sm text-amber-100">
+                            <p>Aviso de prevención: nunca solicitamos NIP, contraseñas, códigos OTP ni pagos a cuentas no verificadas. Antes de transferir, valida datos desde la sección de <Link className="underline" href="/seguridad">seguridad</Link>.</p>
+                        </div>
+
+                        <div className="mt-10 grid w-full grid-cols-1 gap-4 text-left md:grid-cols-3">
+                            <a href="https://share.google/Wz59zQhGrAETbPFYA" target="_blank" rel="noopener noreferrer nofollow" className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 transition hover:border-white/20 hover:bg-slate-950/55" data-aos="fade-up" data-aos-delay={100}>
+                                <div className="flex items-start gap-3"><span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/10 transition group-hover:bg-white/15"><AiFillGoogleSquare className="text-2xl text-amber-300" /></span><div className="min-w-0"><p className="text-sm text-white/70">Google</p><p className="mt-1 font-semibold text-white">Encuéntranos en Maps</p><p className="mt-1 text-xs text-white/60">Ubicación y reseñas</p></div></div>
+                            </a>
+                            <div className="relative" data-aos="fade-up" data-aos-delay={150}>
+                                <button type="button" onClick={() => setShowWhatsAppMenu((prev) => !prev)} className="group w-full rounded-xl border border-emerald-300/40 bg-emerald-500/20 px-5 py-4 transition hover:bg-emerald-500/30">
+                                    <span className="flex items-start gap-3"><span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/10 transition group-hover:bg-white/15"><AiOutlineWhatsApp className="text-2xl text-emerald-300" /></span><span className="min-w-0 text-left"><span className="block text-sm text-emerald-100/80">WhatsApp</span><span className="mt-1 block font-semibold text-emerald-100">Solicita presupuesto</span><span className="mt-1 text-xs text-emerald-100/70 block">Elige un número</span></span></span>
+                                </button>
+                                {showWhatsAppMenu && (<div className="absolute left-1/2 z-10 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-xl border border-white/15 bg-slate-900 shadow-xl">{whatsappOptions.map((option) => (<a key={option.label} href={option.href} target="_blank" rel="noopener noreferrer nofollow" className="block px-4 py-3 text-sm text-white/90 transition hover:bg-white/10">Solicitar presupuesto: {option.label}</a>))}</div>)}
                             </div>
-                        </a>
+                            <a href="https://www.facebook.com/profile.php?id=100064214340903&locale=af_ZA#" target="_blank" rel="noopener noreferrer nofollow" className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 transition hover:border-white/20 hover:bg-slate-950/55" data-aos="fade-up" data-aos-delay={200}>
+                                <div className="flex items-start gap-3"><span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/10 transition group-hover:bg-white/15"><AiOutlineFacebook className="text-2xl text-sky-300" /></span><div className="min-w-0"><p className="text-sm text-white/70">Facebook</p><p className="mt-1 font-semibold text-white">Ver trabajos y reseñas</p><p className="mt-1 text-xs text-white/60">Fotos de proyectos</p></div></div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
 
+            <a href={primaryWhatsappHref} target="_blank" rel="noopener noreferrer nofollow" className="fixed bottom-5 right-5 z-30 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-3 text-sm font-bold text-white shadow-2xl shadow-emerald-950/40 transition hover:scale-105 md:hidden">
+                <AiOutlineWhatsApp className="text-xl" />
+                Solicita presupuesto
+            </a>
+
             <footer className="border-t border-white/10 bg-slate-950">
-                <div className="max-w-6xl mx-auto px-6 py-6 text-center text-sm text-white/60">
-                    <p>
-                        © {currentYear} Hernández Impermeabilizaciones &amp; Poliuretano. Todos los derechos reservados.
-                    </p>
+                <div className="mx-auto max-w-6xl px-6 py-6 text-center text-sm text-white/60">
+                    <p>© {currentYear} Hernández Impermeabilizaciones &amp; Poliuretano. Todos los derechos reservados.</p>
                     <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-                        <Link href="/aviso-privacidad" className="rounded-full border border-white/20 px-3 py-1 hover:text-white hover:border-white/40 transition">Aviso de privacidad</Link>
-                        <Link href="/seguridad" className="rounded-full border border-white/20 px-3 py-1 hover:text-white hover:border-white/40 transition">Seguridad</Link>
+                        <Link href="/aviso-privacidad" className="rounded-full border border-white/20 px-3 py-1 transition hover:border-white/40 hover:text-white">Aviso de privacidad</Link>
+                        <Link href="/seguridad" className="rounded-full border border-white/20 px-3 py-1 transition hover:border-white/40 hover:text-white">Seguridad</Link>
                     </div>
                 </div>
             </footer>
