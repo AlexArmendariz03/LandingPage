@@ -47,13 +47,15 @@ export function HeroCarousel() {
 
   return (
     <div className="relative w-full" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/30 shadow-2xl">
-        <div className="relative aspect-[4/3] w-full">
+      <div className="absolute -inset-2 rounded-[1.75rem] bg-gradient-to-br from-white/10 via-[#0c5ce6]/10 to-[#f3992e]/10 blur-xl" />
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/35 shadow-xl shadow-slate-950/30 ring-1 ring-white/5">
+        <div className="absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+        <div className="relative aspect-[16/11] w-full">
           {slides.map((slide, i) => (
             <div
               key={slide.src}
               className={[
-                "absolute inset-0 transition-opacity duration-700",
+                "absolute inset-0 transition-opacity duration-700 ease-out",
                 i === index ? "opacity-100" : "opacity-0",
               ].join(" ")}
             >
@@ -63,10 +65,11 @@ export function HeroCarousel() {
                 fill
                 priority={i === 0}
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className={["object-cover", i === 0 ? "object-contain p-10 md:p-12" : "object-cover"].join(" ")}
+                className="object-cover object-center"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-950/5 to-transparent" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_15%,rgba(255,255,255,0.10),transparent_28%)]" />
             </div>
           ))}
         </div>
@@ -75,7 +78,7 @@ export function HeroCarousel() {
           type="button"
           onClick={prev}
           aria-label="Anterior"
-          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 px-3 py-2 backdrop-blur transition"
+          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-slate-950/25 px-2.5 py-1.5 text-base leading-none text-white shadow-lg backdrop-blur-md transition hover:bg-white/20"
         >
           ‹
         </button>
@@ -83,7 +86,7 @@ export function HeroCarousel() {
           type="button"
           onClick={next}
           aria-label="Siguiente"
-          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 px-3 py-2 backdrop-blur transition"
+          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-slate-950/25 px-2.5 py-1.5 text-base leading-none text-white shadow-lg backdrop-blur-md transition hover:bg-white/20"
         >
           ›
         </button>
@@ -96,8 +99,8 @@ export function HeroCarousel() {
               onClick={() => goTo(i)}
               aria-label={`Ir a la imagen ${i + 1}`}
               className={[
-                "h-2.5 w-2.5 rounded-full transition border border-white/20",
-                i === index ? "bg-white/80" : "bg-white/20 hover:bg-white/35",
+                "h-2 rounded-full border border-white/25 transition-all",
+                i === index ? "w-6 bg-white/80" : "w-2 bg-white/25 hover:bg-white/40",
               ].join(" ")}
             />
           ))}
