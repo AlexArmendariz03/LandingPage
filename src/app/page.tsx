@@ -173,7 +173,7 @@ export default function LandingPage() {
                 <div className="absolute -right-28 top-20 h-72 w-72 rounded-full bg-[#f3992e]/20 blur-3xl" />
                 <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-cyan-300/10 blur-3xl" />
 
-                <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
+                <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 md:py-20 lg:grid-cols-[1.15fr_0.85fr]">
                     <div className="space-y-7" data-aos="fade-right">
                         <span className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-[#cfe4ff] shadow-lg shadow-slate-950/20 backdrop-blur">
                             Hernández Impermeabilizaciones & Poliuretano
@@ -214,7 +214,7 @@ export default function LandingPage() {
                     </div>
 
                     <div className="relative" data-aos="fade-left">
-                        <div className="absolute -inset-4 rounded-[2rem] bg-white/10 blur-2xl" />
+                        <div className="absolute -inset-2 rounded-[2rem] bg-white/5 blur-xl" />
                         <HeroCarousel />
                     </div>
                 </div>
