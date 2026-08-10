@@ -168,53 +168,53 @@ export default function LandingPage() {
 
     return (
         <main className="min-h-screen overflow-hidden bg-slate-950 text-white">
-            <section className="relative overflow-hidden bg-gradient-to-br from-[#0c5ce6] via-[#0b3f99] to-slate-950">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(243,153,46,0.18),transparent_30%)]" />
-                <div className="absolute -right-28 top-20 h-72 w-72 rounded-full bg-[#f3992e]/20 blur-3xl" />
+            <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-[#0b3f99] to-[#0c5ce6]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,255,255,0.16),transparent_30%),radial-gradient(circle_at_82%_72%,rgba(243,153,46,0.12),transparent_28%)]" />
+                <div className="absolute -right-28 top-16 h-72 w-72 rounded-full bg-[#f3992e]/10 blur-3xl" />
                 <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-cyan-300/10 blur-3xl" />
 
-                <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
-                    <div className="space-y-7" data-aos="fade-right">
-                        <span className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-[#cfe4ff] shadow-lg shadow-slate-950/20 backdrop-blur">
+                <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-6 py-14 md:py-18 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+                    <div className="max-w-3xl space-y-6" data-aos="fade-right">
+                        <span className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-[#dbeafe] shadow-md shadow-slate-950/10 backdrop-blur">
                             Hernández Impermeabilizaciones & Poliuretano
                         </span>
                         <div className="space-y-4">
-                            <h1 className="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
+                            <h1 className="max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight md:text-5xl">
                                 Impermeabilizamos superficies con materiales de la más alta calidad para proteger tu hogar o negocio.
                             </h1>
-                            <p className="max-w-2xl text-lg leading-relaxed text-blue-50/85">
+                            <p className="max-w-2xl text-lg leading-relaxed text-blue-50/80">
                                 Eliminamos filtraciones, mejoramos el aislamiento térmico y protegemos tus instalaciones para climas extremos.
                             </p>
                         </div>
 
-                        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                            <a href="#contacto" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#f3992e] px-6 py-3 font-bold text-slate-950 shadow-xl shadow-orange-500/25 transition hover:scale-[1.02]">
+                        <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
+                            <a href="#contacto" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#f3992e] px-6 py-3 font-bold text-slate-950 shadow-lg shadow-orange-950/20 transition hover:-translate-y-0.5 hover:bg-[#ffad45]">
                                 Agenda una visita
                                 <FaPhoneAlt />
                             </a>
-                            <a href="#servicios" className="inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 font-semibold transition hover:bg-white/10">
+                            <a href="#servicios" className="inline-flex items-center justify-center rounded-xl border border-white/25 bg-white/5 px-6 py-3 font-semibold transition hover:bg-white/10">
                                 Ver servicios
                             </a>
                         </div>
 
-                        <div className="flex flex-wrap gap-3 pt-2">
-                            <div className="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5">
+                        <div className="flex flex-wrap gap-2.5 pt-1">
+                            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1.5">
                                 <FaCheckCircle className="text-[#f3992e]" />
                                 <span className="text-sm text-blue-50/85">Mano de obra especializada</span>
                             </div>
-                            <div className="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5">
+                            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1.5">
                                 <FaLeaf className="text-blue-200" />
                                 <span className="text-sm text-blue-50/85">Materiales confiables con alto desempeño</span>
                             </div>
-                            <Link href="/seguridad" className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-slate-900/35 px-3 py-1.5 text-sm font-semibold text-blue-100 transition hover:bg-slate-900/60">
+                            <Link href="/seguridad" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/30 px-3 py-1.5 text-sm font-semibold text-blue-100 transition hover:bg-slate-950/50">
                                 <FaShieldAlt className="text-[#f3992e]" />
                                 Validación antifraude disponible
                             </Link>
                         </div>
                     </div>
 
-                    <div className="relative" data-aos="fade-left">
-                        <div className="absolute -inset-4 rounded-[2rem] bg-white/10 blur-2xl" />
+                    <div className="relative mx-auto w-full max-w-[520px] lg:max-w-none" data-aos="fade-left">
+                        <div className="absolute -inset-2 rounded-[2rem] bg-white/5 blur-xl" />
                         <HeroCarousel />
                     </div>
                 </div>
@@ -299,11 +299,22 @@ export default function LandingPage() {
                     </div>
                     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                         {projectGallery.map((photo, index) => (
-                            <article key={photo.src} className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70 shadow-lg shadow-slate-950/20" data-aos="zoom-in" data-aos-delay={index * 90}>
-                                <div className="relative h-56 w-full overflow-hidden">
-                                    <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                                    <span className="absolute bottom-4 left-4 rounded-full bg-[#f3992e] px-3 py-1 text-xs font-bold text-slate-950">{photo.label}</span>
+                            <article
+                                key={photo.src}
+                                className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70 shadow-lg shadow-slate-950/20 transition duration-300 hover:-translate-y-0.5 hover:border-[#f3992e]/35 hover:shadow-xl hover:shadow-slate-950/30"
+                                data-aos="zoom-in"
+                                data-aos-delay={index * 90}
+                            >
+                                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
+                                    <Image
+                                        src={photo.src}
+                                        alt={photo.alt}
+                                        fill
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-slate-950/10 to-transparent" />
+                                    <span className="absolute bottom-4 left-4 rounded-full bg-[#f3992e] px-3 py-1 text-xs font-bold text-slate-950 shadow-md shadow-slate-950/20">{photo.label}</span>
                                 </div>
                             </article>
                         ))}
