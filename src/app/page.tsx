@@ -194,57 +194,53 @@ export default function LandingPage() {
     }, []);
 
     return (
-        <main className="min-h-screen bg-slate-950 text-white">
-            <section className="relative overflow-hidden bg-gradient-to-br from-[#0c5ce6] via-[#0b3f99] to-slate-950">
+        <main className="min-h-screen text-white">
+            <section className="relative overflow-hidden">
                 <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                    <div className="animate-drift absolute -top-24 -left-16 h-80 w-80 rounded-full bg-[#f3992e]/20 blur-3xl" />
-                    <div className="animate-drift-slow absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-[#5ea1ff]/25 blur-3xl" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/25 via-brand-blueDeep/40 to-ink-950" />
+                    <div className="animate-drift absolute -top-24 -left-16 h-80 w-80 rounded-full bg-brand-orange/20 blur-3xl" />
+                    <div className="animate-drift-slow absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-brand-blueSoft/25 blur-3xl" />
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_transparent_0%,_var(--bg-ink)_85%)]" />
                 </div>
-                <div className="relative max-w-6xl mx-auto px-6 py-20 grid gap-10 lg:grid-cols-2 items-center">
-                    <div className="space-y-6" data-aos="fade-right">
-            <span className="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#cfe4ff]">
-              Hernández Impermeabilizaciones & Poliuretano
-            </span>
-                        <h1 className="text-2xl md:text-4xl font-extrabold">
+                <div className="relative max-w-7xl mx-auto px-6 py-12 md:py-16 grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] items-center">
+                    <div className="space-y-7" data-aos="fade-right">
+                        <span className="eyebrow">
+                            Hernández Impermeabilizaciones &amp; Poliuretano
+                        </span>
+                        <h1 className="text-3xl md:text-5xl font-extrabold leading-[1.1] tracking-tight">
                             Impermeabilizamos superficies con materiales de{" "}
-                            <span className="text-[#f3992e]">la más alta calidad</span> para proteger tu hogar o negocio.
+                            <span className="bg-gradient-to-r from-brand-orange to-brand-orangeSoft bg-clip-text text-transparent">la más alta calidad</span> para proteger tu hogar o negocio.
                         </h1>
-                        <p className="text-lg text-blue-50/80">
+                        <p className="text-lg text-slate-300/90 max-w-xl">
                             Eliminamos filtraciones, mejoramos el aislamiento térmico y protegemos tus instalaciones para climas extremos.
                         </p>
 
                         <div className="flex flex-wrap gap-4">
-                            <a
-                                href="#contacto"
-                                className="inline-flex items-center gap-2 rounded-lg bg-[#f3992e] px-6 py-3 text-slate-950 font-semibold shadow-lg hover:scale-[1.02] transition"
-                            >
+                            <a href="#contacto" className="btn-primary">
                                 Agenda una visita
                                 <FaPhoneAlt />
                             </a>
-                            <a
-                                href="#servicios"
-                                className="inline-flex items-center rounded-lg border border-white/30 px-6 py-3 font-semibold hover:bg-white/10 hover:scale-[1.02] transition"
-                            >
+                            <a href="#servicios" className="btn-secondary">
                                 Ver servicios
                             </a>
                         </div>
 
-                        <div className="flex flex-wrap gap-4 pt-4">
+                        <div className="flex flex-wrap gap-4 pt-2">
                             <div className="flex items-center gap-2">
-                                <FaCheckCircle className="text-[#f3992e]" />
-                                <span className="text-sm text-blue-50/80">Mano de obra especializada</span>
+                                <FaCheckCircle className="text-brand-orange" />
+                                <span className="text-sm text-slate-300/90">Mano de obra especializada</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <FaLeaf className="text-blue-200" />
-                                <span className="text-sm text-blue-50/80">
+                                <FaLeaf className="text-brand-blueSoft" />
+                                <span className="text-sm text-slate-300/90">
                   Materiales confiables con alto desempeño
                 </span>
                             </div>
                             <Link
                                 href="/seguridad"
-                                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-slate-900/35 px-3 py-1 text-xs font-semibold text-blue-100 hover:bg-slate-900/60 transition"
+                                className="glass-panel inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold text-blue-100 hover:!border-brand-blueSoft/40 transition"
                             >
-                                <FaShieldAlt className="text-[#f3992e]" />
+                                <FaShieldAlt className="text-brand-orange" />
                                 Validación antifraude disponible
                             </Link>
                         </div>
@@ -256,10 +252,10 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            <section id="servicios" className="max-w-6xl mx-auto px-6 py-20">
-                <div data-aos="fade-up">
-                    <h2 className="text-3xl font-bold mb-4">Nuestros servicios</h2>
-                    <p className="text-blue-50/80 mb-8">
+            <section id="servicios" className="max-w-6xl mx-auto px-6 py-20 md:py-24">
+                <div data-aos="fade-up" className="max-w-2xl mb-10">
+                    <h2 className="text-3xl md:text-4xl section-heading mb-4">Nuestros servicios</h2>
+                    <p className="text-slate-300/90 leading-relaxed">
                         Cada proyecto se define según el tipo de superficie, nivel de exposición al clima y objetivo principal del
                         cliente: corregir filtraciones, reducir temperatura o extender la vida útil de la cubierta.
                     </p>
@@ -269,27 +265,27 @@ export default function LandingPage() {
                     {services.map((s, index) => (
                         <div
                             key={s.title}
-                            className="h-full rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-5 flex items-start gap-3 transition duration-300 hover:-translate-y-1 hover:border-[#0c5ce6]/50 hover:shadow-lg hover:shadow-[#0c5ce6]/10"
+                            className="glass-card h-full rounded-2xl p-5 flex items-start gap-3"
                             data-aos="zoom-in-up"
                             data-aos-delay={index * 100}
                         >
-                            <span className="shrink-0 mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10">
+                            <span className="icon-chip shrink-0 mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg">
                                 {s.icon}
                             </span>
                             <div className="min-w-0">
-                                <h3 className="text-lg font-semibold mb-1.5 leading-tight">{s.title}</h3>
-                                <p className="text-blue-50/80 text-sm leading-relaxed">{s.detail}</p>
+                                <h3 className="text-lg font-semibold mb-1.5 leading-tight text-white">{s.title}</h3>
+                                <p className="text-slate-300/85 text-sm leading-relaxed">{s.detail}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
 
-            <section id="impacto" className="bg-slate-900/60 border-y border-white/5">
-                <div className="max-w-6xl mx-auto px-6 py-20">
-                    <div data-aos="fade-up" className="mb-8">
-                        <h2 className="text-3xl font-bold mb-3">Información que genera valor para tu decisión</h2>
-                        <p className="text-blue-50/80">
+            <section id="impacto" className="border-y border-white/5 bg-white/[0.015]">
+                <div className="max-w-6xl mx-auto px-6 py-20 md:py-24">
+                    <div data-aos="fade-up" className="max-w-2xl mb-10">
+                        <h2 className="text-3xl md:text-4xl section-heading mb-3">Información que genera valor para tu decisión</h2>
+                        <p className="text-slate-300/90 leading-relaxed">
                             Una solución diseñada que reduce los costos causados por la humedad, mejora el aislamiento térmico y asegura que tus operaciones no se detengan.
                         </p>
                     </div>
@@ -297,18 +293,18 @@ export default function LandingPage() {
                         {valuePoints.map((item, i) => (
                             <article
                                 key={item.detail}
-                                className="h-full rounded-2xl bg-slate-950/80 border border-[#0c5ce6]/20 p-5 flex items-start gap-3 transition duration-300 hover:-translate-y-1 hover:border-[#0c5ce6]/50 hover:shadow-lg hover:shadow-[#0c5ce6]/10"
+                                className="glass-card h-full rounded-2xl p-5 flex items-start gap-3"
                                 data-aos="fade-up"
                                 data-aos-delay={i * 90}
                             >
-                                <span className="shrink-0 mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10">
+                                <span className="icon-chip shrink-0 mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg">
                                     {item.icon}
                                 </span>
                                 <div className="min-w-0">
                                     {item.title && (
-                                        <h3 className="text-base font-semibold mb-1 leading-tight">{item.title}</h3>
+                                        <h3 className="text-base font-semibold mb-1 leading-tight text-white">{item.title}</h3>
                                     )}
-                                    <p className="text-blue-50/80 text-sm leading-relaxed">{item.detail}</p>
+                                    <p className="text-slate-300/85 text-sm leading-relaxed">{item.detail}</p>
                                 </div>
                             </article>
                         ))}
@@ -316,10 +312,10 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            <section id="proceso" className="max-w-6xl mx-auto px-6 py-20">
-                <div data-aos="fade-up">
-                    <h2 className="text-3xl font-bold mb-6">Nuestro proceso</h2>
-                    <p className="text-blue-50/80 mb-6">
+            <section id="proceso" className="max-w-6xl mx-auto px-6 py-20 md:py-24">
+                <div data-aos="fade-up" className="max-w-2xl mb-8">
+                    <h2 className="text-3xl md:text-4xl section-heading mb-4">Nuestro proceso</h2>
+                    <p className="text-slate-300/90 leading-relaxed">
                         Seguimos un proceso claro para que tengas visibilidad del trabajo, los tiempos y los resultados.
                     </p>
                 </div>
@@ -328,24 +324,24 @@ export default function LandingPage() {
                     {steps.map((step, i) => (
                         <li
                             key={step}
-                            className="flex items-start gap-3 rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-5 transition duration-300 hover:-translate-y-1 hover:border-[#0c5ce6]/50 hover:shadow-lg hover:shadow-[#0c5ce6]/10"
+                            className="glass-card flex items-start gap-3 rounded-2xl p-5"
                             data-aos="fade-up"
                             data-aos-delay={i * 120}
                         >
-              <span className="shrink-0 h-8 w-8 rounded-full bg-[#0c5ce6]/20 text-[#f3992e] flex items-center justify-center font-bold">
+              <span className="shrink-0 h-8 w-8 rounded-full bg-gradient-to-br from-brand-blue to-brand-blueDeep text-white ring-1 ring-white/10 flex items-center justify-center font-bold text-sm">
                 {i + 1}
               </span>
-                            <span className="text-blue-50/80 text-sm leading-relaxed pt-1">{step}</span>
+                            <span className="text-slate-300/90 text-sm leading-relaxed pt-1">{step}</span>
                         </li>
                     ))}
                 </ol>
             </section>
 
-            <section id="galeria" className="bg-slate-900/60 border-y border-white/5">
-                <div className="max-w-6xl mx-auto px-6 py-20">
-                    <div data-aos="fade-up">
-                        <h2 className="text-3xl font-bold mb-3">Galería de proyectos realizados</h2>
-                        <p className="text-blue-50/80 mb-10">
+            <section id="galeria" className="border-y border-white/5 bg-white/[0.015]">
+                <div className="max-w-6xl mx-auto px-6 py-20 md:py-24">
+                    <div data-aos="fade-up" className="max-w-2xl">
+                        <h2 className="text-3xl md:text-4xl section-heading mb-3">Galería de proyectos realizados</h2>
+                        <p className="text-slate-300/90 leading-relaxed mb-10">
                             Conoce resultados reales de aplicación en campo. Cada imagen refleja acabados, protección y calidad
                             de ejecución en diferentes tipos de superficies.
                         </p>
@@ -357,7 +353,7 @@ export default function LandingPage() {
                                 type="button"
                                 key={photo.src}
                                 onClick={() => setLightboxIndex(index)}
-                                className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70 text-left transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-lg hover:shadow-black/30"
+                                className="glass-card group overflow-hidden rounded-2xl text-left"
                                 data-aos="zoom-in"
                                 data-aos-delay={index * 90}
                             >
@@ -369,39 +365,36 @@ export default function LandingPage() {
                                         sizes="(max-width: 1024px) 100vw, 33vw"
                                         className="object-cover transition duration-500 group-hover:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
-                                    <span className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-slate-950/60 text-white opacity-0 transition group-hover:opacity-100">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
+                                    <span className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-ink-950/60 text-white opacity-0 transition group-hover:opacity-100">
                                         <FaExpand className="text-sm" />
                                     </span>
                                 </div>
-                                <p className="border-t border-white/10 px-4 py-3 text-sm text-blue-50/85">{photo.label}</p>
+                                <p className="border-t border-white/10 px-4 py-3 text-sm text-slate-300/90">{photo.label}</p>
                             </button>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section id="contacto" className="bg-slate-900/60 border-t border-white/5">
-                <div className="max-w-4xl mx-auto px-6 py-20 text-center" data-aos="fade-up">
-                    <h2 className="text-3xl font-bold">Contacto</h2>
-                    <p className="mt-3 text-blue-50/80">
+            <section id="contacto" className="border-t border-white/5">
+                <div className="max-w-4xl mx-auto px-6 py-20 md:py-24 text-center" data-aos="fade-up">
+                    <h2 className="text-3xl md:text-4xl section-heading">Contacto</h2>
+                    <p className="mt-3 text-slate-300/90 leading-relaxed">
                         Convierte tu problema en una solución duradera.
                         Te asesoramos sin compromiso y te damos una propuesta clara desde el primer contacto.
                     </p>
 
                     <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay={100}>
-                        <a
-                            href="mailto:impermeabilizaciones29@gmail.com"
-                            className="rounded-lg bg-[#f3992e] px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-orange-500/20 hover:scale-[1.01] transition"
-                        >
+                        <a href="mailto:impermeabilizaciones29@gmail.com" className="btn-primary">
                             impermeabilizaciones29@gmail.com
                         </a>
                     </div>
 
-                    <div className="mt-6 rounded-xl border border-amber-300/30 bg-amber-400/10 p-4 text-left text-sm text-amber-100">
+                    <div className="mt-6 rounded-xl border border-amber-300/25 bg-amber-400/[0.06] p-4 text-left text-sm text-amber-100/90">
                         <p>
                             Aviso de prevención: nunca solicitamos NIP, contraseñas, códigos OTP ni pagos a cuentas no verificadas.
-                            Antes de transferir, valida datos desde la sección de <Link className="underline" href="/seguridad">seguridad</Link>.
+                            Antes de transferir, valida datos desde la sección de <Link className="underline decoration-amber-300/50 underline-offset-2" href="/seguridad">seguridad</Link>.
                         </p>
                     </div>
 
@@ -410,19 +403,19 @@ export default function LandingPage() {
                             href="https://share.google/Wz59zQhGrAETbPFYA"
                             target="_blank"
                             rel="noopener noreferrer nofollow"
-                            className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
+                            className="glass-card group rounded-xl px-5 py-4"
                             data-aos="fade-up"
                             data-aos-delay={100}
                         >
                             <div className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
+                <span className="icon-chip mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg">
                   <AiFillGoogleSquare className="text-2xl text-amber-300" />
                 </span>
 
                                 <div className="min-w-0">
-                                    <p className="text-sm text-white/70">Google</p>
+                                    <p className="text-sm text-white/60">Google</p>
                                     <p className="mt-1 font-semibold text-white">Encuéntranos en Maps</p>
-                                    <p className="mt-1 text-xs text-white/60">Ubicación y reseñas</p>
+                                    <p className="mt-1 text-xs text-white/50">Ubicación y reseñas</p>
                                 </div>
                             </div>
                         </a>
@@ -430,21 +423,21 @@ export default function LandingPage() {
                             <button
                                 type="button"
                                 onClick={() => setShowWhatsAppMenu((prev) => !prev)}
-                                className="group w-full rounded-xl border border-emerald-300/40 bg-emerald-500/20 px-5 py-4 hover:bg-emerald-500/30 transition"
+                                className="glass-card group w-full rounded-xl px-5 py-4 !border-emerald-300/25 !bg-emerald-500/[0.07] hover:!bg-emerald-500/[0.12] hover:!border-emerald-300/40"
                             >
                                 <span className="flex items-start gap-3">
                                     <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
                                         <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
                                     </span>
                                     <span className="min-w-0 text-left">
-                                        <span className="text-sm text-emerald-100/80 block">WhatsApp</span>
+                                        <span className="text-sm text-emerald-100/70 block">WhatsApp</span>
                                         <span className="mt-1 font-semibold text-emerald-100 block">Solicita presupuesto</span>
-                                        <span className="mt-1 text-xs text-emerald-100/70 block">Elige un número</span>
+                                        <span className="mt-1 text-xs text-emerald-100/60 block">Elige un número</span>
                                     </span>
                                 </span>
                             </button>
                             {showWhatsAppMenu && (
-                                <div className="absolute left-1/2 z-10 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-xl border border-white/15 bg-slate-900 shadow-xl">
+                                <div className="glass-panel absolute left-1/2 z-10 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-xl !bg-ink-900/95 shadow-card">
                                     {whatsappOptions.map((option) => (
                                         <a
                                             key={option.label}
@@ -463,18 +456,18 @@ export default function LandingPage() {
                             href="https://www.facebook.com/profile.php?id=100064214340903&locale=af_ZA#"
                             target="_blank"
                             rel="noopener noreferrer nofollow"
-                            className="group rounded-xl border border-white/10 bg-slate-950/40 px-5 py-4 hover:bg-slate-950/55 hover:border-white/20 transition"
+                            className="glass-card group rounded-xl px-5 py-4"
                             data-aos="fade-up"
                             data-aos-delay={200}
                         >
                             <div className="flex items-start gap-3">
-                                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
+                                <span className="icon-chip mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg">
                                   <AiOutlineFacebook className="text-2xl text-sky-300" />
                                 </span>
                                 <div className="min-w-0">
-                                    <p className="text-sm text-white/70">Facebook</p>
+                                    <p className="text-sm text-white/60">Facebook</p>
                                     <p className="mt-1 font-semibold text-white">Ver trabajos y reseñas</p>
-                                    <p className="mt-1 text-xs text-white/60">Fotos de proyectos</p>
+                                    <p className="mt-1 text-xs text-white/50">Fotos de proyectos</p>
                                 </div>
                             </div>
                         </a>
@@ -482,21 +475,21 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            <footer className="border-t border-white/10 bg-slate-950">
-                <div className="max-w-6xl mx-auto px-6 py-6 text-center text-sm text-white/60">
+            <footer className="border-t border-white/10">
+                <div className="max-w-6xl mx-auto px-6 py-6 text-center text-sm text-white/50">
                     <p>
                         © {currentYear} Hernández Impermeabilizaciones &amp; Poliuretano. Todos los derechos reservados.
                     </p>
                     <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-                        <Link href="/aviso-privacidad" className="rounded-full border border-white/20 px-3 py-1 hover:text-white hover:border-white/40 transition">Aviso de privacidad</Link>
-                        <Link href="/seguridad" className="rounded-full border border-white/20 px-3 py-1 hover:text-white hover:border-white/40 transition">Seguridad</Link>
+                        <Link href="/aviso-privacidad" className="rounded-full border border-white/15 px-3 py-1 hover:text-white hover:border-white/35 transition">Aviso de privacidad</Link>
+                        <Link href="/seguridad" className="rounded-full border border-white/15 px-3 py-1 hover:text-white hover:border-white/35 transition">Seguridad</Link>
                     </div>
                 </div>
             </footer>
 
             {lightboxIndex !== null && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 p-4 backdrop-blur-sm"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-ink-950/92 p-4 backdrop-blur-sm"
                     onClick={() => setLightboxIndex(null)}
                 >
                     <button
@@ -542,7 +535,7 @@ export default function LandingPage() {
                                 className="rounded-xl object-contain"
                             />
                         </div>
-                        <p className="mt-3 text-center text-sm text-blue-50/85">{projectGallery[lightboxIndex].label}</p>
+                        <p className="mt-3 text-center text-sm text-slate-300/90">{projectGallery[lightboxIndex].label}</p>
                     </div>
                 </div>
             )}

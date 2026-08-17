@@ -46,7 +46,7 @@ export function HeroCarousel() {
 
   return (
     <div className="relative w-full" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/30 shadow-2xl">
+      <div className="glass-panel relative overflow-hidden rounded-3xl shadow-card">
         <div className="relative aspect-[4/3] w-full">
           {slides.map((slide, i) => (
             <div
@@ -61,7 +61,7 @@ export function HeroCarousel() {
                 alt={slide.alt}
                 fill
                 priority={i === 0}
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 60vw"
                 className={["object-cover", i === index ? "animate-kenburns" : ""].join(" ")}
               />
 
