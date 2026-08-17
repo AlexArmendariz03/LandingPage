@@ -42,7 +42,6 @@ describe("Navbar", () => {
 
         const items: Array<[string, string]> = [
             ["Servicios", "#servicios"],
-            ["Beneficios", "#beneficios"],
             ["Proceso", "#proceso"],
             ["Valor", "#impacto"],
             ["Galería", "#galeria"],
@@ -55,13 +54,10 @@ describe("Navbar", () => {
         }
     });
 
-    it('renderiza CTAs a contacto y WhatsApp', () => {
+    it('renderiza el CTA "Cotiza ahora" apuntando a #contacto', () => {
         render(<Navbar />);
 
         const cta = screen.getByRole("link", { name: "Cotiza ahora" });
         expect(cta).toHaveAttribute("href", "#contacto");
-
-        const whatsappCta = screen.getByRole("link", { name: "WhatsApp" });
-        expect(whatsappCta).toHaveAttribute("href", expect.stringContaining("https://wa.me/"));
     });
 });

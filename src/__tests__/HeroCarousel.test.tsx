@@ -14,8 +14,8 @@ jest.mock("next/image", () => ({
 const getSlides = () => screen.getAllByAltText("imagen test");
 
 describe("getSlideDelay", () => {
-    it("regresa 7000 para index 0 y 4500 para los demás", () => {
-        expect(getSlideDelay(0)).toBe(7000);
+    it("regresa 4500 para cualquier índice", () => {
+        expect(getSlideDelay(0)).toBe(4500);
         expect(getSlideDelay(1)).toBe(4500);
         expect(getSlideDelay(999)).toBe(4500);
     });
@@ -60,14 +60,14 @@ describe("HeroCarousel", () => {
 
         const slides = getSlides();
         const s0Wrapper = slides[0].parentElement;
-        const sLastWrapper = slides[slides.length - 1].parentElement;
+        const lastWrapper = slides[slides.length - 1].parentElement;
 
         expect(s0Wrapper).toHaveClass("opacity-100");
 
         fireEvent.click(screen.getByRole("button", { name: "Anterior" }));
 
         expect(s0Wrapper).toHaveClass("opacity-0");
-        expect(sLastWrapper).toHaveClass("opacity-100");
+        expect(lastWrapper).toHaveClass("opacity-100");
     });
 
     it("permite ir a una imagen con los bullets", () => {
@@ -86,7 +86,7 @@ describe("HeroCarousel", () => {
         const root = screen.getByRole("button", { name: "Anterior" }).closest("div.relative.w-full") as HTMLElement;
 
         act(() => {
-            jest.advanceTimersByTime(7000);
+            jest.advanceTimersByTime(4500);
         });
         let slides = getSlides();
         expect(slides[1].parentElement).toHaveClass("opacity-100");

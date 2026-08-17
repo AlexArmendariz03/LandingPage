@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import Navbar from "@/app/components/navBar";
+import WhatsAppFab from "@/app/components/whatsAppFab";
 import Script from "next/script";
 
 
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         />
         <Navbar />
         {children}
+        <WhatsAppFab />
       </body>
     </html>
   );
