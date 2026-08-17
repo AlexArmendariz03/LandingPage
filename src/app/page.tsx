@@ -6,12 +6,14 @@ import Image from "next/image";
 import {
     FaCheckCircle,
     FaClipboardCheck,
+    FaExpand,
     FaLeaf,
     FaPhoneAlt,
     FaPaintRoller,
     FaRulerCombined,
     FaLayerGroup,
     FaShieldAlt,
+    FaTimes,
     FaTint,
     FaTools,
 } from "react-icons/fa";
@@ -23,18 +25,34 @@ import { AiFillGoogleSquare, AiOutlineFacebook, AiOutlineWhatsApp } from "react-
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const highlights = [
+const valuePoints = [
     {
         title: "Durabilidad garantizada",
-        description:
+        detail:
             "Recubrimientos de alta resistencia a humedad, rayos UV y abrasión para prolongar la vida útil de cubiertas y superficies expuestas.",
-        icon: <FaShieldAlt className="text-[#0c5ce6] text-2xl" />,
+        icon: <FaShieldAlt className="text-[#0c5ce6] text-xl" />,
     },
     {
         title: "Aplicación limpia y rápida",
-        description:
+        detail:
             "Aplicación técnica con equipo especializado para lograr acabados uniformes, seguros y con menor desperdicio de material.",
-        icon: <FaTools className="text-[#f3992e] text-2xl" />,
+        icon: <FaTools className="text-[#f3992e] text-xl" />,
+    },
+    {
+        detail: "Elimina gastos innecesarios al detener filtraciones de forma definitiva.",
+        icon: <FaClipboardCheck className="text-[#f3992e] text-xl" />,
+    },
+    {
+        detail: "Ahorra energía con un mejor aislamiento térmico en tus espacios.",
+        icon: <FaClipboardCheck className="text-[#f3992e] text-xl" />,
+    },
+    {
+        detail: "Evita pérdidas y paros operativos causados por humedad.",
+        icon: <FaClipboardCheck className="text-[#f3992e] text-xl" />,
+    },
+    {
+        detail: "Trabajo con mano de obra garantizada por escrito.",
+        icon: <FaClipboardCheck className="text-[#f3992e] text-xl" />,
     },
 ];
 
@@ -143,37 +161,53 @@ const projectGallery = [
     },
 ];
 
-const businessImpact = [
-    "Elimina gastos innecesarios al detener filtraciones de forma definitiva.",
-    "Ahorra energía con un mejor aislamiento térmico en tus espacios.",
-    "Evita pérdidas y paros operativos causados por humedad.",
-    "Trabajo con mano de obra garantizada por escrito.",
-];
-
 export default function LandingPage() {
     const currentYear = new Date().getFullYear();
     const [showWhatsAppMenu, setShowWhatsAppMenu] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+    useEffect(() => {
+        if (lightboxIndex === null) return;
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") setLightboxIndex(null);
+            if (event.key === "ArrowRight") {
+                setLightboxIndex((i) => (i === null ? null : (i + 1) % projectGallery.length));
+            }
+            if (event.key === "ArrowLeft") {
+                setLightboxIndex((i) => (i === null ? null : (i - 1 + projectGallery.length) % projectGallery.length));
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, [lightboxIndex]);
 
     useEffect(() => {
         AOS.init({
             duration: 800,
             easing: "ease-out-quart",
             offset: 80,
-            once: false,
-            mirror: true,
+            once: true,
+            mirror: false,
         });
     }, []);
 
     return (
         <main className="min-h-screen bg-slate-950 text-white">
             <section className="relative overflow-hidden bg-gradient-to-br from-[#0c5ce6] via-[#0b3f99] to-slate-950">
+                <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                    <div className="animate-drift absolute -top-24 -left-16 h-80 w-80 rounded-full bg-[#f3992e]/20 blur-3xl" />
+                    <div className="animate-drift-slow absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-[#5ea1ff]/25 blur-3xl" />
+                </div>
                 <div className="relative max-w-6xl mx-auto px-6 py-20 grid gap-10 lg:grid-cols-2 items-center">
                     <div className="space-y-6" data-aos="fade-right">
             <span className="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#cfe4ff]">
               Hernández Impermeabilizaciones & Poliuretano
             </span>
                         <h1 className="text-2xl md:text-4xl font-extrabold">
-                            Impermeabilizamos superficies con materiales de la más alta calidad para proteger tu hogar o negocio.
+                            Impermeabilizamos superficies con materiales de{" "}
+                            <span className="text-[#f3992e]">la más alta calidad</span> para proteger tu hogar o negocio.
                         </h1>
                         <p className="text-lg text-blue-50/80">
                             Eliminamos filtraciones, mejoramos el aislamiento térmico y protegemos tus instalaciones para climas extremos.
@@ -189,7 +223,7 @@ export default function LandingPage() {
                             </a>
                             <a
                                 href="#servicios"
-                                className="inline-flex items-center rounded-lg border border-white/30 px-6 py-3 font-semibold hover:bg-white/10 transition"
+                                className="inline-flex items-center rounded-lg border border-white/30 px-6 py-3 font-semibold hover:bg-white/10 hover:scale-[1.02] transition"
                             >
                                 Ver servicios
                             </a>
@@ -235,7 +269,7 @@ export default function LandingPage() {
                     {services.map((s, index) => (
                         <div
                             key={s.title}
-                            className="h-full rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-5 flex items-start gap-3"
+                            className="h-full rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-5 flex items-start gap-3 transition duration-300 hover:-translate-y-1 hover:border-[#0c5ce6]/50 hover:shadow-lg hover:shadow-[#0c5ce6]/10"
                             data-aos="zoom-in-up"
                             data-aos-delay={index * 100}
                         >
@@ -251,46 +285,34 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            <section id="beneficios" className="bg-slate-900/60 border-y border-white/5">
-                <div className="max-w-6xl mx-auto px-6 py-20 grid gap-6 md:grid-cols-2">
-                    {highlights.map((h, index) => (
-                        <div
-                            key={h.title}
-                            className="flex gap-4 bg-slate-950/80 p-4 rounded-xl border border-[#0c5ce6]/20"
-                            data-aos="fade-up"
-                            data-aos-delay={index * 120}
-                        >
-                            {h.icon}
-                            <div>
-                                <h3 className="font-semibold">{h.title}</h3>
-                                <p className="text-sm text-blue-50/80">{h.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section id="impacto" className="max-w-6xl mx-auto px-6 py-20">
-                <div data-aos="fade-up" className="mb-8">
-                    <h2 className="text-3xl font-bold mb-3">Información que genera valor para tu decisión</h2>
-                    <p className="text-blue-50/80">
-                        Una solución diseñada que reduce los costos causados por la humedad, mejora el aislamiento térmico y asegura que tus operaciones no se detengan.
-                    </p>
-                </div>
-                <div className="grid gap-4 md:grid-cols-2">
-                    {businessImpact.map((item, i) => (
-                        <article
-                            key={item}
-                            className="rounded-2xl border border-white/10 bg-slate-900/60 p-5"
-                            data-aos="fade-up"
-                            data-aos-delay={i * 90}
-                        >
-                            <div className="flex items-start gap-3">
-                                <FaClipboardCheck className="mt-1 text-[#f3992e]" />
-                                <p className="text-blue-50/85 text-sm leading-relaxed">{item}</p>
-                            </div>
-                        </article>
-                    ))}
+            <section id="impacto" className="bg-slate-900/60 border-y border-white/5">
+                <div className="max-w-6xl mx-auto px-6 py-20">
+                    <div data-aos="fade-up" className="mb-8">
+                        <h2 className="text-3xl font-bold mb-3">Información que genera valor para tu decisión</h2>
+                        <p className="text-blue-50/80">
+                            Una solución diseñada que reduce los costos causados por la humedad, mejora el aislamiento térmico y asegura que tus operaciones no se detengan.
+                        </p>
+                    </div>
+                    <div className="grid gap-5 md:grid-cols-2">
+                        {valuePoints.map((item, i) => (
+                            <article
+                                key={item.detail}
+                                className="h-full rounded-2xl bg-slate-950/80 border border-[#0c5ce6]/20 p-5 flex items-start gap-3 transition duration-300 hover:-translate-y-1 hover:border-[#0c5ce6]/50 hover:shadow-lg hover:shadow-[#0c5ce6]/10"
+                                data-aos="fade-up"
+                                data-aos-delay={i * 90}
+                            >
+                                <span className="shrink-0 mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10">
+                                    {item.icon}
+                                </span>
+                                <div className="min-w-0">
+                                    {item.title && (
+                                        <h3 className="text-base font-semibold mb-1 leading-tight">{item.title}</h3>
+                                    )}
+                                    <p className="text-blue-50/80 text-sm leading-relaxed">{item.detail}</p>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
                 </div>
             </section>
 
@@ -302,18 +324,18 @@ export default function LandingPage() {
                     </p>
                 </div>
 
-                <ol className="space-y-4">
+                <ol className="grid gap-4 md:grid-cols-2">
                     {steps.map((step, i) => (
                         <li
                             key={step}
-                            className="flex gap-3"
+                            className="flex items-start gap-3 rounded-2xl bg-slate-900/80 border border-[#0c5ce6]/20 p-5 transition duration-300 hover:-translate-y-1 hover:border-[#0c5ce6]/50 hover:shadow-lg hover:shadow-[#0c5ce6]/10"
                             data-aos="fade-up"
                             data-aos-delay={i * 120}
                         >
-              <span className="h-8 w-8 rounded-full bg-[#0c5ce6]/20 text-[#f3992e] flex items-center justify-center font-bold">
+              <span className="shrink-0 h-8 w-8 rounded-full bg-[#0c5ce6]/20 text-[#f3992e] flex items-center justify-center font-bold">
                 {i + 1}
               </span>
-                            <span className="text-blue-50/80">{step}</span>
+                            <span className="text-blue-50/80 text-sm leading-relaxed pt-1">{step}</span>
                         </li>
                     ))}
                 </ol>
@@ -331,23 +353,29 @@ export default function LandingPage() {
 
                     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
                         {projectGallery.map((photo, index) => (
-                            <article
+                            <button
+                                type="button"
                                 key={photo.src}
-                                className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70"
+                                onClick={() => setLightboxIndex(index)}
+                                className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70 text-left transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-lg hover:shadow-black/30"
                                 data-aos="zoom-in"
                                 data-aos-delay={index * 90}
                             >
-                                <div className="relative h-52 w-full">
+                                <div className="relative h-52 w-full overflow-hidden">
                                     <Image
                                         src={photo.src}
                                         alt={photo.alt}
                                         fill
                                         sizes="(max-width: 1024px) 100vw, 33vw"
-                                        className="object-cover"
+                                        className="object-cover transition duration-500 group-hover:scale-110"
                                     />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
+                                    <span className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-slate-950/60 text-white opacity-0 transition group-hover:opacity-100">
+                                        <FaExpand className="text-sm" />
+                                    </span>
                                 </div>
                                 <p className="border-t border-white/10 px-4 py-3 text-sm text-blue-50/85">{photo.label}</p>
-                            </article>
+                            </button>
                         ))}
                     </div>
                 </div>
@@ -465,6 +493,59 @@ export default function LandingPage() {
                     </div>
                 </div>
             </footer>
+
+            {lightboxIndex !== null && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 p-4 backdrop-blur-sm"
+                    onClick={() => setLightboxIndex(null)}
+                >
+                    <button
+                        type="button"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setLightboxIndex(null);
+                        }}
+                        aria-label="Cerrar"
+                        className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20"
+                    >
+                        <FaTimes />
+                    </button>
+                    <button
+                        type="button"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setLightboxIndex((i) => (i === null ? null : (i - 1 + projectGallery.length) % projectGallery.length));
+                        }}
+                        aria-label="Anterior"
+                        className="absolute left-3 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-xl text-white transition hover:bg-white/20"
+                    >
+                        ‹
+                    </button>
+                    <button
+                        type="button"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setLightboxIndex((i) => (i === null ? null : (i + 1) % projectGallery.length));
+                        }}
+                        aria-label="Siguiente"
+                        className="absolute right-3 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-xl text-white transition hover:bg-white/20"
+                    >
+                        ›
+                    </button>
+                    <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+                        <div className="relative aspect-[4/3] w-full">
+                            <Image
+                                src={projectGallery[lightboxIndex].src}
+                                alt={projectGallery[lightboxIndex].alt}
+                                fill
+                                sizes="100vw"
+                                className="rounded-xl object-contain"
+                            />
+                        </div>
+                        <p className="mt-3 text-center text-sm text-blue-50/85">{projectGallery[lightboxIndex].label}</p>
+                    </div>
+                </div>
+            )}
         </main>
     );
 }
