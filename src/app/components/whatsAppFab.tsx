@@ -63,8 +63,8 @@ export default function WhatsAppFab() {
       ].join(" ")}
     >
       {open && (
-        <div className="absolute bottom-16 right-0 w-64 overflow-hidden rounded-xl border border-white/15 bg-slate-900 shadow-xl">
-          <p className="px-4 pt-3 pb-1 text-xs font-semibold text-white/60">Elige un número</p>
+        <div className="glass-panel absolute bottom-16 right-0 w-64 overflow-hidden rounded-2xl !bg-ink-900/95 shadow-card">
+          <p className="px-4 pt-3 pb-1 text-xs font-semibold uppercase tracking-wide text-white/50">Elige un número</p>
           {whatsappOptions.map((option) => (
             <a
               key={option.label}
@@ -85,7 +85,7 @@ export default function WhatsAppFab() {
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
         aria-label="Contactar por WhatsApp"
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-400 hover:scale-105 transition"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 text-white shadow-lg shadow-emerald-500/40 ring-1 ring-white/10 hover:scale-105 hover:shadow-emerald-500/55 transition"
       >
         <AiOutlineWhatsApp className="text-3xl" />
       </button>

@@ -66,7 +66,7 @@ const localBusinessJsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="es">
-      <body className="bg-slate-950 antialiased">
+      <body className="text-white antialiased selection:bg-brand-blue/30">
         <Script
           id="local-business-jsonld"
           type="application/ld+json"
