@@ -42,10 +42,9 @@ describe("Navbar", () => {
 
         const items: Array<[string, string]> = [
             ["Servicios", "#servicios"],
-            ["Beneficios", "#beneficios"],
             ["Proceso", "#proceso"],
             ["Valor", "#impacto"],
-            ["Diferenciales", "#galeria"],
+            ["Galería", "#galeria"],
             ["Contacto", "#contacto"],
         ];
 

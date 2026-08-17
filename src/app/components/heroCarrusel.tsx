@@ -8,17 +8,16 @@ type Slide = {
   alt: string;
 };
 
-const logoMs = 7000;
 const photoMs = 4500;
 
-export function getSlideDelay(index: number): number {
-  return index === 0 ? logoMs : photoMs;
+export function getSlideDelay(_index: number): number {
+  return photoMs;
 }
 
 export function HeroCarousel() {
   const slides = useMemo<Slide[]>(
     () => [
-      { src: "/trabajos/12mayoPapel.jpeg", alt: "Logo Hernández Impermeabilizaciones & Poliuretano" },
+      { src: "/trabajos/12mayoPapel.jpeg", alt: "Impermeabilización terminada en azotea" },
       { src: "/trabajos/12mayoChapopote.jpeg", alt: "Impermeabilización profesional de techos" },
       { src: "/trabajos/12mayo.jpeg", alt: "Impermeabilización y pintura en bodega" },
       { src: "/trabajos/12mayopoluretano.jpeg", alt: "Impermeabilización y pintura en bodega" },
@@ -63,10 +62,10 @@ export function HeroCarousel() {
                 fill
                 priority={i === 0}
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className={["object-cover", i === 0 ? "object-contain p-10 md:p-12" : "object-cover"].join(" ")}
+                className={["object-cover", i === index ? "animate-kenburns" : ""].join(" ")}
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/5 to-transparent" />
             </div>
           ))}
         </div>
@@ -75,7 +74,7 @@ export function HeroCarousel() {
           type="button"
           onClick={prev}
           aria-label="Anterior"
-          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 px-3 py-2 backdrop-blur transition"
+          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-slate-950/45 hover:bg-slate-950/70 border border-white/20 px-3 py-2 backdrop-blur-md shadow-md transition"
         >
           ‹
         </button>
@@ -83,24 +82,26 @@ export function HeroCarousel() {
           type="button"
           onClick={next}
           aria-label="Siguiente"
-          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 px-3 py-2 backdrop-blur transition"
+          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-slate-950/45 hover:bg-slate-950/70 border border-white/20 px-3 py-2 backdrop-blur-md shadow-md transition"
         >
           ›
         </button>
 
-        <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => goTo(i)}
-              aria-label={`Ir a la imagen ${i + 1}`}
-              className={[
-                "h-2.5 w-2.5 rounded-full transition border border-white/20",
-                i === index ? "bg-white/80" : "bg-white/20 hover:bg-white/35",
-              ].join(" ")}
-            />
-          ))}
+        <div className="absolute bottom-3 left-0 right-0 flex justify-center">
+          <div className="flex items-center gap-2 rounded-full bg-slate-950/40 px-3 py-1.5 backdrop-blur-md">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Ir a la imagen ${i + 1}`}
+                className={[
+                  "h-2.5 w-2.5 rounded-full transition border border-white/20",
+                  i === index ? "bg-white/90" : "bg-white/30 hover:bg-white/50",
+                ].join(" ")}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
