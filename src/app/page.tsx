@@ -95,10 +95,7 @@ const services = [
     },
 ];
 
-const whatsappOptions = [
-    { label: "+52 614 746 4430", href: "https://wa.me/5216147464430?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n." },
-    { label: "+52 614 131 4603", href: "https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n." },
-];
+const whatsappHref = "https://wa.me/5216141314603?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20impermeabilizaci%C3%B3n.";
 
 const steps = [
     "Diagnóstico técnico para identificar filtraciones, humedad y puntos críticos.",
@@ -163,7 +160,6 @@ const projectGallery = [
 
 export default function LandingPage() {
     const currentYear = new Date().getFullYear();
-    const [showWhatsAppMenu, setShowWhatsAppMenu] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
     useEffect(() => {
@@ -419,39 +415,25 @@ export default function LandingPage() {
                                 </div>
                             </div>
                         </a>
-                        <div className="relative" data-aos="fade-up" data-aos-delay={150}>
-                            <button
-                                type="button"
-                                onClick={() => setShowWhatsAppMenu((prev) => !prev)}
-                                className="glass-card group w-full rounded-xl px-5 py-4 !border-emerald-300/25 !bg-emerald-500/[0.07] hover:!bg-emerald-500/[0.12] hover:!border-emerald-300/40"
-                            >
-                                <span className="flex items-start gap-3">
-                                    <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
-                                        <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
-                                    </span>
-                                    <span className="min-w-0 text-left">
-                                        <span className="text-sm text-emerald-100/70 block">WhatsApp</span>
-                                        <span className="mt-1 font-semibold text-emerald-100 block">Solicita presupuesto</span>
-                                        <span className="mt-1 text-xs text-emerald-100/60 block">Elige un número</span>
-                                    </span>
+                        <a
+                            href={whatsappHref}
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                            className="glass-card group rounded-xl px-5 py-4 !border-emerald-300/25 !bg-emerald-500/[0.07] hover:!bg-emerald-500/[0.12] hover:!border-emerald-300/40"
+                            data-aos="fade-up"
+                            data-aos-delay={150}
+                        >
+                            <span className="flex items-start gap-3">
+                                <span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/15 transition">
+                                    <AiOutlineWhatsApp className="text-2xl text-emerald-300" />
                                 </span>
-                            </button>
-                            {showWhatsAppMenu && (
-                                <div className="glass-panel absolute left-1/2 z-10 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-xl !bg-ink-900/95 shadow-card">
-                                    {whatsappOptions.map((option) => (
-                                        <a
-                                            key={option.label}
-                                            href={option.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer nofollow"
-                                            className="block px-4 py-3 text-sm text-white/90 hover:bg-white/10 transition"
-                                        >
-                                            Solicitar presupuesto: {option.label}
-                                        </a>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
+                                <span className="min-w-0 text-left">
+                                    <span className="text-sm text-emerald-100/70 block">WhatsApp</span>
+                                    <span className="mt-1 font-semibold text-emerald-100 block">Solicita presupuesto</span>
+                                    <span className="mt-1 text-xs text-emerald-100/60 block">+52 614 131 4603</span>
+                                </span>
+                            </span>
+                        </a>
                         <a
                             href="https://www.facebook.com/profile.php?id=100064214340903&locale=af_ZA#"
                             target="_blank"
