@@ -430,7 +430,6 @@ export default function LandingPage() {
                                 <span className="min-w-0 text-left">
                                     <span className="text-sm text-emerald-100/70 block">WhatsApp</span>
                                     <span className="mt-1 font-semibold text-emerald-100 block">Solicita presupuesto</span>
-                                    <span className="mt-1 text-xs text-emerald-100/60 block">+52 614 131 4603</span>
                                 </span>
                             </span>
                         </a>
